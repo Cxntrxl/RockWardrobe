@@ -9,7 +9,8 @@
 <body>
 
 <header>
-
+    <h2>Welcome to Rock Wardrobe, your one stop shop for all your goining needs!</h2>
+    <p>Please note: This site is HEAVILY work-in-progress and is a passion project! Features will be added and updated over time.</p>
 </header>
 
 <main>
@@ -17,9 +18,21 @@
         <div class="button-container stack">
             <div class="content-box">
                 <h2>Cosmetic Preview</h2>
+                <p>Not yet implemented!</p>
             </div>
             <div class="content-box">
-                <h2>Test</h2>
+                <h2>Cost & Time Estimation</h2>
+                <p>Not yet implemented!</p>
+            </div>
+            <div class="content-box">
+                <h2>To do List:</h2>
+                <p>[X] Build initial site infrastructure</p>
+                <p>[ ] Fill out correct item data</p>
+                <p>[ ] Model rendering</p>
+                <p>[ ] Colour support</p>
+                <p>[ ] Set up total cost & time estimation</p>
+                <p>[ ] Add saving/loading cosmetic sets by file</p>
+                <p>[ ] Add nameplate & title support</p>
             </div>
         </div>
         <div class="content-box">
@@ -38,9 +51,10 @@
                     <button class="tooltip" id="headMarkingsColoursToggle">Head Markings</button>
                     <button class="tooltip" id="bodyMarkingsColoursToggle">Body Markings</button>
                 </div>
+                <p>Colour support currently not implemented - Planned right after models.</p>
                 <!--BATTLE SUIT COLOUR OPTIONS-->
                 <div class="grid-container hidden" id="battleSuitColoursContainer">
-                    <button class="tooltip"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
+
                 </div>
 
                 <!--CHARACTER COLOUR OPTIONS-->
@@ -95,42 +109,51 @@
                 <div class="button-container stack hidden" id="identityModelsContainer">
                     <h2>Character Type</h2>
                     <div class="grid-container" id="characterTypeContainer">
-                        <button class="tooltip square"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
                     </div>
 
                     <h2>Expression Set</h2>
+                    <p>Currently non-functional but will be used for calculating GC cost!</p>
                     <div class="grid-container" id="expressionSetContainer">
-                        <button class="tooltip square"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
                     </div>
 
                     <h2>Eye Sheen</h2>
                     <div class="grid-container" id="eyeSheenContainer">
-                        <button class="tooltip square"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
                     </div>
 
                     <H2>Titles</H2>
                     <div class="grid-container" id="titleContainer">
-                        <button class="tooltip square"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
+                        <p>Not implemented yet! Sorry!</p>
                     </div>
                 </div>
 
                 <!--HAIR MODEL OPTIONS-->
                 <div class="button-container stack hidden" id="hairModelsContainer">
+                    <h2>Top Hairstyle</h2>
                     <div class="grid-container" id="topHairstyleContainer">
 
                     </div>
+
+                    <h2>Side Hairstyle</h2>
                     <div class="grid-container" id="sideHairstyleContainer">
 
                     </div>
+
+                    <h2>Eyebrows</h2>
                     <div class="grid-container" id="eyebrowsContainer">
 
                     </div>
+
+                    <h2>Eyelashes</h2>
                     <div class="grid-container" id="eyelashesContainer">
 
                     </div>
+
+                    <h2>Moustache</h2>
                     <div class="grid-container" id="moustacheContainer">
 
                     </div>
+
+                    <h2>Beard</h2>
                     <div class="grid-container" id="beardContainer">
 
                     </div>
@@ -138,18 +161,27 @@
 
                 <!--UPPER LAYER MODEL OPTIONS-->
                 <div class="button-container stack hidden" id="upperLayerModelsContainer">
+                    <h2>Chestplate & Belt</h2>
                     <div class="grid-container" id="chestplateBeltContainer">
 
                     </div>
+
+                    <h2>Right Gauntlet</h2>
                     <div class="grid-container" id="rightGauntletContainer">
 
                     </div>
+
+                    <h2>Left Gauntlet</h2>
                     <div class="grid-container" id="leftGauntletContainer">
 
                     </div>
+
+                    <h2>Right Boot</h2>
                     <div class="grid-container" id="rightBootContainer">
 
                     </div>
+
+                    <h2>Left Boot</h2>
                     <div class="grid-container" id="leftBootContainer">
 
                     </div>
@@ -157,15 +189,22 @@
 
                 <!--LOWER LAYER MODEL OPTIONS-->
                 <div class="button-container stack hidden" id="lowerLayerModelsContainer">
+                    <h2>Shirt & Torso</h2>
                     <div class="grid-container" id="torsoChestContainer">
 
                     </div>
+
+                    <h2>Right Arm & Sleeve</h2>
                     <div class="grid-container" id="rightArmContainer">
 
                     </div>
+
+                    <h2>Left Arm & Sleeve</h2>
                     <div class="grid-container" id="leftArmContainer">
 
                     </div>
+
+                    <h2>Legs & Pants</h2>
                     <div class="grid-container" id="legsContainer">
 
                     </div>
@@ -173,6 +212,7 @@
 
                 <!--HEAD SHAPE MODEL OPTIONS-->
                 <div class="button-container stack hidden" id="headShapeModelsContainer">
+                    <p>Head Shape Modifications currently not implemented.</p>
                     <div class="grid-container" id="jawShapeModContainer">
 
                     </div>
@@ -186,6 +226,7 @@
 
                 <!--HEAD MARKINGS MODEL OPTIONS-->
                 <div class="button-container stack hidden" id="headMarkingsModelsContainer">
+                    <p>Markings currently not implemented.</p>
                     <div class="grid-container" id="headMarkingAContainer">
 
                     </div>
@@ -205,6 +246,7 @@
 
                 <!--BODY SHAPE MODEL OPTIONS-->
                 <div class="button-container stack hidden" id="bodyShapeModelsContainer">
+                    <p>Body Shape Modifications currently not implemented.</p>
                     <div class="grid-container" id="armShapeModContainer">
 
                     </div>
@@ -221,6 +263,7 @@
 
                 <!--BODY MARKINGS MODEL OPTIONS-->
                 <div class="button-container stack hidden" id="bodyMarkingsModelsContainer">
+                    <p>Markings currently not implemented.</p>
                     <div class="grid-container" id="bodyMarkingAContainer">
 
                     </div>
@@ -244,6 +287,7 @@
 
 <footer>
     <p>Made by Cxntrxl. Shoutout to the Aussie Rumble Community :)</p>
+    <p>All assets owned by Buckethead Entertainment.</p>
 </footer>
 
 <script src="script.js"></script>

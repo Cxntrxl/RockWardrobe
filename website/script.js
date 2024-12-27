@@ -8,40 +8,27 @@ tooltip.appendChild(tooltipPrice);
 tooltip.appendChild(tooltipDescription);
 document.body.appendChild(tooltip);
 
-document.querySelectorAll('button[TName]').forEach(button => {
-    button.addEventListener('mouseenter', event => {
-        const TName = button.getAttribute('TName');
-        const TPrice = button.getAttribute('TPrice');
-        const TDesc = button.getAttribute('TDesc');
-        tooltipName.textContent = TName;
-        tooltipPrice.textContent = TPrice;
-        tooltipDescription.textContent = TDesc;
-        tooltip.style.opacity = '1';
-        tooltip.style.visibility = 'visible';
-    });
-
-    button.addEventListener('mousemove', event => {
-        const offset = 10; // Distance between cursor and tooltip
-        tooltip.style.left = `${event.pageX + offset}px`;
-        tooltip.style.top = `${event.pageY + offset}px`;
-    });
-
-    button.addEventListener('mouseleave', () => {
-        tooltip.style.opacity = '0';
-        tooltip.style.visibility = 'hidden';
-    });
-});
-
 function createButton(item) {
     const button = document.createElement('button');
     button.classList.add('tooltip');
+    button.classList.add('square')
     button.setAttribute('TName', item.name);
-    button.setAttribute('TPrice', item.price);
-    button.setAttribute('TDesc', item.description);
-    button.innerHTML = item.name;
 
-    button.style.backgroundImage = `url(${item.preview})`;
-    button.style.backgroundSize = 'cover';
+    if (item.price > 0){
+        button.setAttribute('TPrice', item.price + " GC");
+    } else {
+        button.setAttribute('TPrice', "Free");
+    }
+
+    button.setAttribute('TDesc', item.description);
+
+    if (item.preview && item.preview !== "icons/") {
+        button.style.backgroundImage = `url(${item.preview})`;
+    } else {
+        button.innerHTML = item.name;
+    }
+    button.style.backgroundSize = 'auto 95%';
+    button.style.backgroundRepeat = 'no-repeat';
     button.style.backgroundPosition = 'center';
     button.style.padding = `10%`;
 
@@ -53,26 +40,60 @@ function populateSections(data) {
         const typeMapping = {
             'CharacterType':'characterTypeContainer',
             'ExpressionSet':'expressionSetContainer',
-            'EyeSheen':'eyeSheenContainer'
+            'EyeSheen':'eyeSheenContainer',
+            'TopHairstyle':'topHairstyleContainer',
+            'SideHairstyle':'sideHairstyleContainer',
+            'Eyebrows':'eyebrowsContainer',
+            'Moustache':'moustacheContainer',
+            'Beard':'beardContainer',
+            'Torso':'torsoChestContainer',
+            'Chestplate':'chestplateBeltContainer',
+            'Pants':'legsContainer'
         }
 
-        const containerID = typeMapping[item.type];
-        if (containerID){
-            const container = document.getElementById(containerID);
-            if (container){
-                const button = createButton(item);
-                container.appendChild(button);
-            } else {
-                console.warn(`Json parse error at ${item.name}`);
-            }
-        } else {
-            console.warn(`Json parse error at ${item.name}`);
+
+        switch (item.type) {
+            case 'Gauntlet':
+                let gButtonR = createButton(item);
+                let gButtonL = createButton(item);
+                document.getElementById('rightGauntletContainer').appendChild(gButtonR);
+                document.getElementById('leftGauntletContainer').appendChild(gButtonL);
+                break;
+
+            case 'Sleeve':
+                let sButtonR = createButton(item);
+                let sButtonL = createButton(item);
+                document.getElementById('rightArmContainer').appendChild(sButtonR);
+                document.getElementById('leftArmContainer').appendChild(sButtonL);
+                break;
+
+            case 'Boots':
+                let bButtonR = createButton(item);
+                let bButtonL = createButton(item);
+                document.getElementById('rightBootContainer').appendChild(bButtonR);
+                document.getElementById('leftBootContainer').appendChild(bButtonL);
+                break;
+
+            default:
+                let containerID = typeMapping[item.type];
+                if (containerID){
+                    let container = document.getElementById(containerID);
+                    if (container){
+                        let button = createButton(item);
+                        container.appendChild(button);
+                    } else {
+                        console.warn(`Json parse error at ${item.name}`);
+                    }
+                } else {
+                    console.warn(`Json parse error at ${item.name}`);
+                }
+                break;
         }
     })
 }
 
 window.onload = () => {
-    fetch('../data.items.json')
+    fetch('/data/items.json')
         .then(response => {
             if (!response.ok) {
                 console.error(`HTTP error - ${response.status}`);
@@ -81,6 +102,57 @@ window.onload = () => {
         })
         .then( data => {
             populateSections(data);
+            document.querySelectorAll('button[TName]').forEach(button => {
+                button.addEventListener('mouseenter', event => {
+                    const TName = button.getAttribute('TName');
+                    const TPrice = button.getAttribute('TPrice');
+                    const TDesc = button.getAttribute('TDesc');
+                    tooltipName.textContent = TName;
+                    tooltipPrice.textContent = TPrice;
+                    tooltipDescription.textContent = TDesc;
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                });
+
+                button.addEventListener('mousemove', event => {
+                    if (tooltip) {
+                        const tooltipWidth = tooltip.offsetWidth;
+                        const tooltipHeight = tooltip.offsetHeight;
+                        const padding = 10; // Space between the tooltip and the edges
+
+                        // Default positioning (tooltip slightly to the bottom-right of the cursor)
+                        let x = event.pageX + padding;
+                        let y = event.pageY + padding;
+
+                        // Adjust X position if it overflows the screen width
+                        if (x + tooltipWidth > window.innerWidth) {
+                            x = event.pageX - tooltipWidth - padding; // Move tooltip to the left of the cursor
+                        }
+                        if (x < 0) {
+                            x = padding; // Adjust to avoid clipping on the left
+                        }
+
+                        // Adjust Y position if it overflows the screen height
+                        if (y + tooltipHeight > window.innerHeight) {
+                            y = event.pageY - tooltipHeight - padding; // Move tooltip above the cursor
+                        }
+                        if (y < 0) {
+                            y = padding; // Adjust to avoid clipping on the top
+                        }
+
+                        // Apply the adjusted position
+                        tooltip.style.left = `${x}px`;
+                        tooltip.style.top = `${y}px`;
+                        tooltip.style.opacity = '1';
+                        tooltip.style.visibility = 'visible';
+                    }
+                });
+
+                button.addEventListener('mouseleave', () => {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.visibility = 'hidden';
+                });
+            });
         })
         .catch (error => {
             console.error(`Error fetching json file - ${error}`);
@@ -426,4 +498,3 @@ bodyMarkingsModelsToggle.addEventListener('click', () => {
 
     console.log('Selected Body Models.');
 });
-

@@ -13,7 +13,7 @@ html, body {
 
 header {
     text-align: center;
-    //background-color: #1c8db6;
+    background-color: #264f8a;
     color: #ffffff;
     padding: 1.5em 0;
 }
@@ -61,7 +61,7 @@ button {
     font-size: 1rem;
     margin: 0.5em;
     border-radius: 5px;
-    border: 2px solid #6200ea;
+    border: 2px solid #1463cf;
     cursor: pointer;
 }
 
@@ -70,19 +70,19 @@ button.hidden {
 }
 
 button:disabled {
-    background-color: #3700b3;
+    background-color: #170973;
     color: #ffffff;
-    border: 2px solid #6200ea;
+    border: 2px solid #1463cf;
     cursor: default;
 }
 
 button:not(:disabled) {
-    background-color: #6200ea;
+    background-color: #1463cf;
     color: #fff;
 }
 
 button:not(:disabled):hover {
-    background-color: #3700b3;
+    background-color: #170973;
 }
 
 /* Tooltip Styles */
@@ -93,7 +93,9 @@ button:not(:disabled):hover {
     padding: 0.5em;
     font-size: 0.9rem;
     border-radius: 5px;
-    white-space: nowrap;
+    white-space: pre-wrap; /* Allow wrapping of long text */
+    word-wrap: break-word; /* Break words if they're too long */
+    max-width: 35ch; /* Set maximum width to about 18 characters */
     pointer-events: none;
     opacity: 0;
     visibility: hidden;

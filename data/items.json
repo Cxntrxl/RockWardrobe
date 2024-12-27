@@ -1,18 +1,20 @@
 [
   {
     "type": "CharacterType",
-    "preview": "icons/",
+    "preview": "/icons/MasculineIcon.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Masculine",
-    "price": "Free",
+    "price": 0,
     "description": "Select Masculine as your avatar's body type!"
   },
   {
     "type": "CharacterType",
-    "preview": "icons/",
+    "preview": "/icons/FeminineIcon.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Feminine",
-    "price": "Free",
+    "price": 0,
     "description": "Select Feminine as your avatar's body type!"
   },
   {
@@ -20,7 +22,7 @@
     "preview": "icons/",
     "model": "models/",
     "name": "Hesitant",
-    "price": "1200 GC",
+    "price": 1200,
     "description": "Courage is being brave even when you're afraid."
   },
   {
@@ -28,7 +30,7 @@
     "preview": "icons/",
     "model": "models/",
     "name": "Excited",
-    "price": "1200 GC",
+    "price": 1200,
     "description": "They just seem pumped to even be here."
   },
   {
@@ -36,7 +38,7 @@
     "preview": "icons/",
     "model": "models/",
     "name": "Brash",
-    "price": "1200 GC",
+    "price": 1200,
     "description": "Confidence, or overconfidence? Time will tell."
   },
   {
@@ -44,7 +46,7 @@
     "preview": "icons/",
     "model": "models/",
     "name": "Thrilled",
-    "price": "1200 GC",
+    "price": 1200,
     "description": "This person might be looking forward to that fight a little too much..."
   },
   {
@@ -52,7 +54,7 @@
     "preview": "icons/",
     "model": "models/",
     "name": "Driven",
-    "price": "1200 GC",
+    "price": 1200,
     "description": "Big arch-rival vibes coming off of this one."
   },
   {
@@ -60,7 +62,7 @@
     "preview": "icons/",
     "model": "models/",
     "name": "Nonchalant",
-    "price": "1200 GC",
+    "price": 1200,
     "description": "Do they really not care? or is there perhaps another reason for their cold demeanor?"
   },
   {
@@ -68,47 +70,349 @@
     "preview": "icons/",
     "model": "models/",
     "name": "Chad",
-    "price": "1200 GC",
+    "price": 1200,
     "description": "bye bye"
   },
   {
     "type": "EyeSheen",
     "preview": "icons/",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Shiny Eyes",
-    "price": "300 GC",
+    "price": 300,
     "description": "Like a perfectly polished marble."
   },
   {
     "type": "EyeSheen",
     "preview": "icons/",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Glossy Eyes",
-    "price": "300 GC",
+    "price": 300,
     "description": "It's like the other one but a bit rounder, see?"
   },
   {
     "type": "EyeSheen",
     "preview": "icons/",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Lustrous Eyes",
-    "price": "300 GC",
+    "price": 300,
     "description": "Kawaii!"
   },
   {
     "type": "EyeSheen",
     "preview": "icons/",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Gleaming Eyes",
-    "price": "300 GC",
+    "price": 300,
     "description": "Have your eyes gleam with more light than the very sun gives off."
+  },
+  {
+    "type": "TopHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Bunned Up",
+    "price": 900,
+    "description": "Hair tied into a bun on the upper back of the head."
+  },
+  {
+    "type": "TopHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Asymmetrical Bob",
+    "price": 900,
+    "description": "Hair draped over one side of the head."
+  },
+  {
+    "type": "TopHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Faux Hawk",
+    "price": 900,
+    "description": "Hair combed forwards and up at the front."
+  },
+  {
+    "type": "TopHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Afro",
+    "price": 2400,
+    "description": "Don't worry, it doesn't affect your hitbox."
+  },
+  {
+    "type": "TopHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "French Bob",
+    "price": 1200,
+    "description": "Girl next door vibes, except this one will hurl giant boulders at you if you step out of line."
+  },
+  {
+    "type": "SideHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Combed Sides",
+    "price": 600,
+    "description": "Hair on the sides of the head, neatly combed back."
+  },
+  {
+    "type": "SideHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Full on the Sides",
+    "price": 600,
+    "description": "Hair on the sides of the head, grown out a little to provide some precious extra volume."
+  },
+  {
+    "type": "SideHairstyle",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Martialist's Headband",
+    "price": 1200,
+    "description": "A stylish headband popular with fighters who strive towards self-improvement."
+  },
+  {
+    "type": "Eyebrows",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Defined Eyebrows",
+    "price": 600,
+    "description": "Looking good really is that simple."
+  },
+  {
+    "type": "Eyebrows",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Pencil Eyebrows",
+    "price": 600,
+    "description": "A single stroke of the brush is all you need."
+  },
+  {
+    "type": "Eyebrows",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Droplet Eyebrows",
+    "price": 600,
+    "description": "Like fresh morning dew, right on your forehead."
+  },
+  {
+    "type": "Moustache",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "The Ringmaster",
+    "price": 600,
+    "description": "For when you REALLY want to put on a show."
+  },
+  {
+    "type": "Moustache",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "The Inspector",
+    "price": 600,
+    "description": "Look at this distinguished gentleman!"
+  },
+  {
+    "type": "Beard",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Goatee",
+    "price": 1200,
+    "description": "Bold move, but so worth it if you can pull it off."
+  },
+  {
+    "type": "Beard",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Full Beard",
+    "price": 1200,
+    "description": "Studies show that full beards can help prevent jaw injuries when impacted, beasides looking really cool."
+  },
+  {
+    "type": "Torso",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "V Neck Undershirt",
+    "price": 600,
+    "description": "A typical undershirt, but with a v neck. Cut not quite too low to be suitable for distraction tactics."
+  },
+  {
+    "type": "Torso",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Martialist Dogi",
+    "price": 0,
+    "description": "A dogi-style undershirt, typical of fighters who follow the teachings of Jan-Kan."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "All-Round Chestplate - Altered",
+    "price": 1200,
+    "description": "One of the most popular patterns of chestplate amongst fighters, but with personalized and uniquely styled gambeson."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Poncho of the Devoted",
+    "price": 2400,
+    "description": "An armor style most commonly associated with the Devoted, a group that views RUMBLE as sacred, a gift from above."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Martialist's Obi",
+    "price": 3600,
+    "description": "A plain and simple belt neatly wrapped around the waist, indicative of the minimalistic ways of those who follow Jan-Kan."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Steadfast Belt",
+    "price": 1600,
+    "description": "A style of belt typical of the weighty warriors who practice the way of oragoma, an old branch of RUMBLE where victory is achieved only via ring-out."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Challenger's Pauldron - Left",
+    "price": 1200,
+    "description": "An armor pattern that was used in a now-forbidden branch of RUMBLE that would only end when 1 of the 2 fighters was killed by the other."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Challenger's Pauldron - Right",
+    "price": 1200,
+    "description": "An armor pattern that was used in a now-forbidden branch of RUMBLE that would only end when 1 of the 2 fighters was killed by the other."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "/icons/GearIcon_CatalogItem_Part_Chestplate_DualChallengerPauldrons_Male.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Challenger's Dual Pauldrons",
+    "price": 2400,
+    "description": "An armor pattern that was used in a now-forbidden branch of RUMBLE. Dual Pauldrons were exclusive to warriors who had felled a remarkable amount of opponents."
+  },
+  {
+    "type": "Sleeve",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Rolled Sleeves",
+    "price": 600,
+    "description": "Thick, long sleeves rolled up over the elbow. Often used for RUMBLE in colder climates, particularly by fighters from Arickteya."
+  },
+  {
+    "type": "Gauntlet",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "All-Round Gauntlets - Altered",
+    "price": 900,
+    "description": "One of the most common types of gauntlet, decorated with an additional sleeve of cloth."
+  },
+  {
+    "type": "Gauntlet",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Bracers of the Devoted",
+    "price": 0,
+    "description": "Arm bracers commonly worn by Devoted. Only very few Devoted ever partake in RUMBLE, as it is reserved only for those of the upper echelon."
+  },
+  {
+    "type": "Gauntlet",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Martialist's Wristbands",
+    "price": 1200,
+    "description": "Simple wristbands with sockets fit to hold Shiftstones, despite the fact that true martialists rarely ever make use of such items."
+  },
+  {
+    "type": "Pants",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Joggers",
+    "price": 900,
+    "description": "Long, loose-fitted trousers popularized by Aricktayan fighters. Due to the high altitude of the land from which they hail, it is covered in snow almost all year round."
+  },
+  {
+    "type": "Pants",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Short Shorts",
+    "price": 600,
+    "description": "While common in particularly hot climates, shortening the widely used shorts is often associated with rather fashion-conscious fighters. Just because you're about to get giant rocks lobbed at you is no reason not to look hella stylish."
+  },
+  {
+    "type": "Pants",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Hakama",
+    "price": 1200,
+    "description": "Each fold of the Hakama represents one of the virtues held in the highest regard by fighters who follow the way of Jan-Kan."
+  },
+  {
+    "type": "Boots",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Shinguards of the Devoted",
+    "price": 900,
+    "description": "Shin protection in a style most associated with the Devoted. It lacks any proper footwear, as not to disrupt their connection to the earth."
+  },
+  {
+    "type": "Boots",
+    "preview": "icons/",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Laminar Boots",
+    "price": 1200,
+    "description": "An old style of boot that features many overlapping leather plates. It's said the origins of this design can be traced back to the east."
   },
   {
     "type": "",
     "preview": "icons/",
     "model": "models/",
+    "nakedOverride": "",
     "name": "",
-    "price": "",
+    "price": 0,
     "description": ""
   }
 ]
