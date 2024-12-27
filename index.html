@@ -3,27 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+    <title>Rock Wardrobe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
-    <h1>Welcome to My Website</h1>
-    <p>A simple website hosted on GitHub Pages</p>
+
 </header>
 
 <main>
     <section>
-        <h2>Interactive Buttons</h2>
-        <div class="button-container">
-            <button class="tooltip" data-tooltip="Click me to learn more!">Button 1</button>
-            <button class="tooltip" data-tooltip="Another action available!">Button 2</button>
+        <div class="content-box">
+            <h2>Select Costmetic Options</h2>
+            <!--SELECTION TYPE-->
+            <div class="grid-container double">
+                <button class="tooltip" id="toggleModels" disabled>Model Selection</button>
+                <button class="tooltip" id="toggleColours">Colour Selection</button>
+            </div>
+
+            <!--COLOUR OPTIONS-->
+            <div class="button-container stack hidden" id="coloursContainer">
+                <div class="grid-container quadruple">
+                    <button class="tooltip" id="battleSuitColoursToggle">Battle Suit</button>
+                    <button class="tooltip" id="characterColoursToggle">Character</button>
+                    <button class="tooltip" id="headMarkingsColoursToggle">Head Markings</button>
+                    <button class="tooltip" id="bodyMarkingsColoursToggle">Body Markings</button>
+                </div>
+                <!--BATTLE SUIT COLOUR OPTIONS-->
+                <div class="grid-container hidden" id="battleSuitColoursContainer">
+                    <button class="tooltip"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
+                </div>
+
+                <!--CHARACTER COLOUR OPTIONS-->
+                <div class="grid-container hidden" id="characterColoursContainer">
+
+                </div>
+
+                <!--HEAD MARKING COLOUR OPTIONS-->
+                <div class="grid-container hidden" id="headMarkingsColoursContainer">
+
+                </div>
+
+                <!--BODY MARKING COLOUR OPTIONS-->
+                <div class="grid-container hidden" id="bodyMarkingsColoursContainer">
+
+                </div>
+            </div>
+
+            <!--MODEL OPTIONS-->
+            <div class = "button-container stack" id = "modelsContainer">
+                <div class="grid-container quadruple">
+                    <button class="tooltip" id="characterModelsToggle">Character</button>
+                    <button class="tooltip" id="battleSuitModelsToggle">Battle Suit</button>
+                    <button class="tooltip" id="headModelsToggle">Head</button>
+                    <button class="tooltip" id="bodyModelsToggle">Body</button>
+                </div>
+                <!--CHARACTER MODEL OPTIONS-->
+                <div class="grid-container double hidden" id="characterModelsContainer">
+                    <button class="tooltip" id="identityModelsToggle">Identity</button>
+                    <button class="tooltip" id="hairModelsToggle">Hair</button>
+                </div>
+
+                <!--BATTLE SUIT MODEL OPTIONS-->
+                <div class="grid-container double hidden" id="battleSuitModelsContainer">
+                    <button class="tooltip" id="upperLayerModelsToggle">Upper Layer</button>
+                    <button class="tooltip" id="lowerLayerModelsToggle">Lower Layer</button>
+                </div>
+
+                <!--HEAD MODEL OPTIONS-->
+                <div class="grid-container double hidden" id="headModelsContainer">
+                    <button class="tooltip" id="headShapeModelsToggle">Head Shape Mods</button>
+                    <button class="tooltip" id="headMarkingsModelsToggle">Head Markings</button>
+                </div>
+
+                <!--BODY MODEL OPTIONS-->
+                <div class="grid-container double hidden" id="bodyModelsContainer">
+                    <button class="tooltip" id="bodyShapeModelsToggle">Body Shape Mods</button>
+                    <button class="tooltip" id="bodyMarkingsModelsToggle">Body Markings</button>
+                </div>
+
+                <!--IDENTITY MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="identityModelsContainer">
+                    <h2>Character Type</h2>
+                    <div class="grid-container" id="characterTypeContainer">
+                        <button class="tooltip"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
+                    </div>
+
+                    <h2>Expression Set</h2>
+                    <div class="grid-container" id="expressionSetContainer">
+                        <button class="tooltip"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
+                    </div>
+
+                    <h2>Eye Sheen</h2>
+                    <div class="grid-container" id="eyeSheenContainer">
+                        <button class="tooltip"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
+                    </div>
+
+                    <H2>Titles</H2>
+                    <div class="grid-container" id="titleContainer">
+                        <button class="tooltip"  TName="Example" TPrice="0 gc" TDesc="Example Item">Example Item</button>
+                    </div>
+                </div>
+
+                <!--HAIR MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="hairModelsContainer">
+                    <div class="grid-container" id="topHairstyleContainer">
+
+                    </div>
+                    <div class="grid-container" id="sideHairstyleContainer">
+
+                    </div>
+                    <div class="grid-container" id="eyebrowsContainer">
+
+                    </div>
+                    <div class="grid-container" id="eyelashesContainer">
+
+                    </div>
+                    <div class="grid-container" id="moustacheContainer">
+
+                    </div>
+                    <div class="grid-container" id="beardContainer">
+
+                    </div>
+                </div>
+
+                <!--UPPER LAYER MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="upperLayerModelsContainer">
+                    <div class="grid-container" id="chestplateBeltContainer">
+
+                    </div>
+                    <div class="grid-container" id="rightGauntletContainer">
+
+                    </div>
+                    <div class="grid-container" id="leftGauntletContainer">
+
+                    </div>
+                    <div class="grid-container" id="rightBootContainer">
+
+                    </div>
+                    <div class="grid-container" id="leftBootContainer">
+
+                    </div>
+                </div>
+
+                <!--LOWER LAYER MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="lowerLayerModelsContainer">
+                    <div class="grid-container" id="torsoChestContainer">
+
+                    </div>
+                    <div class="grid-container" id="rightArmContainer">
+
+                    </div>
+                    <div class="grid-container" id="leftArmContainer">
+
+                    </div>
+                    <div class="grid-container" id="legsContainer">
+
+                    </div>
+                </div>
+
+                <!--HEAD SHAPE MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="headShapeModelsContainer">
+                    <div class="grid-container" id="jawShapeModContainer">
+
+                    </div>
+                    <div class="grid-container" id="faceShapeModContainer">
+
+                    </div>
+                    <div class="grid-container" id="craniumShapeModContainer">
+
+                    </div>
+                </div>
+
+                <!--HEAD MARKINGS MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="headMarkingsModelsContainer">
+                    <div class="grid-container" id="headMarkingAContainer">
+
+                    </div>
+                    <div class="grid-container" id="headMarkingBContainer">
+
+                    </div>
+                    <div class="grid-container" id="headMarkingCContainer">
+
+                    </div>
+                    <div class="grid-container" id="headMarkingDContainer">
+
+                    </div>
+                    <div class="grid-container" id="headMarkingEContainer">
+
+                    </div>
+                </div>
+
+                <!--BODY SHAPE MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="bodyShapeModelsContainer">
+                    <div class="grid-container" id="armShapeModContainer">
+
+                    </div>
+                    <div class="grid-container" id="chestShapeModContainer">
+
+                    </div>
+                    <div class="grid-container" id="legShapeModContainer">
+
+                    </div>
+                    <div class="grid-container" id="waistShapeModContainer">
+
+                    </div>
+                </div>
+
+                <!--BODY MARKINGS MODEL OPTIONS-->
+                <div class="button-container stack hidden" id="bodyMarkingsModelsContainer">
+                    <div class="grid-container" id="bodyMarkingAContainer">
+
+                    </div>
+                    <div class="grid-container" id="bodyMarkingBContainer">
+
+                    </div>
+                    <div class="grid-container" id="bodyMarkingCContainer">
+
+                    </div>
+                    <div class="grid-container" id="bodyMarkingDContainer">
+
+                    </div>
+                    <div class="grid-container" id="bodyMarkingEContainer">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </main>
 
 <footer>
-    <p>Created with ❤️ for learning.</p>
+    <p>Made by Cxntrxl. Shoutout to the Aussie Rumble Community :)</p>
 </footer>
 
 <script src="script.js"></script>
