@@ -1,5 +1,5 @@
 /* General Reset */
-body {
+html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -34,10 +34,10 @@ footer {
 }
 
 .content-box {
-    position: absolute;
+    margin: 1em;
     left:55%;
-    width:40%;
-    padding: 1em;
+    min-width:40%;
+    padding: 0 1em 1em 1em;
     background-color: #1f2023;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -103,12 +103,15 @@ button:not(:disabled):hover {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
-    gap: 16px; /* Space between grid items */
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .grid-container.double {
     grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-container.triple {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .grid-container.quadruple {
@@ -120,6 +123,10 @@ button:not(:disabled):hover {
     padding: 20px;
     text-align: center;
     border: 1px solid #ccc;
+}
+
+.tooltip.square{
+    aspect-ratio: 1;
 }
 
 .hidden {

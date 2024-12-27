@@ -32,6 +32,61 @@ document.querySelectorAll('button[TName]').forEach(button => {
     });
 });
 
+function createButton(item) {
+    const button = document.createElement('button');
+    button.classList.add('tooltip');
+    button.setAttribute('TName', item.name);
+    button.setAttribute('TPrice', item.price);
+    button.setAttribute('TDesc', item.description);
+    button.innerHTML = item.name;
+
+    button.style.backgroundImage = `url(${item.preview})`;
+    button.style.backgroundSize = 'cover';
+    button.style.backgroundPosition = 'center';
+    button.style.padding = `10%`;
+
+    return button;
+}
+
+function populateSections(data) {
+    data.forEach((item) =>{
+        const typeMapping = {
+            'CharacterType':'characterTypeContainer',
+            'ExpressionSet':'expressionSetContainer',
+            'EyeSheen':'eyeSheenContainer'
+        }
+
+        const containerID = typeMapping[item.type];
+        if (containerID){
+            const container = document.getElementById(containerID);
+            if (container){
+                const button = createButton(item);
+                container.appendChild(button);
+            } else {
+                console.warn(`Json parse error at ${item.name}`);
+            }
+        } else {
+            console.warn(`Json parse error at ${item.name}`);
+        }
+    })
+}
+
+window.onload = () => {
+    fetch('../data.items.json')
+        .then(response => {
+            if (!response.ok) {
+                console.error(`HTTP error - ${response.status}`);
+            }
+            return response.json();
+        })
+        .then( data => {
+            populateSections(data);
+        })
+        .catch (error => {
+            console.error(`Error fetching json file - ${error}`);
+        });
+};
+
 const colourSelectionToggle = document.getElementById('toggleColours');
 const battleSuitColoursToggle = document.getElementById('battleSuitColoursToggle');
 const characterColoursToggle = document.getElementById('characterColoursToggle');

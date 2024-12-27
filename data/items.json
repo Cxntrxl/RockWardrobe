@@ -1,0 +1,114 @@
+[
+  {
+    "type": "CharacterType",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Masculine",
+    "price": "Free",
+    "description": "Select Masculine as your avatar's body type!"
+  },
+  {
+    "type": "CharacterType",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Feminine",
+    "price": "Free",
+    "description": "Select Feminine as your avatar's body type!"
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Hesitant",
+    "price": "1200 GC",
+    "description": "Courage is being brave even when you're afraid."
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Excited",
+    "price": "1200 GC",
+    "description": "They just seem pumped to even be here."
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Brash",
+    "price": "1200 GC",
+    "description": "Confidence, or overconfidence? Time will tell."
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Thrilled",
+    "price": "1200 GC",
+    "description": "This person might be looking forward to that fight a little too much..."
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Driven",
+    "price": "1200 GC",
+    "description": "Big arch-rival vibes coming off of this one."
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Nonchalant",
+    "price": "1200 GC",
+    "description": "Do they really not care? or is there perhaps another reason for their cold demeanor?"
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Chad",
+    "price": "1200 GC",
+    "description": "bye bye"
+  },
+  {
+    "type": "EyeSheen",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Shiny Eyes",
+    "price": "300 GC",
+    "description": "Like a perfectly polished marble."
+  },
+  {
+    "type": "EyeSheen",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Glossy Eyes",
+    "price": "300 GC",
+    "description": "It's like the other one but a bit rounder, see?"
+  },
+  {
+    "type": "EyeSheen",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Lustrous Eyes",
+    "price": "300 GC",
+    "description": "Kawaii!"
+  },
+  {
+    "type": "EyeSheen",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "Gleaming Eyes",
+    "price": "300 GC",
+    "description": "Have your eyes gleam with more light than the very sun gives off."
+  },
+  {
+    "type": "",
+    "preview": "icons/",
+    "model": "models/",
+    "name": "",
+    "price": "",
+    "description": ""
+  }
+]
