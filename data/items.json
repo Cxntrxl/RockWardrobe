@@ -19,7 +19,23 @@
   },
   {
     "type": "ExpressionSet",
-    "preview": "icons/",
+    "preview": "/icons/ES0.png",
+    "model": "models/",
+    "name": "Default 1",
+    "price": 0,
+    "description": "Remind me to check what this one is called in-game."
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "/icons/ES1.png",
+    "model": "models/",
+    "name": "Default 2",
+    "price": 0,
+    "description": "Ditto."
+  },
+  {
+    "type": "ExpressionSet",
+    "preview": "/icons/ES7.png",
     "model": "models/",
     "name": "Hesitant",
     "price": 1200,
@@ -27,7 +43,7 @@
   },
   {
     "type": "ExpressionSet",
-    "preview": "icons/",
+    "preview": "/icons/ES3.png",
     "model": "models/",
     "name": "Excited",
     "price": 1200,
@@ -35,7 +51,7 @@
   },
   {
     "type": "ExpressionSet",
-    "preview": "icons/",
+    "preview": "/icons/ES5.png",
     "model": "models/",
     "name": "Brash",
     "price": 1200,
@@ -43,7 +59,7 @@
   },
   {
     "type": "ExpressionSet",
-    "preview": "icons/",
+    "preview": "/icons/ES6.png",
     "model": "models/",
     "name": "Thrilled",
     "price": 1200,
@@ -51,7 +67,7 @@
   },
   {
     "type": "ExpressionSet",
-    "preview": "icons/",
+    "preview": "/icons/ES4.png",
     "model": "models/",
     "name": "Driven",
     "price": 1200,
@@ -59,7 +75,7 @@
   },
   {
     "type": "ExpressionSet",
-    "preview": "icons/",
+    "preview": "/icons/ES2.png",
     "model": "models/",
     "name": "Nonchalant",
     "price": 1200,
@@ -67,7 +83,7 @@
   },
   {
     "type": "ExpressionSet",
-    "preview": "icons/",
+    "preview": "/icons/ES8.png",
     "model": "models/",
     "name": "Chad",
     "price": 1200,
@@ -75,7 +91,16 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/Eyesheen_Sheen.png",
+    "preview": "/icons/Eyesheen_Sparks.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Default",
+    "price": 0,
+    "description": "The default eye sheen!"
+  },
+  {
+    "type": "EyeSheen",
+    "preview": "/icons/Eyesheen_Sheen.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Shiny Eyes",
@@ -84,7 +109,7 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/Eyesheen_Gloss.png",
+    "preview": "/icons/Eyesheen_Gloss.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Glossy Eyes",
@@ -93,7 +118,7 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/Eyesheen_Luster.png",
+    "preview": "/icons/Eyesheen_Luster.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Lustrous Eyes",
@@ -102,7 +127,7 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/Eyesheen_Gleam.png",
+    "preview": "/icons/Eyesheen_Gleam.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Gleaming Eyes",
@@ -111,7 +136,25 @@
   },
   {
     "type": "TopHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/TopHair_Quiff.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Default RumbleGuy",
+    "price": 0,
+    "description": "The default Top Hairstyle!"
+  },
+  {
+    "type": "TopHairstyle",
+    "preview": "/icons/TopHair_SlickedBack.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Slicked Back",
+    "price": 0,
+    "description": "Slicked back hair. Don't @ me for the description, I'm not creative."
+  },
+  {
+    "type": "TopHairstyle",
+    "preview": "/icons/TopHair_Bun.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Bunned Up",
@@ -120,7 +163,7 @@
   },
   {
     "type": "TopHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/TopHair_AsymmetricalBob.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Asymmetrical Bob",
@@ -129,7 +172,7 @@
   },
   {
     "type": "TopHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/TopHair_FauxHawk.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Faux Hawk",
@@ -138,7 +181,7 @@
   },
   {
     "type": "TopHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/TopHair_Afro.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Afro",
@@ -147,7 +190,7 @@
   },
   {
     "type": "TopHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/TopHair_FrenchBob.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "French Bob",
@@ -156,7 +199,16 @@
   },
   {
     "type": "SideHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/SideHair_Short.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Short Sides",
+    "price": 0,
+    "description": "The default side hair style!"
+  },
+  {
+    "type": "SideHairstyle",
+    "preview": "/icons/SideHair_Combed.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Combed Sides",
@@ -165,7 +217,7 @@
   },
   {
     "type": "SideHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/SideHair_Full.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Full on the Sides",
@@ -174,7 +226,7 @@
   },
   {
     "type": "SideHairstyle",
-    "preview": "icons/",
+    "preview": "/icons/SideHair_Headband.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Martialist's Headband",
@@ -183,7 +235,34 @@
   },
   {
     "type": "Eyebrows",
-    "preview": "icons/",
+    "preview": "/icons/Eyebrows_Sharp.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Sharp Eyebrows",
+    "price": 0,
+    "description": "Generic Description!"
+  },
+  {
+    "type": "Eyebrows",
+    "preview": "/icons/Eyebrows_Thick.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Thick Eyebrows",
+    "price": 0,
+    "description": "The default eyebrows!"
+  },
+  {
+    "type": "Eyebrows",
+    "preview": "/icons/Eyebrows_Monobrow.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Monobrow",
+    "price": 0,
+    "description": "Wild description!"
+  },
+  {
+    "type": "Eyebrows",
+    "preview": "/icons/Eyebrows_Defined.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Defined Eyebrows",
@@ -192,7 +271,7 @@
   },
   {
     "type": "Eyebrows",
-    "preview": "icons/",
+    "preview": "/icons/Eyebrows_Pencil.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Pencil Eyebrows",
@@ -201,12 +280,39 @@
   },
   {
     "type": "Eyebrows",
-    "preview": "icons/",
+    "preview": "/icons/Eyebrows_Droplet.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Droplet Eyebrows",
     "price": 600,
     "description": "Like fresh morning dew, right on your forehead."
+  },
+  {
+    "type": "Eyelashes",
+    "preview": "/icons/Eyelashes_Full.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Full Eyelashes",
+    "price": 0,
+    "description": "Fancy Description!"
+  },
+  {
+    "type": "Eyelashes",
+    "preview": "/icons/Eyelashes_Short.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Short Eyelashes",
+    "price": 0,
+    "description": "Flashy Description!"
+  },
+  {
+    "type": "Eyelashes",
+    "preview": "/icons/Eyelashes_Winged.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Winged Eyelashes",
+    "price": 0,
+    "description": "Flatulent Description!"
   },
   {
     "type": "Moustache",
@@ -318,7 +424,7 @@
   },
   {
     "type": "Chestplate",
-    "preview": "/icons/GearIcon_CatalogItem_Part_Chestplate_DualChallengerPauldrons_Male.png",
+    "preview": "/icons/Chestplate_DualChallengerPauldrons.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Challenger's Dual Pauldrons",
