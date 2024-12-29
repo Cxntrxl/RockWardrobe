@@ -259,7 +259,7 @@ const scale = .7;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, (w * ratio * scale) / (h / ratio * scale), 0.01, 1000);
 const loader = new OBJLoader();
-const modelsPath = `https://cxntrxl.github.io/RockWardrobe/models`
+const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
 const modelNames = [
     '/BaseMesh/Male/Male_Head.obj',
     '/BaseMesh/Male/Male_Neck.obj',
