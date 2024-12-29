@@ -28,9 +28,9 @@
                 <h2>To do List:</h2>
                 <p>[X] Build initial site infrastructure</p>
                 <p>[X] Fill out correct item data</p>
-                <p>[ ] Model rendering</p>
+                <p>[X] Model rendering</p>
+                <p>[ ] Total cost & time estimation</p>
                 <p>[ ] Colour support</p>
-                <p>[ ] Set up total cost & time estimation</p>
                 <p>[ ] Add saving/loading cosmetic sets by file</p>
                 <p>[ ] Add nameplate & title support</p>
             </div>
@@ -113,16 +113,16 @@
                         <!--IDENTITY MODEL OPTIONS-->
                         <div class="button-container stack hidden" id="identityModelsContainer">
                             <h2>Character Type</h2>
-                            <div class="grid-container" id="characterTypeContainer">
+                            <div class="grid-container" id="characterTypeContainer" modelIndex="0">
                             </div>
 
                             <h2>Expression Set</h2>
                             <p>Currently non-functional but will be used for calculating GC cost!</p>
-                            <div class="grid-container" id="expressionSetContainer">
+                            <div class="grid-container" id="expressionSetContainer" modelIndex="1">
                             </div>
 
                             <h2>Eye Sheen</h2>
-                            <div class="grid-container" id="eyeSheenContainer">
+                            <div class="grid-container" id="eyeSheenContainer" modelIndex="2">
                             </div>
 
                             <H2>Titles</H2>
@@ -135,32 +135,32 @@
                         <!--HAIR MODEL OPTIONS-->
                         <div class="button-container stack hidden" id="hairModelsContainer">
                             <h2>Top Hairstyle</h2>
-                            <div class="grid-container" id="topHairstyleContainer">
+                            <div class="grid-container" id="topHairstyleContainer" modelIndex="3">
 
                             </div>
 
                             <h2>Side Hairstyle</h2>
-                            <div class="grid-container" id="sideHairstyleContainer">
+                            <div class="grid-container" id="sideHairstyleContainer" modelIndex="4">
 
                             </div>
 
                             <h2>Eyebrows</h2>
-                            <div class="grid-container" id="eyebrowsContainer">
+                            <div class="grid-container" id="eyebrowsContainer" modelIndex="5">
 
                             </div>
 
                             <h2>Eyelashes</h2>
-                            <div class="grid-container" id="eyelashesContainer">
+                            <div class="grid-container" id="eyelashesContainer" modelIndex="6">
 
                             </div>
 
                             <h2>Moustache</h2>
-                            <div class="grid-container" id="moustacheContainer">
+                            <div class="grid-container" id="moustacheContainer" modelIndex="7">
 
                             </div>
 
                             <h2>Beard</h2>
-                            <div class="grid-container" id="beardContainer">
+                            <div class="grid-container" id="beardContainer" modelIndex="8">
 
                             </div>
                         </div>
@@ -168,27 +168,27 @@
                         <!--UPPER LAYER MODEL OPTIONS-->
                         <div class="button-container stack hidden" id="upperLayerModelsContainer">
                             <h2>Chestplate & Belt</h2>
-                            <div class="grid-container" id="chestplateBeltContainer">
+                            <div class="grid-container" id="chestplateBeltContainer" modelIndex="9">
 
                             </div>
 
                             <h2>Right Gauntlet</h2>
-                            <div class="grid-container" id="rightGauntletContainer">
+                            <div class="grid-container" id="rightGauntletContainer" modelIndex="10">
 
                             </div>
 
                             <h2>Left Gauntlet</h2>
-                            <div class="grid-container" id="leftGauntletContainer">
+                            <div class="grid-container" id="leftGauntletContainer" modelIndex="11">
 
                             </div>
 
                             <h2>Right Boot</h2>
-                            <div class="grid-container" id="rightBootContainer">
+                            <div class="grid-container" id="rightBootContainer" modelIndex="12">
 
                             </div>
 
                             <h2>Left Boot</h2>
-                            <div class="grid-container" id="leftBootContainer">
+                            <div class="grid-container" id="leftBootContainer" modelIndex="13">
 
                             </div>
                         </div>
@@ -196,22 +196,22 @@
                         <!--LOWER LAYER MODEL OPTIONS-->
                         <div class="button-container stack hidden" id="lowerLayerModelsContainer">
                             <h2>Shirt & Torso</h2>
-                            <div class="grid-container" id="torsoChestContainer">
+                            <div class="grid-container" id="torsoChestContainer" modelIndex="14">
 
                             </div>
 
                             <h2>Right Arm & Sleeve</h2>
-                            <div class="grid-container" id="rightArmContainer">
+                            <div class="grid-container" id="rightArmContainer" modelIndex="15">
 
                             </div>
 
                             <h2>Left Arm & Sleeve</h2>
-                            <div class="grid-container" id="leftArmContainer">
+                            <div class="grid-container" id="leftArmContainer" modelIndex="16">
 
                             </div>
 
                             <h2>Legs & Pants</h2>
-                            <div class="grid-container" id="legsContainer">
+                            <div class="grid-container" id="legsContainer" modelIndex="17">
 
                             </div>
                         </div>
@@ -298,6 +298,14 @@
     <p>All assets owned by Buckethead Entertainment.</p>
 </footer>
 
+<script type="importmap">
+    {
+        "imports": {
+            "three":"https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
+        }
+    }
+</script>
 <script type="module" src="script.js"></script>
 </body>
 </html>

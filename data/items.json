@@ -101,7 +101,10 @@
   {
     "type": "EyeSheen",
     "preview": "/icons/Eyesheen_Sparks.png",
-    "model": "models/",
+    "model": [
+      "/Eyes/Eyesparkle1.obj",
+      "/Eyes/Eyesparkle1.i.obj"
+    ],
     "nakedOverride": "",
     "name": "Default",
     "price": 0,
@@ -110,7 +113,10 @@
   {
     "type": "EyeSheen",
     "preview": "/icons/Eyesheen_Sheen.png",
-    "model": "models/",
+    "model": [
+      "/Eyes/Eyesparkle3.obj",
+      "/Eyes/Eyesparkle3.I.obj"
+    ],
     "nakedOverride": "",
     "name": "Shiny Eyes",
     "price": 300,
@@ -119,7 +125,10 @@
   {
     "type": "EyeSheen",
     "preview": "/icons/Eyesheen_Gloss.png",
-    "model": "models/",
+    "model": [
+      "/Eyes/Eyesparkle2.obj",
+      "/Eyes/Eyesparkle2.i.obj"
+    ],
     "nakedOverride": "",
     "name": "Glossy Eyes",
     "price": 300,
@@ -128,7 +137,10 @@
   {
     "type": "EyeSheen",
     "preview": "/icons/Eyesheen_Luster.png",
-    "model": "models/",
+    "model": [
+      "/Eyes/Eyesparkle5.obj",
+      "/Eyes/Eyesparkle5.I.obj"
+    ],
     "nakedOverride": "",
     "name": "Lustrous Eyes",
     "price": 300,
@@ -137,7 +149,10 @@
   {
     "type": "EyeSheen",
     "preview": "/icons/Eyesheen_Gleam.png",
-    "model": "models/",
+    "model": [
+      "/Eyes/Eyesparkle4.obj",
+      "/Eyes/Eyesparkle4.I.obj"
+    ],
     "nakedOverride": "",
     "name": "Gleaming Eyes",
     "price": 300,
@@ -146,7 +161,7 @@
   {
     "type": "TopHairstyle",
     "preview": "/icons/TopHair_Quiff.png",
-    "model": "models/",
+    "model": "/Hair/Top1_LP.obj",
     "nakedOverride": "",
     "name": "Default RumbleGuy",
     "price": 0,
@@ -155,7 +170,7 @@
   {
     "type": "TopHairstyle",
     "preview": "/icons/TopHair_SlickedBack.png",
-    "model": "models/",
+    "model": "/Hair/Top6_LP.obj",
     "nakedOverride": "",
     "name": "Slicked Back",
     "price": 0,
@@ -164,7 +179,7 @@
   {
     "type": "TopHairstyle",
     "preview": "/icons/TopHair_Bun.png",
-    "model": "models/",
+    "model": "/Hair/Top2_LP.obj",
     "nakedOverride": "",
     "name": "Bunned Up",
     "price": 900,
@@ -173,7 +188,7 @@
   {
     "type": "TopHairstyle",
     "preview": "/icons/TopHair_AsymmetricalBob.png",
-    "model": "models/",
+    "model": "/Hair/Top3_LP.obj",
     "nakedOverride": "",
     "name": "Asymmetrical Bob",
     "price": 900,
@@ -182,7 +197,7 @@
   {
     "type": "TopHairstyle",
     "preview": "/icons/TopHair_FauxHawk.png",
-    "model": "models/",
+    "model": "/Hair/Top5_LP.obj",
     "nakedOverride": "",
     "name": "Faux Hawk",
     "price": 900,
@@ -191,7 +206,7 @@
   {
     "type": "TopHairstyle",
     "preview": "/icons/TopHair_Afro.png",
-    "model": "models/",
+    "model": "/Hair/Top4_LP.obj",
     "nakedOverride": "",
     "name": "Afro",
     "price": 2400,
@@ -200,7 +215,7 @@
   {
     "type": "TopHairstyle",
     "preview": "/icons/TopHair_FrenchBob.png",
-    "model": "models/",
+    "model": "/Hair/Top7.obj",
     "nakedOverride": "",
     "name": "French Bob",
     "price": 1200,
@@ -209,7 +224,7 @@
   {
     "type": "SideHairstyle",
     "preview": "/icons/SideHair_Short.png",
-    "model": "models/",
+    "model": "/Hair/Side1_LP.obj",
     "nakedOverride": "",
     "name": "Short Sides",
     "price": 0,
@@ -217,8 +232,17 @@
   },
   {
     "type": "SideHairstyle",
+    "preview": "",
+    "model": "/Hair/Side5_LP.obj",
+    "nakedOverride": "",
+    "name": "Ponytail",
+    "price": 0,
+    "description": "Titan Description!"
+  },
+  {
+    "type": "SideHairstyle",
     "preview": "/icons/SideHair_Combed.png",
-    "model": "models/",
+    "model": "/Hair/Side2_LP.obj",
     "nakedOverride": "",
     "name": "Combed Sides",
     "price": 600,
@@ -227,7 +251,7 @@
   {
     "type": "SideHairstyle",
     "preview": "/icons/SideHair_Full.png",
-    "model": "models/",
+    "model": "/Hair/Side3_LP.obj",
     "nakedOverride": "",
     "name": "Full on the Sides",
     "price": 600,
@@ -236,7 +260,7 @@
   {
     "type": "SideHairstyle",
     "preview": "/icons/SideHair_Headband.png",
-    "model": "models/",
+    "model": "/Hair/Side4_LP.obj",
     "nakedOverride": "",
     "name": "Martialist's Headband",
     "price": 1200,
@@ -245,7 +269,7 @@
   {
     "type": "Eyebrows",
     "preview": "/icons/Eyebrows_Sharp.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyebrows3.obj",
     "nakedOverride": "",
     "name": "Sharp Eyebrows",
     "price": 0,
@@ -254,7 +278,7 @@
   {
     "type": "Eyebrows",
     "preview": "/icons/Eyebrows_Thick.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyebrows1.obj",
     "nakedOverride": "",
     "name": "Thick Eyebrows",
     "price": 0,
@@ -263,7 +287,7 @@
   {
     "type": "Eyebrows",
     "preview": "/icons/Eyebrows_Monobrow.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyebrows4.obj",
     "nakedOverride": "",
     "name": "Monobrow",
     "price": 0,
@@ -272,7 +296,7 @@
   {
     "type": "Eyebrows",
     "preview": "/icons/Eyebrows_Defined.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyebrows2.obj",
     "nakedOverride": "",
     "name": "Defined Eyebrows",
     "price": 600,
@@ -281,7 +305,7 @@
   {
     "type": "Eyebrows",
     "preview": "/icons/Eyebrows_Pencil.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyebrows5.obj",
     "nakedOverride": "",
     "name": "Pencil Eyebrows",
     "price": 600,
@@ -290,7 +314,7 @@
   {
     "type": "Eyebrows",
     "preview": "/icons/Eyebrows_Droplet.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyebrows6.obj",
     "nakedOverride": "",
     "name": "Droplet Eyebrows",
     "price": 600,
@@ -299,7 +323,7 @@
   {
     "type": "Eyelashes",
     "preview": "/icons/Eyelashes_Full.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyelashes1.obj",
     "nakedOverride": "",
     "name": "Full Eyelashes",
     "price": 0,
@@ -308,7 +332,7 @@
   {
     "type": "Eyelashes",
     "preview": "/icons/Eyelashes_Short.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyelashes2.obj",
     "nakedOverride": "",
     "name": "Short Eyelashes",
     "price": 0,
@@ -317,7 +341,7 @@
   {
     "type": "Eyelashes",
     "preview": "/icons/Eyelashes_Winged.png",
-    "model": "models/",
+    "model": "/Hair/Fuzz_Eyelashes3.obj",
     "nakedOverride": "",
     "name": "Winged Eyelashes",
     "price": 0,
@@ -325,8 +349,17 @@
   },
   {
     "type": "Moustache",
+    "preview": "",
+    "model": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Fast Description!"
+  },
+  {
+    "type": "Moustache",
     "preview": "/icons/Moustache_Walrus.png",
-    "model": "models/",
+    "model": "/Hair/Stash1_LP.obj",
     "nakedOverride": "",
     "name": "The Walrus",
     "price": 0,
@@ -335,7 +368,7 @@
   {
     "type": "Moustache",
     "preview": "/icons/Moustache_Ringmaster.png",
-    "model": "models/",
+    "model": "/Hair/Stash3_LP.obj",
     "nakedOverride": "",
     "name": "The Ringmaster",
     "price": 600,
@@ -344,7 +377,7 @@
   {
     "type": "Moustache",
     "preview": "/icons/Moustache_Inspector.png",
-    "model": "models/",
+    "model": "/Hair/Stash2_LP.obj",
     "nakedOverride": "",
     "name": "The Inspector",
     "price": 600,
@@ -352,8 +385,17 @@
   },
   {
     "type": "Beard",
+    "preview": "",
+    "model": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Vibrant Description!"
+  },
+  {
+    "type": "Beard",
     "preview": "/icons/Beard_Trimmed.png",
-    "model": "models/",
+    "model": "/Hair/Beard1_LP.obj",
     "nakedOverride": "",
     "name": "Trimmed",
     "price": 0,
@@ -362,7 +404,7 @@
   {
     "type": "Beard",
     "preview": "/icons/Beard_Goatee.png",
-    "model": "models/",
+    "model": "/Hair/Beard3_LP.obj",
     "nakedOverride": "",
     "name": "Goatee",
     "price": 1200,
@@ -371,7 +413,7 @@
   {
     "type": "Beard",
     "preview": "/icons/Beard_Full.png",
-    "model": "models/",
+    "model": "/Hair/Beard2_LP.obj",
     "nakedOverride": "",
     "name": "Full Beard",
     "price": 1200,
@@ -380,8 +422,8 @@
   {
     "type": "Torso",
     "preview": "/icons/Torso_TurtleShirt.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": "/Torso/Male/Newtrainingset.obj",
+    "nakedOverride": "/Torso/Male/NewTrainingSet_Naked_obj",
     "name": "Turtle Neck Undershirt",
     "price": 0,
     "description": "Civilized Description!"
@@ -389,8 +431,8 @@
   {
     "type": "Torso",
     "preview": "/icons/Torso_LowcutShirt.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": "/Torso/Male/Ponch.obj",
+    "nakedOverride": "/Torso/Male/Ponch_Naked.obj",
     "name": "V Neck Undershirt",
     "price": 600,
     "description": "A typical undershirt, but with a v neck. Cut not quite too low to be suitable for distraction tactics."
@@ -398,8 +440,8 @@
   {
     "type": "Torso",
     "preview": "/icons/Torso_Dogi.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": "/Torso/Male/GI.obj",
+    "nakedOverride": "/Torso/Male/GI_Naked.obj",
     "name": "Martialist Dogi",
     "price": 0,
     "description": "A dogi-style undershirt, typical of fighters who follow the teachings of Jan-Kan."
@@ -407,7 +449,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_AllPurposeChestplate.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/Newtrainingset.obj",
     "nakedOverride": "",
     "name": "All-Round Chestplate",
     "price": 0,
@@ -416,7 +458,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_AllPurposeChestplateB.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/NewtrainingsetAltered.obj",
     "nakedOverride": "",
     "name": "All-Round Chestplate - Altered",
     "price": 1200,
@@ -425,7 +467,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_DevotedPoncho.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/Ponch.obj",
     "nakedOverride": "",
     "name": "Poncho of the Devoted",
     "price": 2400,
@@ -434,7 +476,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_MartialistObi.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/Basicbelt.obj",
     "nakedOverride": "",
     "name": "Martialist's Obi",
     "price": 3600,
@@ -443,7 +485,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_AmbitionBelt.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/Thicbelt.obj",
     "nakedOverride": "",
     "name": "Steadfast Belt",
     "price": 1600,
@@ -452,7 +494,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_ChallengerPauldronLeft.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/Spartarelec_Left.obj",
     "nakedOverride": "",
     "name": "Challenger's Pauldron - Left",
     "price": 1200,
@@ -461,7 +503,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_ChallengerPauldronRight.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/Spartarelec_Right.obj",
     "nakedOverride": "",
     "name": "Challenger's Pauldron - Right",
     "price": 1200,
@@ -470,7 +512,7 @@
   {
     "type": "Chestplate",
     "preview": "/icons/Chestplate_DualChallengerPauldrons.png",
-    "model": "models/",
+    "model": "/Chestplate/Male/Spartarelec_Double.obj",
     "nakedOverride": "",
     "name": "Challenger's Dual Pauldrons",
     "price": 2400,
@@ -479,8 +521,14 @@
   {
     "type": "Sleeve",
     "preview": "/icons/LeftArm_ShortSleeve.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": [
+      "/Sleeve/Male/NewtrainingsetAltered_Left.obj",
+      "/Sleeve/Male/NewtrainingsetAltered_Right.obj"
+    ],
+    "nakedOverride": [
+      "/Sleeve/Male/NewtrainingsetAltered_Naked_Left.obj",
+      "/Sleeve/Male/NewtrainingsetAltered_Naked_Right.obj"
+    ],
     "name": "Short Sleeves",
     "price": 0,
     "description": "Little Description!"
@@ -488,8 +536,14 @@
   {
     "type": "Sleeve",
     "preview": "/icons/LeftArm_RolledSleeve.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": [
+      "/Sleeve/Male/Ponch_Left.obj",
+      "/Sleeve/Male/Ponch_Right.obj"
+    ],
+    "nakedOverride": [
+      "/Sleeve/Male/Ponch_Naked_Left.obj",
+      "/Sleeve/Male/Ponch_Naked_Right.obj"
+    ],
     "name": "Rolled Sleeves",
     "price": 600,
     "description": "Thick, long sleeves rolled up over the elbow. Often used for RUMBLE in colder climates, particularly by fighters from Arickteya."
@@ -497,17 +551,41 @@
   {
     "type": "Gauntlet",
     "preview": "/icons/LeftGauntlet_AllPurposeGauntlet.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": [
+      "/Gauntlet/Male/Newtrainingset_Left.obj",
+      "/Gauntlet/Male/Newtrainingset_Right.obj"
+    ],
+    "nakedOverride": [
+      "/Gauntlet/Male/Newtrainingset_Naked_Left.obj",
+      "/Gauntlet/Male/Newtrainingset_Naked_Right.obj"
+    ],
     "name": "Default Gauntlet",
     "price": 0,
     "description": "The default Rumble Guy Gauntlets!"
   },
   {
     "type": "Gauntlet",
-    "preview": "/icons/LeftGauntlet_AllPurposeGauntletB.png",
-    "model": "models/",
+    "preview": "",
+    "model": [
+      "/Gauntlet/Male/ShiftstoneSocket_Left.obj",
+      "/Gauntlet/Male/ShiftstoneSocket_Right.obj"
+    ],
     "nakedOverride": "",
+    "name": "Shiftstone Socket",
+    "price": 0,
+    "description": "Naked Description!"
+  },
+  {
+    "type": "Gauntlet",
+    "preview": "/icons/LeftGauntlet_AllPurposeGauntletB.png",
+    "model": [
+      "/Gauntlet/Male/NewtrainingsetAltered_Left.obj",
+      "/Gauntlet/Male/NewtrainingsetAltered_Right.obj"
+    ],
+    "nakedOverride": [
+      "/Gauntlet/Male/NewtrainingsetAltered_Naked_Left.obj",
+      "/Gauntlet/Male/NewtrainingsetAltered_Naked_Right.obj"
+    ],
     "name": "All-Round Gauntlets - Altered",
     "price": 900,
     "description": "One of the most common types of gauntlet, decorated with an additional sleeve of cloth."
@@ -515,8 +593,14 @@
   {
     "type": "Gauntlet",
     "preview": "/icons/LeftGauntlet_DevotedBracer.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": [
+      "/Gauntlet/Male/Ponch_Left.obj",
+      "/Gauntlet/Male/Ponch_Right.obj"
+    ],
+    "nakedOverride": [
+      "/Gauntlet/Male/Ponch_Naked_Left.obj",
+      "/Gauntlet/Male/Ponch_Naked_Right.obj"
+    ],
     "name": "Bracers of the Devoted",
     "price": 0,
     "description": "Arm bracers commonly worn by Devoted. Only very few Devoted ever partake in RUMBLE, as it is reserved only for those of the upper echelon."
@@ -524,8 +608,14 @@
   {
     "type": "Gauntlet",
     "preview": "/icons/LeftGauntlet_MartialistBand.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": [
+      "/Gauntlet/Male/Sweatband_Left.obj",
+      "/Gauntlet/Male/Sweatband_Right.obj"
+    ],
+    "nakedOverride": [
+      "/Gauntlet/Male/Sweatband_Naked_Left.obj",
+      "/Gauntlet/Male/Sweatband_Naked_Right.obj"
+    ],
     "name": "Martialist's Wristbands",
     "price": 1200,
     "description": "Simple wristbands with sockets fit to hold Shiftstones, despite the fact that true martialists rarely ever make use of such items."
@@ -533,7 +623,7 @@
   {
     "type": "Pants",
     "preview": "icons/",
-    "model": "models/",
+    "model": "",
     "nakedOverride": "",
     "name": "None",
     "price": 0,
@@ -542,8 +632,8 @@
   {
     "type": "Pants",
     "preview": "/icons/Legs_Shorts.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": "/Legs/Male/NewTrainingset.obj",
+    "nakedOverride": "/Legs/Male/NewTrainingset_Naked.obj",
     "name": "Shorts",
     "price": 0,
     "description": "The default Rumble Guy Pants!"
@@ -551,7 +641,7 @@
   {
     "type": "Pants",
     "preview": "/icons/Legs_Joggers.png",
-    "model": "models/",
+    "model": "/Legs/Male/Ponch.obj",
     "nakedOverride": "",
     "name": "Joggers",
     "price": 900,
@@ -560,8 +650,8 @@
   {
     "type": "Pants",
     "preview": "/icons/Legs_ShortShorts.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": "/Legs/Male/NewtrainingsetAltered.obj",
+    "nakedOverride": "/Legs/Male/NewtrainingsetAltered_Naked.obj",
     "name": "Short Shorts",
     "price": 600,
     "description": "While common in particularly hot climates, shortening the widely used shorts is often associated with rather fashion-conscious fighters. Just because you're about to get giant rocks lobbed at you is no reason not to look hella stylish."
@@ -569,8 +659,8 @@
   {
     "type": "Pants",
     "preview": "/icons/Legs_Hakama.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": "/Legs/Male/Skirt.obj",
+    "nakedOverride": "/Legs/Male/Skirt_Naked.obj",
     "name": "Hakama",
     "price": 1200,
     "description": "Each fold of the Hakama represents one of the virtues held in the highest regard by fighters who follow the way of Jan-Kan."
@@ -578,7 +668,7 @@
   {
     "type": "Boots",
     "preview": "icons/",
-    "model": "models/",
+    "model": "",
     "nakedOverride": "",
     "name": "None",
     "price": 0,
@@ -587,7 +677,10 @@
   {
     "type": "Boots",
     "preview": "/icons/LeftBoot_AllPurposeBoot.png",
-    "model": "models/",
+    "model": [
+      "/Boots/Male/Newtrainingset_Left.obj",
+      "/Boots/Male/Newtrainingset_Right.obj"
+    ],
     "nakedOverride": "",
     "name": "Default Boots",
     "price": 0,
@@ -596,8 +689,14 @@
   {
     "type": "Boots",
     "preview": "/icons/LeftBoot_DevotedShinguard.png",
-    "model": "models/",
-    "nakedOverride": "",
+    "model": [
+      "/Boots/Male/Ponch_Left.obj",
+      "/Boots/Male/Ponch_Right.obj"
+    ],
+    "nakedOverride": [
+      "/Boots/Male/Ponch_Naked_Left.obj",
+      "/Boots/Male/Ponch_Naked_Right.obj"
+    ],
     "name": "Shinguards of the Devoted",
     "price": 900,
     "description": "Shin protection in a style most associated with the Devoted. It lacks any proper footwear, as not to disrupt their connection to the earth."
@@ -605,7 +704,10 @@
   {
     "type": "Boots",
     "preview": "/icons/LeftBoot_LaminarBoot.png",
-    "model": "models/",
+    "model": [
+      "/Boots/Male/Panser_Left.obj",
+      "/Boots/Male/Panser_Right.obj"
+    ],
     "nakedOverride": "",
     "name": "Laminar Boots",
     "price": 1200,

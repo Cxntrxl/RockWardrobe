@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-//import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 
 const tooltip = document.createElement('div');
@@ -12,24 +12,7 @@ tooltip.appendChild(tooltipPrice);
 tooltip.appendChild(tooltipDescription);
 document.body.appendChild(tooltip);
 
-let characterType;
-let expressionSet;
-let topHairModel;
-let sideHairModel;
-let eyeSheenModel;
-let eyeBrowModel;
-let eyeLashModel;
-let moustacheModel;
-let beardModel;
-let torsoModel;
-let chestplateModel;
-let leftSleeveModel;
-let rightSleeveModel;
-let leftGauntletModel;
-let rightGauntletModel;
-let pantsModel;
-let leftBootModel;
-let rightBootModel;
+let equippedCosmetics = new Array(18);
 
 window.onload = () => {
     fetch('./data/items.json')
@@ -100,7 +83,7 @@ function applyTooltips() {
     });
 }
 
-function createButton(item) {
+function createButton(modelIndex, item) {
     const button = document.createElement('button');
     button.classList.add('tooltip');
     button.classList.add('square')
@@ -126,7 +109,7 @@ function createButton(item) {
 
     button.addEventListener('click', () => {
         toggleSelection(button);
-        selectModel(item);
+        selectModel(modelIndex, item);
     });
 
     return button;
@@ -151,24 +134,43 @@ function populateSections(data) {
 
         switch (item.type) {
             case 'Gauntlet':
-                let gButtonR = createButton(item);
-                let gButtonL = createButton(item);
-                document.getElementById('rightGauntletContainer').appendChild(gButtonR);
-                document.getElementById('leftGauntletContainer').appendChild(gButtonL);
+                const gContainerR = document.getElementById('rightGauntletContainer');
+                const gContainerL = document.getElementById('leftGauntletContainer');
+                const gIndexR = gContainerR.getAttribute('modelIndex');
+                const gIndexL = gContainerL.getAttribute('modelIndex');
+
+                let gButtonR = createButton(gIndexR, item);
+                let gButtonL = createButton(gIndexL, item);
+
+                gContainerR.appendChild(gButtonR);
+                gContainerL.appendChild(gButtonL);
                 break;
 
             case 'Sleeve':
-                let sButtonR = createButton(item);
-                let sButtonL = createButton(item);
-                document.getElementById('rightArmContainer').appendChild(sButtonR);
-                document.getElementById('leftArmContainer').appendChild(sButtonL);
+                const sContainerR = document.getElementById('rightArmContainer');
+                const sContainerL = document.getElementById('leftArmContainer');
+                const sIndexR = sContainerR.getAttribute('modelIndex');
+                const sIndexL = sContainerL.getAttribute('modelIndex');
+
+                let sButtonR = createButton(sIndexR, item);
+                let sButtonL = createButton(sIndexL, item);
+
+                sContainerR.appendChild(sButtonR);
+                sContainerL.appendChild(sButtonL);
                 break;
 
             case 'Boots':
-                let bButtonR = createButton(item);
-                let bButtonL = createButton(item);
-                document.getElementById('rightBootContainer').appendChild(bButtonR);
-                document.getElementById('leftBootContainer').appendChild(bButtonL);
+
+                const bContainerR = document.getElementById('rightBootContainer');
+                const bContainerL = document.getElementById('leftBootContainer');
+                const bIndexR = bContainerR.getAttribute('modelIndex');
+                const bIndexL = bContainerL.getAttribute('modelIndex');
+
+                let bButtonR = createButton(bIndexR, item);
+                let bButtonL = createButton(bIndexL, item);
+
+                bContainerR.appendChild(bButtonR);
+                bContainerL.appendChild(bButtonL);
                 break;
 
             default:
@@ -176,7 +178,9 @@ function populateSections(data) {
                 if (containerID){
                     let container = document.getElementById(containerID);
                     if (container){
-                        let button = createButton(item);
+                        let button = createButton(
+                            container.getAttribute('modelIndex'),
+                            item);
                         container.appendChild(button);
                     } else {
                         console.warn(`Json parse error at ${item.name}`);
@@ -208,96 +212,120 @@ function toggleContainer(container) {
     container.classList.remove('hidden');
 }
 
-function selectModel(item) {
-    switch (item.type){
-        case 'CharacterType':
-            characterType = item;
-            break;
-        case 'ExpressionSet':
-            expressionSet = item;
-            break;
-        case 'EyeSheen':
-            eyeSheenModel = item;
-            break;
-        case 'TopHairstyle':
-            topHairModel = item;
-            break;
-        case 'SideHairstyle':
-            sideHairModel = item;
-            break;
-        case 'Eyebrows':
-            eyeBrowModel = item;
-            break;
-        case 'Eyelashes':
-            eyeLashModel = item;
-            break;
-        case 'Moustache':
-            moustacheModel = item;
-            break;
-        case 'Beard':
-            beardModel = item;
-            break;
-        case 'Torso':
-            torsoModel = item;
-            break;
-        case 'Chestplate':
-            chestplateModel = item;
-            break;
-        case 'Sleeve':
-            leftSleeveModel = item;
-            rightSleeveModel = item;
-            break;
-        case 'Gauntlet':
-            leftGauntletModel = item;
-            rightGauntletModel = item;
-            break;
-        case 'Pants':
-            pantsModel = item;
-            break;
-        case 'Boots':
-            leftBootModel = item;
-            rightBootModel = item;
-            break;
-        default:
-            console.error(`Error parsing json model: ${item.name}'s Type is not valid.`);
-            break;
+function selectModel(index, item) {
+    equippedCosmetics[index] = item;
+    reloadModels();
+    console.log(`Equipped cosmetic ${item.name} at index ${index}`);
+}
+
+const w = window.innerWidth;
+const h = window.innerHeight;
+const ratio = .6;
+const scale = .7;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, (w * ratio * scale) / (h / ratio * scale), 0.01, 1000);
+const loader = new OBJLoader();
+const modelsPath = `/models`
+const modelNames = [
+    '/BaseMesh/Male/Male_Head.obj',
+    '/BaseMesh/Male/Male_Neck.obj',
+    '/BaseMesh/Male/Male_Torso.obj',
+    '/BaseMesh/Male/Male_Arm_Left.obj',
+    '/BaseMesh/Male/Male_Hand_Left.obj',
+    '/BaseMesh/Male/Male_Arm_Right.obj',
+    '/BaseMesh/Male/Male_Hand_Right.obj',
+    '/BaseMesh/Male/Male_Legs.obj',
+    '/BaseMesh/Male/Male_Feet_Left.obj',
+    '/BaseMesh/Male/Male_Feet_Right.obj',
+    '/BaseMesh/Male/EyeLeft.obj',
+    '/BaseMesh/Male/EyeRight.obj',
+    '/BaseMesh/Male/TeethBot.obj',
+    '/BaseMesh/Male/TeethTop.obj',
+    '/BaseMesh/Male/Tounge.obj',
+];
+
+function loadModel(modelName) {
+    loader.load(modelsPath + modelName, function (object) {
+        scene.add(object);
+        render();
+    });
+}
+
+function reloadModels() {
+    scene.children.forEach((object) => {
+       if (object.geometry) object.geometry.dispose();
+       if (object.material) {
+           if (Array.isArray(object.material)) {
+               object.material.forEach(mat => mat.dispose());
+           } else {
+               object.material.dispose();
+           }
+       }
+       scene.remove(object);
+    });
+
+    const topLight = new THREE.DirectionalLight(0xffffff, 1);
+    topLight.position.set(500,500,500);
+    topLight.castShadow = true;
+    scene.add(topLight);
+
+    const botLight = new THREE.DirectionalLight(0xffffff, .3);
+    botLight.position.set(-500,-500,-500);
+    botLight.castShadow = true;
+    scene.add(botLight);
+
+    const ambientLight = new THREE.AmbientLight(0x333333, 1);
+    scene.add(ambientLight);
+
+    modelNames.forEach(model => loadModel(model));
+    const dualSideTypes = {
+        "Sleeve": { 15: 1, 16: 0 },
+        "Gauntlet": { 10: 1, 11: 0 },
+        "Boots": { 12: 1, 13: 0 }
+    };
+
+    for (let i = 0; i < equippedCosmetics.length; i++) {
+        if (!equippedCosmetics[i]) continue;
+        const item = equippedCosmetics[i];
+
+        if (Array.isArray(item.model)) {
+            if (dualSideTypes[item.type]) {
+                loadModel(item.model[dualSideTypes[item.type][i]]);
+            } else {
+                for (let j = 0; j < item.model.length; j++) {
+                    loadModel(item.model[j]);
+                }
+            }
+        } else {
+            loadModel(item.model);
+        }
     }
 }
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-let object;
-let controls;
-let objToRender = 'head';
-const loader = new OBJLoader();
+reloadModels()
 
-loader.load(
-    `models/BaseMesh/Male/Male_Head.obj`,
-    function (object) {
-        scene.add(object);
-    },
-    function (xhr) {
-        console.log((xhr.loaded / xhr.total * 100) + '% Loaded');
-    },
-    function (error) {
-        console.error(error);
-    }
-);
+function isEven(num) {
+    let result = num % 2;
+    return result === 0;
+}
 
-const renderer = new THREE.WebGLRenderer({alpha:true});
-renderer.setSize(window.innerWidth, window.innerHeight);
+function render() {
+    renderer.render(scene, camera);
+}
+
+let renderer = new THREE.WebGLRenderer({alpha:true});
+function setRenderScale(){
+    renderer.setSize(w * ratio * scale, h / ratio * scale);
+}
+
+setRenderScale();
+const controls = new OrbitControls(camera, renderer.domElement);
 
 document.getElementById('PreviewRenderer').appendChild(renderer.domElement);
 
-camera.position.z = 500;
-
-const topLight = new THREE.DirectionalLight(0xffffff, 1);
-topLight.position.set(500,500,500);
-topLight.castShadow = true;
-scene.add(topLight);
-
-const ambientLight = new THREE.AmbientLight(0x333333, 1);
-scene.add(ambientLight);
+camera.position.set(0, 1, 2);
+camera.rotation.set(-.2, 0, 0)
 
 function animate() {
     requestAnimationFrame(animate);
@@ -307,7 +335,7 @@ function animate() {
 window.addEventListener("resize", function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    setRenderScale();
 });
 
 animate();
