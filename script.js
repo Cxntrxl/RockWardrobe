@@ -23,7 +23,7 @@ function createButton(item) {
     button.setAttribute('TDesc', item.description);
 
     if (item.preview && item.preview !== "icons/") {
-        button.style.backgroundImage = `url(${item.preview})`;
+        button.style.backgroundImage = `url(https://cxntrxl.github.io/RockWardrobe${item.preview})`;
     } else {
         button.innerHTML = item.name;
     }
