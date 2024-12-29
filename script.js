@@ -93,7 +93,7 @@ function populateSections(data) {
 }
 
 window.onload = () => {
-    fetch('https://cxntrxl.github.io/data/items.json')
+    fetch('./data/items.json')
         .then(response => {
             if (!response.ok) {
                 console.error(`HTTP error - ${response.status}`);
