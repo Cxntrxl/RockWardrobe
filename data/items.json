@@ -1,7 +1,7 @@
 [
   {
     "type": "CharacterType",
-    "preview": "/icons/MasculineIcon.png",
+    "preview": "./icons/MasculineIcon.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Masculine",
@@ -10,7 +10,7 @@
   },
   {
     "type": "CharacterType",
-    "preview": "/icons/FeminineIcon.png",
+    "preview": "./icons/FeminineIcon.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Feminine",
@@ -318,7 +318,7 @@
   },
   {
     "type": "Chestplate",
-    "preview": "/icons/GearIcon_CatalogItem_Part_Chestplate_DualChallengerPauldrons_Male.png",
+    "preview": "./icons/GearIcon_CatalogItem_Part_Chestplate_DualChallengerPauldrons_Male.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Challenger's Dual Pauldrons",
