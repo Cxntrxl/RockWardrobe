@@ -21,6 +21,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES0.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Default 1",
     "price": 0,
     "description": "Remind me to check what this one is called in-game."
@@ -29,6 +30,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES1.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Default 2",
     "price": 0,
     "description": "Ditto."
@@ -37,6 +39,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES7.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Hesitant",
     "price": 1200,
     "description": "Courage is being brave even when you're afraid."
@@ -45,6 +48,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES3.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Excited",
     "price": 1200,
     "description": "They just seem pumped to even be here."
@@ -53,6 +57,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES5.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Brash",
     "price": 1200,
     "description": "Confidence, or overconfidence? Time will tell."
@@ -61,6 +66,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES6.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Thrilled",
     "price": 1200,
     "description": "This person might be looking forward to that fight a little too much..."
@@ -69,6 +75,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES4.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Driven",
     "price": 1200,
     "description": "Big arch-rival vibes coming off of this one."
@@ -77,6 +84,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES2.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Nonchalant",
     "price": 1200,
     "description": "Do they really not care? or is there perhaps another reason for their cold demeanor?"
@@ -85,6 +93,7 @@
     "type": "ExpressionSet",
     "preview": "/icons/ES8.png",
     "model": "models/",
+    "nakedOverride": "",
     "name": "Chad",
     "price": 1200,
     "description": "bye bye"
@@ -316,7 +325,16 @@
   },
   {
     "type": "Moustache",
-    "preview": "icons/",
+    "preview": "/icons/Moustache_Walrus.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "The Walrus",
+    "price": 0,
+    "description": "Flamboyant Description!"
+  },
+  {
+    "type": "Moustache",
+    "preview": "/icons/Moustache_Ringmaster.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "The Ringmaster",
@@ -325,7 +343,7 @@
   },
   {
     "type": "Moustache",
-    "preview": "icons/",
+    "preview": "/icons/Moustache_Inspector.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "The Inspector",
@@ -334,7 +352,16 @@
   },
   {
     "type": "Beard",
-    "preview": "icons/",
+    "preview": "/icons/Beard_Trimmed.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Trimmed",
+    "price": 0,
+    "description": "Spontaneous Description!"
+  },
+  {
+    "type": "Beard",
+    "preview": "/icons/Beard_Goatee.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Goatee",
@@ -343,7 +370,7 @@
   },
   {
     "type": "Beard",
-    "preview": "icons/",
+    "preview": "/icons/Beard_Full.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Full Beard",
@@ -352,7 +379,16 @@
   },
   {
     "type": "Torso",
-    "preview": "icons/",
+    "preview": "/icons/Torso_TurtleShirt.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Turtle Neck Undershirt",
+    "price": 0,
+    "description": "Civilized Description!"
+  },
+  {
+    "type": "Torso",
+    "preview": "/icons/Torso_LowcutShirt.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "V Neck Undershirt",
@@ -361,7 +397,7 @@
   },
   {
     "type": "Torso",
-    "preview": "icons/",
+    "preview": "/icons/Torso_Dogi.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Martialist Dogi",
@@ -370,7 +406,16 @@
   },
   {
     "type": "Chestplate",
-    "preview": "icons/",
+    "preview": "/icons/Chestplate_AllPurposeChestplate.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "All-Round Chestplate",
+    "price": 0,
+    "description": "The default Rumble Guy Chestplate!"
+  },
+  {
+    "type": "Chestplate",
+    "preview": "/icons/Chestplate_AllPurposeChestplateB.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "All-Round Chestplate - Altered",
@@ -379,7 +424,7 @@
   },
   {
     "type": "Chestplate",
-    "preview": "icons/",
+    "preview": "/icons/Chestplate_DevotedPoncho.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Poncho of the Devoted",
@@ -388,7 +433,7 @@
   },
   {
     "type": "Chestplate",
-    "preview": "icons/",
+    "preview": "/icons/Chestplate_MartialistObi.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Martialist's Obi",
@@ -397,7 +442,7 @@
   },
   {
     "type": "Chestplate",
-    "preview": "icons/",
+    "preview": "/icons/Chestplate_AmbitionBelt.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Steadfast Belt",
@@ -406,7 +451,7 @@
   },
   {
     "type": "Chestplate",
-    "preview": "icons/",
+    "preview": "/icons/Chestplate_ChallengerPauldronLeft.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Challenger's Pauldron - Left",
@@ -415,7 +460,7 @@
   },
   {
     "type": "Chestplate",
-    "preview": "icons/",
+    "preview": "/icons/Chestplate_ChallengerPauldronRight.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Challenger's Pauldron - Right",
@@ -433,7 +478,16 @@
   },
   {
     "type": "Sleeve",
-    "preview": "icons/",
+    "preview": "/icons/LeftArm_ShortSleeve.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Short Sleeves",
+    "price": 0,
+    "description": "Little Description!"
+  },
+  {
+    "type": "Sleeve",
+    "preview": "/icons/LeftArm_RolledSleeve.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Rolled Sleeves",
@@ -442,7 +496,16 @@
   },
   {
     "type": "Gauntlet",
-    "preview": "icons/",
+    "preview": "/icons/LeftGauntlet_AllPurposeGauntlet.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Default Gauntlet",
+    "price": 0,
+    "description": "The default Rumble Guy Gauntlets!"
+  },
+  {
+    "type": "Gauntlet",
+    "preview": "/icons/LeftGauntlet_AllPurposeGauntletB.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "All-Round Gauntlets - Altered",
@@ -451,7 +514,7 @@
   },
   {
     "type": "Gauntlet",
-    "preview": "icons/",
+    "preview": "/icons/LeftGauntlet_DevotedBracer.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Bracers of the Devoted",
@@ -460,7 +523,7 @@
   },
   {
     "type": "Gauntlet",
-    "preview": "icons/",
+    "preview": "/icons/LeftGauntlet_MartialistBand.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Martialist's Wristbands",
@@ -472,13 +535,31 @@
     "preview": "icons/",
     "model": "models/",
     "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Sneaky Description"
+  },
+  {
+    "type": "Pants",
+    "preview": "/icons/Legs_Shorts.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Shorts",
+    "price": 0,
+    "description": "The default Rumble Guy Pants!"
+  },
+  {
+    "type": "Pants",
+    "preview": "/icons/Legs_Joggers.png",
+    "model": "models/",
+    "nakedOverride": "",
     "name": "Joggers",
     "price": 900,
     "description": "Long, loose-fitted trousers popularized by Aricktayan fighters. Due to the high altitude of the land from which they hail, it is covered in snow almost all year round."
   },
   {
     "type": "Pants",
-    "preview": "icons/",
+    "preview": "/icons/Legs_ShortShorts.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Short Shorts",
@@ -487,7 +568,7 @@
   },
   {
     "type": "Pants",
-    "preview": "icons/",
+    "preview": "/icons/Legs_Hakama.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Hakama",
@@ -499,13 +580,31 @@
     "preview": "icons/",
     "model": "models/",
     "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Shoeless."
+  },
+  {
+    "type": "Boots",
+    "preview": "/icons/LeftBoot_AllPurposeBoot.png",
+    "model": "models/",
+    "nakedOverride": "",
+    "name": "Default Boots",
+    "price": 0,
+    "description": "The default Rumble Guy boots!"
+  },
+  {
+    "type": "Boots",
+    "preview": "/icons/LeftBoot_DevotedShinguard.png",
+    "model": "models/",
+    "nakedOverride": "",
     "name": "Shinguards of the Devoted",
     "price": 900,
     "description": "Shin protection in a style most associated with the Devoted. It lacks any proper footwear, as not to disrupt their connection to the earth."
   },
   {
     "type": "Boots",
-    "preview": "icons/",
+    "preview": "/icons/LeftBoot_LaminarBoot.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Laminar Boots",
@@ -517,7 +616,7 @@
     "preview": "icons/",
     "model": "models/",
     "nakedOverride": "",
-    "name": "",
+    "name": "FormatPlaceholder",
     "price": 0,
     "description": ""
   }

@@ -1,3 +1,36 @@
+import * as THREE from 'three';
+//import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+
+const tooltip = document.createElement('div');
+tooltip.className = 'tooltip-tooltip';
+const tooltipName = document.createElement('div');
+const tooltipPrice = document.createElement('div');
+const tooltipDescription = document.createElement('div');
+tooltip.appendChild(tooltipName);
+tooltip.appendChild(tooltipPrice);
+tooltip.appendChild(tooltipDescription);
+document.body.appendChild(tooltip);
+
+let characterType;
+let expressionSet;
+let topHairModel;
+let sideHairModel;
+let eyeSheenModel;
+let eyeBrowModel;
+let eyeLashModel;
+let moustacheModel;
+let beardModel;
+let torsoModel;
+let chestplateModel;
+let leftSleeveModel;
+let rightSleeveModel;
+let leftGauntletModel;
+let rightGauntletModel;
+let pantsModel;
+let leftBootModel;
+let rightBootModel;
+
 window.onload = () => {
     fetch('./data/items.json')
         .then(response => {
@@ -25,21 +58,7 @@ function addButtonListeners(){
     });
 }
 
-function createTooltipObject() {
-    const tooltip = document.createElement('div');
-    tooltip.className = 'tooltip-tooltip';
-    const tooltipName = document.createElement('div');
-    const tooltipPrice = document.createElement('div');
-    const tooltipDescription = document.createElement('div');
-    tooltip.appendChild(tooltipName);
-    tooltip.appendChild(tooltipPrice);
-    tooltip.appendChild(tooltipDescription);
-    document.body.appendChild(tooltip);
-}
-
 function applyTooltips() {
-    createTooltipObject();
-
     document.querySelectorAll('button[TName]').forEach(button => {
         button.addEventListener('mouseenter', event => {
             const TName = button.getAttribute('TName');
@@ -107,6 +126,7 @@ function createButton(item) {
 
     button.addEventListener('click', () => {
         toggleSelection(button);
+        selectModel(item);
     });
 
     return button;
@@ -128,7 +148,6 @@ function populateSections(data) {
             'Chestplate':'chestplateBeltContainer',
             'Pants':'legsContainer'
         }
-
 
         switch (item.type) {
             case 'Gauntlet':
@@ -181,5 +200,114 @@ function toggleContainer(container) {
         if (child === container) return;
         child.classList.add('hidden');
     });
+    container.parentElement.querySelectorAll('button[selector]')
+        .forEach(btn =>
+            btn.disabled = !document.getElementById(
+                btn.getAttribute('linkedContainer')
+                ).classList.contains('hidden'));
     container.classList.remove('hidden');
 }
+
+function selectModel(item) {
+    switch (item.type){
+        case 'CharacterType':
+            characterType = item;
+            break;
+        case 'ExpressionSet':
+            expressionSet = item;
+            break;
+        case 'EyeSheen':
+            eyeSheenModel = item;
+            break;
+        case 'TopHairstyle':
+            topHairModel = item;
+            break;
+        case 'SideHairstyle':
+            sideHairModel = item;
+            break;
+        case 'Eyebrows':
+            eyeBrowModel = item;
+            break;
+        case 'Eyelashes':
+            eyeLashModel = item;
+            break;
+        case 'Moustache':
+            moustacheModel = item;
+            break;
+        case 'Beard':
+            beardModel = item;
+            break;
+        case 'Torso':
+            torsoModel = item;
+            break;
+        case 'Chestplate':
+            chestplateModel = item;
+            break;
+        case 'Sleeve':
+            leftSleeveModel = item;
+            rightSleeveModel = item;
+            break;
+        case 'Gauntlet':
+            leftGauntletModel = item;
+            rightGauntletModel = item;
+            break;
+        case 'Pants':
+            pantsModel = item;
+            break;
+        case 'Boots':
+            leftBootModel = item;
+            rightBootModel = item;
+            break;
+        default:
+            console.error(`Error parsing json model: ${item.name}'s Type is not valid.`);
+            break;
+    }
+}
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+let object;
+let controls;
+let objToRender = 'head';
+const loader = new OBJLoader();
+
+loader.load(
+    `models/BaseMesh/Male/Male_Head.obj`,
+    function (object) {
+        scene.add(object);
+    },
+    function (xhr) {
+        console.log((xhr.loaded / xhr.total * 100) + '% Loaded');
+    },
+    function (error) {
+        console.error(error);
+    }
+);
+
+const renderer = new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+document.getElementById('PreviewRenderer').appendChild(renderer.domElement);
+
+camera.position.z = 500;
+
+const topLight = new THREE.DirectionalLight(0xffffff, 1);
+topLight.position.set(500,500,500);
+topLight.castShadow = true;
+scene.add(topLight);
+
+const ambientLight = new THREE.AmbientLight(0x333333, 1);
+scene.add(ambientLight);
+
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+
+window.addEventListener("resize", function () {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+animate();

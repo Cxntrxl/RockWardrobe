@@ -9,7 +9,7 @@
 <body>
 
 <header>
-    <h2>Welcome to Rock Wardrobe, your one stop shop for all your goining needs!</h2>
+    <h2>Welcome to Rock Wardrobe, the one stop shop for all your goining needs!</h2>
     <p>Please note: This site is HEAVILY work-in-progress and is a passion project! Features will be added and updated over time.</p>
 </header>
 
@@ -18,7 +18,7 @@
         <div class="button-container stack">
             <div class="content-box">
                 <h2>Cosmetic Preview</h2>
-                <p>Not yet implemented!</p>
+                <div id="PreviewRenderer"></div>
             </div>
             <div class="content-box">
                 <h2>Cost & Time Estimation</h2>
@@ -27,7 +27,7 @@
             <div class="content-box">
                 <h2>To do List:</h2>
                 <p>[X] Build initial site infrastructure</p>
-                <p>[ ] Fill out correct item data</p>
+                <p>[X] Fill out correct item data</p>
                 <p>[ ] Model rendering</p>
                 <p>[ ] Colour support</p>
                 <p>[ ] Set up total cost & time estimation</p>
@@ -39,18 +39,18 @@
             <h2>Select Cosmetic Options</h2>
             <!--SELECTION TYPE-->
             <div class="grid-container double">
-                <button class="tooltip" id="toggleModels" linkedContainer="modelsContainer" disabled>Model Selection</button>
-                <button class="tooltip" id="toggleColours" linkedContainer="coloursContainer">Colour Selection</button>
+                <button class="tooltip" id="toggleModels" linkedContainer="modelsContainer" selector disabled>Model Selection</button>
+                <button class="tooltip" id="toggleColours" linkedContainer="coloursContainer" selector>Colour Selection</button>
             </div>
 
             <div>
                 <!--COLOUR OPTIONS-->
                 <div class="button-container stack hidden" id="coloursContainer">
                     <div class="grid-container quadruple">
-                        <button class="tooltip" id="battleSuitColoursToggle" linkedContainer="battleSuitColoursContainer">Battle Suit</button>
-                        <button class="tooltip" id="characterColoursToggle" linkedContainer="characterColoursToggle">Character</button>
-                        <button class="tooltip" id="headMarkingsColoursToggle" linkedContainer="headMarkingsColoursContainer">Head Markings</button>
-                        <button class="tooltip" id="bodyMarkingsColoursToggle" linkedContainer="bodyMarkingsColoursToggle">Body Markings</button>
+                        <button class="tooltip" id="battleSuitColoursToggle" linkedContainer="battleSuitColoursContainer" selector>Battle Suit</button>
+                        <button class="tooltip" id="characterColoursToggle" linkedContainer="characterColoursContainer" selector>Character</button>
+                        <button class="tooltip" id="headMarkingsColoursToggle" linkedContainer="headMarkingsColoursContainer" selector>Head Markings</button>
+                        <button class="tooltip" id="bodyMarkingsColoursToggle" linkedContainer="bodyMarkingsColoursContainer" selector>Body Markings</button>
                     </div>
                     <p>Colour support currently not implemented - Planned right after models.</p>
                     <div>
@@ -79,34 +79,34 @@
                 <!--MODEL OPTIONS-->
                 <div class = "button-container stack" id = "modelsContainer">
                     <div class="grid-container quadruple">
-                        <button class="tooltip" id="characterModelsToggle" linkedContainer="characterModelsContainer">Character</button>
-                        <button class="tooltip" id="battleSuitModelsToggle" linkedContainer="battleSuitModelsContainer">Battle Suit</button>
-                        <button class="tooltip" id="headModelsToggle" linkedContainer="headModelsContainer">Head</button>
-                        <button class="tooltip" id="bodyModelsToggle" linkedContainer="bodyModelsContainer">Body</button>
+                        <button class="tooltip" id="characterModelsToggle" linkedContainer="characterModelsContainer" selector>Character</button>
+                        <button class="tooltip" id="battleSuitModelsToggle" linkedContainer="battleSuitModelsContainer" selector>Battle Suit</button>
+                        <button class="tooltip" id="headModelsToggle" linkedContainer="headModelsContainer" selector>Head</button>
+                        <button class="tooltip" id="bodyModelsToggle" linkedContainer="bodyModelsContainer" selector>Body</button>
                     </div>
                     <div>
                         <!--CHARACTER MODEL OPTIONS-->
                         <div class="grid-container double hidden" id="characterModelsContainer">
-                            <button class="tooltip" id="identityModelsToggle" linkedContainer="identityModelsContainer">Identity</button>
-                            <button class="tooltip" id="hairModelsToggle" linkedContainer="hairModelsContainer">Hair</button>
+                            <button class="tooltip" id="identityModelsToggle" linkedContainer="identityModelsContainer" selector>Identity</button>
+                            <button class="tooltip" id="hairModelsToggle" linkedContainer="hairModelsContainer" selector>Hair</button>
                         </div>
 
                         <!--BATTLE SUIT MODEL OPTIONS-->
                         <div class="grid-container double hidden" id="battleSuitModelsContainer">
-                            <button class="tooltip" id="upperLayerModelsToggle" linkedContainer="upperLayerModelsContainer">Upper Layer</button>
-                            <button class="tooltip" id="lowerLayerModelsToggle" linkedContainer="lowerLayerModelsContainer">Lower Layer</button>
+                            <button class="tooltip" id="upperLayerModelsToggle" linkedContainer="upperLayerModelsContainer" selector>Upper Layer</button>
+                            <button class="tooltip" id="lowerLayerModelsToggle" linkedContainer="lowerLayerModelsContainer" selector>Lower Layer</button>
                         </div>
 
                         <!--HEAD MODEL OPTIONS-->
                         <div class="grid-container double hidden" id="headModelsContainer">
-                            <button class="tooltip" id="headShapeModelsToggle" linkedContainer="headShapeModelsContainer">Head Shape Mods</button>
-                            <button class="tooltip" id="headMarkingsModelsToggle" linkedContainer="headMarkingsModelsContainer">Head Markings</button>
+                            <button class="tooltip" id="headShapeModelsToggle" linkedContainer="headShapeModelsContainer" selector>Head Shape Mods</button>
+                            <button class="tooltip" id="headMarkingsModelsToggle" linkedContainer="headMarkingsModelsContainer" selector>Head Markings</button>
                         </div>
 
                         <!--BODY MODEL OPTIONS-->
                         <div class="grid-container double hidden" id="bodyModelsContainer">
-                            <button class="tooltip" id="bodyShapeModelsToggle" linkedContainer="bodyShapeModelsContainer">Body Shape Mods</button>
-                            <button class="tooltip" id="bodyMarkingsModelsToggle" linkedContainer="bodyMarkingsModelsContainer">Body Markings</button>
+                            <button class="tooltip" id="bodyShapeModelsToggle" linkedContainer="bodyShapeModelsContainer" selector>Body Shape Mods</button>
+                            <button class="tooltip" id="bodyMarkingsModelsToggle" linkedContainer="bodyMarkingsModelsContainer" selector>Body Markings</button>
                         </div>
                     </div>
                     <div>
@@ -298,6 +298,6 @@
     <p>All assets owned by Buckethead Entertainment.</p>
 </footer>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>
