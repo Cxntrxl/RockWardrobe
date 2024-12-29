@@ -12,7 +12,37 @@ tooltip.appendChild(tooltipPrice);
 tooltip.appendChild(tooltipDescription);
 document.body.appendChild(tooltip);
 
+let items;
+let totalCost;
 let equippedCosmetics = new Array(18);
+
+function setDefaultEquippedCosmetics() {
+    equippedCosmetics[0] = findItem("Masculine", "CharacterType");
+    equippedCosmetics[1] = findItem("Default 1", "ExpressionSet");
+    equippedCosmetics[2] = findItem("Default", "EyeSheen");
+    equippedCosmetics[3] = findItem("Default RumbleGuy", "TopHairstyle");
+    equippedCosmetics[4] = findItem("Short Sides", "SideHairstyle");
+    equippedCosmetics[5] = findItem("Sharp Eyebrows", "Eyebrows");
+    equippedCosmetics[6] = findItem("Full Eyelashes", "Eyelashes");
+    equippedCosmetics[7] = findItem("None", "Moustache");
+    equippedCosmetics[8] = findItem("None", "Beard");
+    equippedCosmetics[9] = findItem("All-Round Chestplate", "Chestplate");
+    equippedCosmetics[10] = findItem("Default Gauntlet", "Gauntlet");
+    equippedCosmetics[11] = findItem("Default Gauntlet", "Gauntlet");
+    equippedCosmetics[12] = findItem("Default Boots", "Boots");
+    equippedCosmetics[13] = findItem("Default Boots", "Boots");
+    equippedCosmetics[14] = findItem("Turtle Neck Undershirt", "Torso");
+    //equippedCosmetics[15] = findItem("None", "Sleeve");
+    //equippedCosmetics[16] = findItem("None", "Sleeve");
+    equippedCosmetics[17] = findItem("Shorts", "Pants");
+
+    reloadModels();
+}
+
+function findItem(name, type) {
+    let result = items.find(item => item.name === name && item.type === type);
+    return result;
+}
 
 window.onload = () => {
     fetch('./data/items.json')
@@ -23,9 +53,12 @@ window.onload = () => {
             return response.json();
         })
         .then( data => {
+            items = data;
             addButtonListeners();
             populateSections(data);
             applyTooltips();
+            console.log(items);
+            setDefaultEquippedCosmetics();
         })
         .catch (error => {
             console.error(`Error fetching json file - ${error}`);
@@ -301,14 +334,18 @@ function reloadModels() {
             loadModel(item.model);
         }
     }
+
+    totalCost = 0;
+    equippedCosmetics.forEach(item => {
+        totalCost += item.price;
+    });
+    let longGames = totalCost / 95;
+    let timeEstimate = longGames * 540 / 60 + longGames * 2;
+    document.getElementById('CostTimeEstimate').textContent =
+    `${totalCost} Gear Coins, Est. ${Math.floor(timeEstimate*0.8)} - ${Math.floor(timeEstimate*1.2)}min Gameplay.`;
 }
 
 reloadModels()
-
-function isEven(num) {
-    let result = num % 2;
-    return result === 0;
-}
 
 function render() {
     renderer.render(scene, camera);
