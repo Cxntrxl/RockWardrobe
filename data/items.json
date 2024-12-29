@@ -75,7 +75,7 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/",
+    "preview": "icons/Eyesheen_Sheen.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Shiny Eyes",
@@ -84,7 +84,7 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/",
+    "preview": "icons/Eyesheen_Gloss.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Glossy Eyes",
@@ -93,7 +93,7 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/",
+    "preview": "icons/Eyesheen_Luster.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Lustrous Eyes",
@@ -102,7 +102,7 @@
   },
   {
     "type": "EyeSheen",
-    "preview": "icons/",
+    "preview": "icons/Eyesheen_Gleam.png",
     "model": "models/",
     "nakedOverride": "",
     "name": "Gleaming Eyes",
