@@ -260,26 +260,138 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, (w * ratio * scale) / (h / ratio * scale), 0.01, 1000);
 const loader = new OBJLoader();
 const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
-const modelNames = [
-    '/BaseMesh/Male/Male_Head.obj',
-    '/BaseMesh/Male/Male_Neck.obj',
-    '/BaseMesh/Male/Male_Torso.obj',
-    '/BaseMesh/Male/Male_Arm_Left.obj',
-    '/BaseMesh/Male/Male_Hand_Left.obj',
-    '/BaseMesh/Male/Male_Arm_Right.obj',
-    '/BaseMesh/Male/Male_Hand_Right.obj',
-    '/BaseMesh/Male/Male_Legs.obj',
-    '/BaseMesh/Male/Male_Feet_Left.obj',
-    '/BaseMesh/Male/Male_Feet_Right.obj',
-    '/BaseMesh/Male/EyeLeft.obj',
-    '/BaseMesh/Male/EyeRight.obj',
-    '/BaseMesh/Male/TeethBot.obj',
-    '/BaseMesh/Male/TeethTop.obj',
-    '/BaseMesh/Male/Tounge.obj',
-];
+const texturePath = 'https://cxntrxl.github.io/RockWardrobe/tex'
+const textureLoader = new THREE.TextureLoader();
+const baseColourTexture = textureLoader.load('/tex/Chestplate/Ponch.png');
+const maskTexture = textureLoader.load('/tex/Chestplate/Ponch_ID.png');
 
-function loadModel(modelName) {
+let battleSuitColours = [
+    new THREE.Vector3(222/255, 128/255, 95/255),
+    new THREE.Vector3(53/255, 45/255, 42/255),
+    new THREE.Vector3(1.0, 1.0, 0.0),
+    new THREE.Vector3(218/255, 210/255, 184/255),
+    new THREE.Vector3(243/255, 223/255, 182/225),
+    new THREE.Vector3(134/255, 107/255, 96/255),
+    new THREE.Vector3(80/255, 84/255, 88/255)
+]
+
+let characterColours = [
+    new THREE.Vector3(222/255, 128/255, 95/255),
+    new THREE.Vector3(255/255, 183/255, 153/255),
+    new THREE.Vector3(1.0, 1.0, 0.0),
+    new THREE.Vector3(218/255, 210/255, 184/255),
+    new THREE.Vector3(243/255, 223/255, 182/225),
+    new THREE.Vector3(134/255, 107/255, 96/255),
+    new THREE.Vector3(255/255, 255/255, 255/255)
+]
+
+let eyeColours = [
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1.0, 1.0, 0.0),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1)
+]
+
+// Custom shader material
+const customMaterial = new THREE.ShaderMaterial({
+    uniforms: {
+        baseColour: { value: baseColourTexture },
+        mask: { value: maskTexture },
+        zoneColors: { value: [
+                new THREE.Vector3(1.0, 0.0, 0.0), // Red
+                new THREE.Vector3(1.0, 0.5, 0.0), // Orange
+                new THREE.Vector3(1.0, 1.0, 0.0), // Yellow
+                new THREE.Vector3(0.0, 1.0, 0.0), // Green
+                new THREE.Vector3(0.0, 0.0, 1.0), // Blue
+                new THREE.Vector3(0.0, 1.0, 1.0), // Cyan
+                new THREE.Vector3(1.0, 0.0, 1.0)  // Magenta
+            ] },
+        lightDirection: { value: new THREE.Vector3(1.0, 1.0, 1.0).normalize() },
+        ambientLight: {value: 0.3},
+        userData: {value: false}
+    },
+    vertexShader: `
+        varying vec2 vUv;
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+
+        void main() {
+            vUv = uv;
+            vNormal = normalMatrix * normal; // Transform normal to view space
+            vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    `,
+    fragmentShader: `
+        varying vec2 vUv;
+        varying vec3 vNormal;
+
+        uniform sampler2D baseColour;
+        uniform sampler2D mask;
+        uniform vec3 zoneColors[7];
+        uniform vec3 lightDirection;
+        uniform float ambientLight;
+
+        void main() {
+            // Sample textures
+            vec4 baseTex = texture2D(baseColour, vUv);
+            vec4 maskTex = texture2D(mask, vUv);
+
+            // Select zone color based on mask
+            vec3 outputColor = vec3(0.0);
+            if (maskTex.r > 0.9 && maskTex.g < 0.1 && maskTex.b < 0.1) outputColor = zoneColors[0]; // Red zone
+            else if (maskTex.r > 0.9 && maskTex.g > 0.4 && maskTex.b < 0.1) outputColor = zoneColors[1]; // Orange zone
+            else if (maskTex.r > 0.9 && maskTex.g > 0.9 && maskTex.b < 0.1) outputColor = zoneColors[2]; // Yellow zone
+            else if (maskTex.r < 0.1 && maskTex.g > 0.9 && maskTex.b < 0.1) outputColor = zoneColors[3]; // Green zone
+            else if (maskTex.r < 0.1 && maskTex.g < 0.1 && maskTex.b > 0.9) outputColor = zoneColors[4]; // Blue zone
+            else if (maskTex.r < 0.1 && maskTex.g > 0.9 && maskTex.b > 0.9) outputColor = zoneColors[5]; // Cyan zone
+            else if (maskTex.r > 0.9 && maskTex.g < 0.1 && maskTex.b > 0.9) outputColor = zoneColors[6]; // Magenta zone
+
+            // Compute lighting
+            vec3 normal = normalize(vNormal);
+            float diffuse = max(dot(normal, normalize(lightDirection)), 0.0);
+            float lightIntensity = mix(ambientLight, 1.0, diffuse);
+
+            // Toon shading: discretize light intensity into bands
+            float toonShading = floor(lightIntensity * 4.0) / 4.0;
+
+            // Modulate color by base texture brightness
+            float brightness = baseTex.r; // Use red channel of baseColour
+            vec3 finalColor = outputColor * brightness * (ambientLight + (toonShading * (1.0 - ambientLight)));
+
+            gl_FragColor = vec4(finalColor, 1.0);
+        }
+    `,
+    lights: false
+});
+
+function loadModel(modelName, baseColour, ID, itemType) {
     loader.load(modelsPath + modelName, function (object) {
+        object.traverse(function (child) {
+            if (child.isMesh) {
+                const materialInstance = customMaterial.clone();
+
+                if (itemType === 'BattleSuit') {
+                    materialInstance.uniforms.zoneColors.value = battleSuitColours;
+                }
+
+                if (itemType === 'Character') {
+                    materialInstance.uniforms.zoneColors.value = characterColours;
+                }
+
+                if (itemType === 'Eyes') {
+                    materialInstance.uniforms.zoneColors.value = eyeColours;
+                }
+
+                materialInstance.uniforms.baseColour.value = textureLoader.load(texturePath + baseColour);
+                materialInstance.uniforms.mask.value = textureLoader.load(texturePath + ID);
+                child.material = materialInstance; // Apply custom material to meshes
+            }
+        });
+        console.log("Custom Material!");
         scene.add(object);
         render();
     });
@@ -311,12 +423,28 @@ function reloadModels() {
     const ambientLight = new THREE.AmbientLight(0x333333, 1);
     scene.add(ambientLight);
 
-    modelNames.forEach(model => loadModel(model));
     const dualSideTypes = {
         "Sleeve": { 15: 1, 16: 0 },
         "Gauntlet": { 10: 1, 11: 0 },
         "Boots": { 12: 1, 13: 0 }
     };
+
+    const itemTypeMap = {
+        'CharacterType':'Character',
+        'EyeSheen':'Eyes',
+        'TopHairstyle':'Character',
+        'SideHairstyle':'Character',
+        'Eyebrows':'Character',
+        'Eyelashes':'Character',
+        'Moustache':'Character',
+        'Beard':'Character',
+        'Torso':'BattleSuit',
+        'Chestplate':'BattleSuit',
+        'Sleeve':'BattleSuit',
+        'Gauntlet':'BattleSuit',
+        'Pants':'BattleSuit',
+        'Boots':'BattleSuit'
+    }
 
     for (let i = 0; i < equippedCosmetics.length; i++) {
         if (!equippedCosmetics[i]) continue;
@@ -324,14 +452,22 @@ function reloadModels() {
 
         if (Array.isArray(item.model)) {
             if (dualSideTypes[item.type]) {
-                loadModel(item.model[dualSideTypes[item.type][i]]);
+                if(Array.isArray(item.texture)){
+                    loadModel(item.model[dualSideTypes[item.type][i]], item.texture[dualSideTypes[item.type][i]], item.ids[dualSideTypes[item.type][i]], itemTypeMap[item.type]);
+                } else {
+                    loadModel(item.model[dualSideTypes[item.type][i]], item.texture, item.ids, itemTypeMap[item.type]);
+                }
             } else {
                 for (let j = 0; j < item.model.length; j++) {
-                    loadModel(item.model[j]);
+                    if(Array.isArray(item.texture)){
+                        loadModel(item.model[j], item.texture[j], item.ids[j], itemTypeMap[item.type]);
+                    } else {
+                        loadModel(item.model[j], item.texture, item.ids, itemTypeMap[item.type]);
+                    }
                 }
             }
         } else {
-            loadModel(item.model);
+            loadModel(item.model, item.texture, item.ids, itemTypeMap[item.type]);
         }
     }
 
