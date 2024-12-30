@@ -607,6 +607,17 @@
   },
   {
     "type": "Torso",
+    "preview": "",
+    "model": "",
+    "texture":"",
+    "ids": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Nice chest hair, I hope."
+  },
+  {
+    "type": "Torso",
     "preview": "/icons/Torso_TurtleShirt.png",
     "model": "/Torso/Male/Newtrainingset.obj",
     "texture":"/Torso/NewTrainingSet.png",
@@ -637,6 +648,17 @@
     "name": "Martialist Dogi",
     "price": 0,
     "description": "A dogi-style undershirt, typical of fighters who follow the teachings of Jan-Kan."
+  },
+  {
+    "type": "Chestplate",
+    "preview": "",
+    "model": "",
+    "texture":"",
+    "ids": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Who needs a shirt?"
   },
   {
     "type": "Chestplate",
@@ -725,6 +747,17 @@
     "name": "Challenger's Dual Pauldrons",
     "price": 2400,
     "description": "An armor pattern that was used in a now-forbidden branch of RUMBLE. Dual Pauldrons were exclusive to warriors who had felled a remarkable amount of opponents."
+  },
+  {
+    "type": "Sleeve",
+    "preview": "",
+    "model": "",
+    "texture":"",
+    "ids": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Is it cold in here?"
   },
   {
     "type": "Sleeve",

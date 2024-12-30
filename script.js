@@ -268,7 +268,7 @@ const maskTexture = textureLoader.load('/tex/Chestplate/Ponch_ID.png');
 let battleSuitColours = [
     new THREE.Vector3(222/255, 128/255, 95/255),
     new THREE.Vector3(53/255, 45/255, 42/255),
-    new THREE.Vector3(1.0, 1.0, 0.0),
+    new THREE.Vector3(53/255, 45/255, 42/255),
     new THREE.Vector3(218/255, 210/255, 184/255),
     new THREE.Vector3(243/255, 223/255, 182/225),
     new THREE.Vector3(134/255, 107/255, 96/255),
@@ -278,7 +278,7 @@ let battleSuitColours = [
 let characterColours = [
     new THREE.Vector3(222/255, 128/255, 95/255),
     new THREE.Vector3(255/255, 183/255, 153/255),
-    new THREE.Vector3(1.0, 1.0, 0.0),
+    new THREE.Vector3(53/255, 45/255, 42/255),
     new THREE.Vector3(218/255, 210/255, 184/255),
     new THREE.Vector3(243/255, 223/255, 182/225),
     new THREE.Vector3(134/255, 107/255, 96/255),
@@ -343,7 +343,7 @@ const customMaterial = new THREE.ShaderMaterial({
             // Select zone color based on mask
             vec3 outputColor = vec3(0.0);
             if (maskTex.r > 0.9 && maskTex.g < 0.1 && maskTex.b < 0.1) outputColor = zoneColors[0]; // Red zone
-            else if (maskTex.r > 0.9 && maskTex.g > 0.4 && maskTex.b < 0.1) outputColor = zoneColors[1]; // Orange zone
+            else if (maskTex.r > 0.9 && maskTex.g > 0.4 && maskTex.g < 0.9 && maskTex.b < 0.1) outputColor = zoneColors[1]; // Orange zone
             else if (maskTex.r > 0.9 && maskTex.g > 0.9 && maskTex.b < 0.1) outputColor = zoneColors[2]; // Yellow zone
             else if (maskTex.r < 0.1 && maskTex.g > 0.9 && maskTex.b < 0.1) outputColor = zoneColors[3]; // Green zone
             else if (maskTex.r < 0.1 && maskTex.g < 0.1 && maskTex.b > 0.9) outputColor = zoneColors[4]; // Blue zone
