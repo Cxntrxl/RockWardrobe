@@ -16,6 +16,8 @@ let items;
 let colours;
 let totalCost;
 let equippedCosmetics = new Array(18);
+let equippedBattleSuitColours = new Array(7);
+let equippedCharacterColours = new Array(7);
 
 function setDefaultEquippedCosmetics() {
     equippedCosmetics[0] = findItem("Masculine", "CharacterType");
@@ -328,33 +330,41 @@ function selectModel(index, item) {
 
 function selectColour(index, item) {
     const typeMap = {
-        'LeatherPlating': battleSuitColours,
-        'Belt': battleSuitColours,
-        'Metals': battleSuitColours,
-        'Gambeson': battleSuitColours,
-        'Straps': battleSuitColours,
-        'Undersuit': battleSuitColours,
+        'LeatherPlating': 0,
+        'Belt': 0,
+        'Metals': 0,
+        'Gambeson': 0,
+        'Straps': 0,
+        'Undersuit': 0,
 
-        'Skin': characterColours,
-        'Eyes': characterColours,
-        'Hair': characterColours
+        'Skin': 1,
+        'Eyes': 1,
+        'Hair': 1
     }
     let r = parseFloat(item.red) / 255.0;
     let g = parseFloat(item.green) / 255.0;
     let b = parseFloat(item.blue) / 255.0;
 
-    typeMap[item.type][index] = new THREE.Vector3(r, g, b);
-    characterColours[2] = battleSuitColours[1];
+    switch (typeMap[item.type]){
+        case 0:
+            battleSuitColours[index] = new THREE.Vector3(r, g, b);
+            characterColours[2] = battleSuitColours[1];
+            equippedBattleSuitColours[index] = item;
+            break;
+        case 1:
+            characterColours[index] = new THREE.Vector3(r, g, b);
+            equippedCharacterColours[index] = item;
+            break;
+    }
     reloadModels();
 }
 
-const w = window.innerWidth;
-const h = window.innerHeight;
-const ratio = .6;
-const scale = .7;
+const previewContainer = document.getElementById("PreviewRenderer");
+const ratio = 1;
+const scale = 1;
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, (w * ratio * scale) / (h / ratio * scale), 0.01, 1000);
+const camera = new THREE.PerspectiveCamera(75, previewContainer.clientWidth / (previewContainer.clientHeight || 1), 0.01, 1000);
 const loader = new OBJLoader();
 const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
 const texturePath = 'https://cxntrxl.github.io/RockWardrobe/tex'
@@ -578,10 +588,25 @@ function reloadModels() {
     equippedCosmetics.forEach(item => {
         totalCost += item.price;
     });
+    equippedBattleSuitColours.forEach(item => {
+       totalCost += item.price;
+    });
+    equippedCharacterColours.forEach(item => {
+       totalCost += item.price;
+    });
     let longGames = totalCost / 95;
     let timeEstimate = longGames * 540 / 60 + longGames * 2;
     document.getElementById('CostTimeEstimate').textContent =
-    `${totalCost} Gear Coins, Est. ${Math.floor(timeEstimate*0.8)} - ${Math.floor(timeEstimate*1.2)}min Gameplay.`;
+    `${totalCost} Gear Coins, Est. ${formatTime(timeEstimate * 0.8)} - ${formatTime(timeEstimate * 1.2)} Gameplay.`;
+}
+
+function formatTime(minutes) {
+    const hours = Math.floor(minutes / 60);
+    const mins = Math.floor(minutes % 60);
+    if (hours <= 0) {
+        return `${String(mins)} minutes`
+    }
+    return `${String(hours)} hours, ${String(mins).padStart(2, '0')} minutes`;
 }
 
 reloadModels()
@@ -591,17 +616,24 @@ function render() {
 }
 
 let renderer = new THREE.WebGLRenderer({alpha:true});
-function setRenderScale(){
-    renderer.setSize(w * ratio * scale, h / ratio * scale);
+function setRenderScale() {
+    const width = previewContainer.clientWidth * scale;
+    const height = (previewContainer.clientWidth / ratio) * scale;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
 }
 
 setRenderScale();
 const controls = new OrbitControls(camera, renderer.domElement);
 
-document.getElementById('PreviewRenderer').appendChild(renderer.domElement);
+previewContainer.appendChild(renderer.domElement);
 
-camera.position.set(0, 1, 2);
-camera.rotation.set(-.2, 0, 0)
+camera.position.set(0, 1, 1.4);
+camera.rotation.set(-.2, 0, 0);
+
+controls.target.set(0, .8, 0); // Adjust the target based on your character's position
+controls.update(); // Synchronize the controls with the camera
 
 function animate() {
     requestAnimationFrame(animate);

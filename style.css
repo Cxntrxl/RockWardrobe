@@ -134,3 +134,9 @@ button:not(:disabled):hover {
 .hidden {
     display: none;
 }
+
+#PreviewRenderer {
+    width: 100%; /* Or a percentage of the parent container */
+    position: relative;
+    overflow: hidden;
+}
