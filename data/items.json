@@ -20,8 +20,8 @@
       "/BaseMesh/Male/Tounge.obj"
     ],
     "texture": [
-      "/TEX.png",
-      "/TEX.png",
+      "/BaseMesh/Eye.png",
+      "/BaseMesh/Eye.png",
       "/BaseMesh/Male/Body.png",
       "/BaseMesh/Male/Body.png",
       "/BaseMesh/Male/Body.png",
@@ -37,8 +37,8 @@
       "/TEX.png"
     ],
     "ids": [
-      "/MASK.png",
-      "/MASK.png",
+      "/BaseMesh/Eye_ID.png",
+      "/BaseMesh/Eye_ID.png",
       "/BaseMesh/Male/Body_ID.png",
       "/BaseMesh/Male/Body_ID.png",
       "/BaseMesh/Male/Body_ID.png",
@@ -120,8 +120,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES0.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Default 1",
@@ -131,8 +131,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES1.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Default 2",
@@ -142,8 +142,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES7.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Hesitant",
@@ -153,8 +153,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES3.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Excited",
@@ -164,8 +164,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES5.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Brash",
@@ -175,8 +175,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES6.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Thrilled",
@@ -186,8 +186,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES4.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Driven",
@@ -197,8 +197,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES2.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Nonchalant",
@@ -208,8 +208,8 @@
   {
     "type": "ExpressionSet",
     "preview": "/icons/ES8.png",
-    "model": "models/",
-    "texture":"",
+    "model": "",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "Chad",
@@ -224,7 +224,7 @@
       "/Eyes/Eyesparkle1.i.obj"
     ],
     "texture":"/TEX.png",
-    "ids": "/MASK.png",
+    "ids": "",
     "nakedOverride": "",
     "name": "Default",
     "price": 0,
@@ -238,7 +238,7 @@
       "/Eyes/Eyesparkle3.I.obj"
     ],
     "texture":"/TEX.png",
-    "ids": "/MASK.png",
+    "ids": "",
     "nakedOverride": "",
     "name": "Shiny Eyes",
     "price": 300,
@@ -252,7 +252,7 @@
       "/Eyes/Eyesparkle2.i.obj"
     ],
     "texture":"/TEX.png",
-    "ids": "/MASK.png",
+    "ids": "",
     "nakedOverride": "",
     "name": "Glossy Eyes",
     "price": 300,
@@ -266,7 +266,7 @@
       "/Eyes/Eyesparkle5.I.obj"
     ],
     "texture":"/TEX.png",
-    "ids": "/MASK.png",
+    "ids": "",
     "nakedOverride": "",
     "name": "Lustrous Eyes",
     "price": 300,
@@ -280,7 +280,7 @@
       "/Eyes/Eyesparkle4.I.obj"
     ],
     "texture":"/TEX.png",
-    "ids": "/MASK.png",
+    "ids": "",
     "nakedOverride": "",
     "name": "Gleaming Eyes",
     "price": 300,
@@ -609,7 +609,7 @@
     "type": "Torso",
     "preview": "",
     "model": "",
-    "texture":"",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "None",
@@ -653,7 +653,7 @@
     "type": "Chestplate",
     "preview": "",
     "model": "",
-    "texture":"",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "None",
@@ -752,7 +752,7 @@
     "type": "Sleeve",
     "preview": "",
     "model": "",
-    "texture":"",
+    "texture":"/TEX.png",
     "ids": "",
     "nakedOverride": "",
     "name": "None",
@@ -997,16 +997,5 @@
     "name": "Laminar Boots",
     "price": 1200,
     "description": "An old style of boot that features many overlapping leather plates. It's said the origins of this design can be traced back to the east."
-  },
-  {
-    "type": "",
-    "preview": "icons/",
-    "model": "models/",
-    "texture":"/TEX.png",
-    "ids": "/MASK.png",
-    "nakedOverride": "",
-    "name": "FormatPlaceholder",
-    "price": 0,
-    "description": ""
   }
 ]

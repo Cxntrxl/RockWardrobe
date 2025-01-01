@@ -13,19 +13,20 @@ tooltip.appendChild(tooltipDescription);
 document.body.appendChild(tooltip);
 
 let items;
+let colours;
 let totalCost;
 let equippedCosmetics = new Array(18);
 
 function setDefaultEquippedCosmetics() {
     equippedCosmetics[0] = findItem("Masculine", "CharacterType");
-    equippedCosmetics[1] = findItem("Default 1", "ExpressionSet");
+    //equippedCosmetics[1] = findItem("Default 1", "ExpressionSet");
     equippedCosmetics[2] = findItem("Default", "EyeSheen");
     equippedCosmetics[3] = findItem("Default RumbleGuy", "TopHairstyle");
     equippedCosmetics[4] = findItem("Short Sides", "SideHairstyle");
     equippedCosmetics[5] = findItem("Sharp Eyebrows", "Eyebrows");
     equippedCosmetics[6] = findItem("Full Eyelashes", "Eyelashes");
-    equippedCosmetics[7] = findItem("None", "Moustache");
-    equippedCosmetics[8] = findItem("None", "Beard");
+    //equippedCosmetics[7] = findItem("None", "Moustache");
+    //equippedCosmetics[8] = findItem("None", "Beard");
     equippedCosmetics[9] = findItem("All-Round Chestplate", "Chestplate");
     equippedCosmetics[10] = findItem("Default Gauntlet", "Gauntlet");
     equippedCosmetics[11] = findItem("Default Gauntlet", "Gauntlet");
@@ -45,7 +46,8 @@ function findItem(name, type) {
 }
 
 window.onload = () => {
-    fetch('./data/items.json')
+    addButtonListeners();
+    /*fetch('./data/items.json')
         .then(response => {
             if (!response.ok) {
                 console.error(`HTTP error - ${response.status}`);
@@ -54,16 +56,39 @@ window.onload = () => {
         })
         .then( data => {
             items = data;
-            addButtonListeners();
-            populateSections(data);
+            populateModels(data);
             applyTooltips();
-            console.log(items);
             setDefaultEquippedCosmetics();
         })
         .catch (error => {
             console.error(`Error fetching json file - ${error}`);
-        });
+        });*/
+
+    fetchCosmeticData(['./data/items.json', './data/colours.json']);
 };
+
+async function fetchCosmeticData(urls) {
+    try {
+        const fetchPromises = urls.map(url => fetch(url));
+        const responses = await Promise.all(fetchPromises);
+        const dataPromises = responses.map(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        });
+        const data = await Promise.all(dataPromises);
+
+        items = data[0];
+        colours = data[1];
+        populateModels(items);
+        populateColours(colours);
+        applyTooltips();
+        setDefaultEquippedCosmetics();
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
 
 function addButtonListeners(){
     document.querySelectorAll('button[LinkedContainer]').forEach(button => {
@@ -116,7 +141,7 @@ function applyTooltips() {
     });
 }
 
-function createButton(modelIndex, item) {
+function createButton(item) {
     const button = document.createElement('button');
     button.classList.add('tooltip');
     button.classList.add('square')
@@ -142,13 +167,63 @@ function createButton(modelIndex, item) {
 
     button.addEventListener('click', () => {
         toggleSelection(button);
-        selectModel(modelIndex, item);
     });
 
     return button;
 }
 
-function populateSections(data) {
+function createModelButton(modelIndex, item) {
+    let button = createButton(item);
+    button.addEventListener('click', () => {
+        selectModel(modelIndex, item);
+    });
+    return button;
+}
+
+function createColourButton(colourIndex, item) {
+    let button = createButton(item);
+    button.addEventListener('click', () => {
+        selectColour(colourIndex, item);
+        console.log(item);
+    });
+    return button;
+}
+
+function populateColours(data) {
+    console.log(data);
+    data.forEach((item) =>{
+        const typeMapping = {
+            'LeatherPlating': 'leatherPlatingColourContainer',
+            'Belt': 'beltColourContainer',
+            'Metals': 'metalColourContainer',
+            'Gambeson': 'gambesonColourContainer',
+            'Straps': 'strapsColourContainer',
+            'Undersuit': 'undersuitColourContainer',
+
+            'Skin': 'skinColourContainer',
+            'Eyes': 'eyeColourContainer',
+            'Hair': 'hairColourContainer'
+        }
+
+        let containerID = typeMapping[item.type];
+        if (containerID){
+            let container = document.getElementById(containerID);
+            if (container){
+                let button = createColourButton(
+                    container.getAttribute('colourIndex'),
+                    item);
+                container.appendChild(button);
+            } else {
+                console.warn(`Json parse error at ${item.name}`);
+            }
+        } else {
+            console.warn(`Json parse error at ${item.name}`);
+        }
+    })
+}
+
+function populateModels(data) {
+    console.log(data);
     data.forEach((item) =>{
         const typeMapping = {
             'CharacterType':'characterTypeContainer',
@@ -162,7 +237,7 @@ function populateSections(data) {
             'Beard':'beardContainer',
             'Torso':'torsoChestContainer',
             'Chestplate':'chestplateBeltContainer',
-            'Pants':'legsContainer'
+            'Pants':'legsContainer',
         }
 
         switch (item.type) {
@@ -172,8 +247,8 @@ function populateSections(data) {
                 const gIndexR = gContainerR.getAttribute('modelIndex');
                 const gIndexL = gContainerL.getAttribute('modelIndex');
 
-                let gButtonR = createButton(gIndexR, item);
-                let gButtonL = createButton(gIndexL, item);
+                let gButtonR = createModelButton(gIndexR, item);
+                let gButtonL = createModelButton(gIndexL, item);
 
                 gContainerR.appendChild(gButtonR);
                 gContainerL.appendChild(gButtonL);
@@ -185,8 +260,8 @@ function populateSections(data) {
                 const sIndexR = sContainerR.getAttribute('modelIndex');
                 const sIndexL = sContainerL.getAttribute('modelIndex');
 
-                let sButtonR = createButton(sIndexR, item);
-                let sButtonL = createButton(sIndexL, item);
+                let sButtonR = createModelButton(sIndexR, item);
+                let sButtonL = createModelButton(sIndexL, item);
 
                 sContainerR.appendChild(sButtonR);
                 sContainerL.appendChild(sButtonL);
@@ -199,8 +274,8 @@ function populateSections(data) {
                 const bIndexR = bContainerR.getAttribute('modelIndex');
                 const bIndexL = bContainerL.getAttribute('modelIndex');
 
-                let bButtonR = createButton(bIndexR, item);
-                let bButtonL = createButton(bIndexL, item);
+                let bButtonR = createModelButton(bIndexR, item);
+                let bButtonL = createModelButton(bIndexL, item);
 
                 bContainerR.appendChild(bButtonR);
                 bContainerL.appendChild(bButtonL);
@@ -211,7 +286,7 @@ function populateSections(data) {
                 if (containerID){
                     let container = document.getElementById(containerID);
                     if (container){
-                        let button = createButton(
+                        let button = createModelButton(
                             container.getAttribute('modelIndex'),
                             item);
                         container.appendChild(button);
@@ -251,6 +326,28 @@ function selectModel(index, item) {
     console.log(`Equipped cosmetic ${item.name} at index ${index}`);
 }
 
+function selectColour(index, item) {
+    const typeMap = {
+        'LeatherPlating': battleSuitColours,
+        'Belt': battleSuitColours,
+        'Metals': battleSuitColours,
+        'Gambeson': battleSuitColours,
+        'Straps': battleSuitColours,
+        'Undersuit': battleSuitColours,
+
+        'Skin': characterColours,
+        'Eyes': characterColours,
+        'Hair': characterColours
+    }
+    let r = parseFloat(item.red) / 255.0;
+    let g = parseFloat(item.green) / 255.0;
+    let b = parseFloat(item.blue) / 255.0;
+
+    typeMap[item.type][index] = new THREE.Vector3(r, g, b);
+    characterColours[2] = battleSuitColours[1];
+    reloadModels();
+}
+
 const w = window.innerWidth;
 const h = window.innerHeight;
 const ratio = .6;
@@ -262,8 +359,9 @@ const loader = new OBJLoader();
 const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
 const texturePath = 'https://cxntrxl.github.io/RockWardrobe/tex'
 const textureLoader = new THREE.TextureLoader();
-const baseColourTexture = textureLoader.load('/tex/Chestplate/Ponch.png');
-const maskTexture = textureLoader.load('/tex/Chestplate/Ponch_ID.png');
+let baseColourTexture;
+let maskTexture;
+
 
 let battleSuitColours = [
     new THREE.Vector3(222/255, 128/255, 95/255),
@@ -280,9 +378,9 @@ let characterColours = [
     new THREE.Vector3(255/255, 183/255, 153/255),
     new THREE.Vector3(53/255, 45/255, 42/255),
     new THREE.Vector3(218/255, 210/255, 184/255),
-    new THREE.Vector3(243/255, 223/255, 182/225),
+    new THREE.Vector3(0/255, 0/255, 255/225),
     new THREE.Vector3(134/255, 107/255, 96/255),
-    new THREE.Vector3(255/255, 255/255, 255/255)
+    new THREE.Vector3(45/255, 30/255, 30/255)
 ]
 
 let eyeColours = [
@@ -293,6 +391,16 @@ let eyeColours = [
     new THREE.Vector3(1, 1, 1),
     new THREE.Vector3(1, 1, 1),
     new THREE.Vector3(1, 1, 1)
+]
+
+let debugColours = [
+    new THREE.Vector3(1, 0, 0), //Red
+    new THREE.Vector3(1, .5, 0), //Orange
+    new THREE.Vector3(1, 1, 0), //Yellow
+    new THREE.Vector3(0, 1, 0), //Green
+    new THREE.Vector3(0, 0, 1), //Blue
+    new THREE.Vector3(0, 1, 1), //Cyan
+    new THREE.Vector3(1, 0, 1) //Magenta
 ]
 
 // Custom shader material
@@ -310,7 +418,7 @@ const customMaterial = new THREE.ShaderMaterial({
                 new THREE.Vector3(1.0, 0.0, 1.0)  // Magenta
             ] },
         lightDirection: { value: new THREE.Vector3(1.0, 1.0, 1.0).normalize() },
-        ambientLight: {value: 0.3},
+        ambientLight: {value: .45},
         userData: {value: false}
     },
     vertexShader: `
@@ -342,13 +450,14 @@ const customMaterial = new THREE.ShaderMaterial({
 
             // Select zone color based on mask
             vec3 outputColor = vec3(0.0);
-            if (maskTex.r > 0.9 && maskTex.g < 0.1 && maskTex.b < 0.1) outputColor = zoneColors[0]; // Red zone
-            else if (maskTex.r > 0.9 && maskTex.g > 0.4 && maskTex.g < 0.9 && maskTex.b < 0.1) outputColor = zoneColors[1]; // Orange zone
-            else if (maskTex.r > 0.9 && maskTex.g > 0.9 && maskTex.b < 0.1) outputColor = zoneColors[2]; // Yellow zone
-            else if (maskTex.r < 0.1 && maskTex.g > 0.9 && maskTex.b < 0.1) outputColor = zoneColors[3]; // Green zone
-            else if (maskTex.r < 0.1 && maskTex.g < 0.1 && maskTex.b > 0.9) outputColor = zoneColors[4]; // Blue zone
-            else if (maskTex.r < 0.1 && maskTex.g > 0.9 && maskTex.b > 0.9) outputColor = zoneColors[5]; // Cyan zone
-            else if (maskTex.r > 0.9 && maskTex.g < 0.1 && maskTex.b > 0.9) outputColor = zoneColors[6]; // Magenta zone
+            if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = zoneColors[0]; // Red zone
+            else if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) outputColor = zoneColors[1]; // Orange zone
+            else if (maskTex.r > 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) outputColor = zoneColors[2]; // Yellow zone
+            else if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) outputColor = zoneColors[3]; // Green zone
+            else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[4]; // Blue zone
+            else if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b > 0.5) outputColor = zoneColors[5]; // Cyan zone
+            else if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[6]; // Magenta zone
+            else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = vec3(1.0,1.0,1.0);
 
             // Compute lighting
             vec3 normal = normalize(vNormal);
@@ -356,7 +465,7 @@ const customMaterial = new THREE.ShaderMaterial({
             float lightIntensity = mix(ambientLight, 1.0, diffuse);
 
             // Toon shading: discretize light intensity into bands
-            float toonShading = floor(lightIntensity * 4.0) / 4.0;
+            float toonShading = floor(lightIntensity * 3.0) / 3.0;
 
             // Modulate color by base texture brightness
             float brightness = baseTex.r; // Use red channel of baseColour
@@ -369,6 +478,8 @@ const customMaterial = new THREE.ShaderMaterial({
 });
 
 function loadModel(modelName, baseColour, ID, itemType) {
+    if (!modelName) return;
+    console.log(`LoadModel called for ${modelsPath + modelName}}`);
     loader.load(modelsPath + modelName, function (object) {
         object.traverse(function (child) {
             if (child.isMesh) {
@@ -386,7 +497,10 @@ function loadModel(modelName, baseColour, ID, itemType) {
                     materialInstance.uniforms.zoneColors.value = eyeColours;
                 }
 
+                if (baseColour)
                 materialInstance.uniforms.baseColour.value = textureLoader.load(texturePath + baseColour);
+
+                if (ID)
                 materialInstance.uniforms.mask.value = textureLoader.load(texturePath + ID);
                 child.material = materialInstance; // Apply custom material to meshes
             }
@@ -409,19 +523,6 @@ function reloadModels() {
        }
        scene.remove(object);
     });
-
-    const topLight = new THREE.DirectionalLight(0xffffff, 1);
-    topLight.position.set(500,500,500);
-    topLight.castShadow = true;
-    scene.add(topLight);
-
-    const botLight = new THREE.DirectionalLight(0xffffff, .3);
-    botLight.position.set(-500,-500,-500);
-    botLight.castShadow = true;
-    scene.add(botLight);
-
-    const ambientLight = new THREE.AmbientLight(0x333333, 1);
-    scene.add(ambientLight);
 
     const dualSideTypes = {
         "Sleeve": { 15: 1, 16: 0 },
@@ -449,6 +550,8 @@ function reloadModels() {
     for (let i = 0; i < equippedCosmetics.length; i++) {
         if (!equippedCosmetics[i]) continue;
         const item = equippedCosmetics[i];
+
+        console.log("Attempting to load model for " + item.name);
 
         if (Array.isArray(item.model)) {
             if (dualSideTypes[item.type]) {

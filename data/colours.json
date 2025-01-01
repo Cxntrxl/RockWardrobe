@@ -1,0 +1,1145 @@
+[
+  {
+    "type": "Skin",
+    "red": 197,
+    "green": 176,
+    "blue": 145,
+    "name": "Zombie A",
+    "price": 600,
+    "description": "Remember, if you ever find yourself in a zombie apocalypse, just head to the nearest inn, enjoy a nice cold pint, and wait for all of it to blow over."
+  },
+  {
+    "type": "Skin",
+    "red": 156,
+    "green": 150,
+    "blue": 128,
+    "name": "Zombie B",
+    "price": 600,
+    "description": "See now you have the perfect excuse for that abysmal reaction time!"
+  },
+  {
+    "type": "Skin",
+    "red": 208,
+    "green": 186,
+    "blue": 173,
+    "name": "Vampire A",
+    "price": 900,
+    "description": "You won't burn up in direct sunlight, trust me bro."
+  },
+  {
+    "type": "Skin",
+    "red": 164,
+    "green": 140,
+    "blue": 128,
+    "name": "Vampire B",
+    "price": 900,
+    "description": "Drinking blood already seems kind of like a chore, but honestly what good is eternal life if you can't eat garlic?"
+  },
+  {
+    "type": "Hair",
+    "red": 226,
+    "green": 196,
+    "blue": 172,
+    "name": "Strawberry Blonde",
+    "price": 600,
+    "description": "Strawberries aren't even classified as berries, honestly we're doomed as a species."
+  },
+  {
+    "type": "Hair",
+    "red": 208,
+    "green": 135,
+    "blue": 146,
+    "name": "Pink",
+    "price": 1200,
+    "description": "So cute."
+  },
+  {
+    "type": "Hair",
+    "red": 175,
+    "green": 90,
+    "blue": 83,
+    "name": "Red",
+    "price": 600,
+    "description": "Dye your hair red, it matches nicely with the mighty fire burning your heart."
+  },
+  {
+    "type": "Hair",
+    "red": 214,
+    "green": 137,
+    "blue": 81,
+    "name": "Orange",
+    "price": 300,
+    "description": "Perfect for cheering on Max!"
+  },
+  {
+    "type": "Hair",
+    "red": 165,
+    "green": 168,
+    "blue": 91,
+    "name": "Lime",
+    "price": 600,
+    "description": "Dye your hair a fresh lime green."
+  },
+  {
+    "type": "Hair",
+    "red": 128,
+    "green": 183,
+    "blue": 178,
+    "name": "Teal",
+    "price": 600,
+    "description": "Dye your hair a tropical teal."
+  },
+  {
+    "type": "Hair",
+    "red": 103,
+    "green": 129,
+    "blue": 156,
+    "name": "Blue",
+    "price": 600,
+    "description": "Bring out the anime protagonist within you."
+  },
+  {
+    "type": "Hair",
+    "red": 135,
+    "green": 122,
+    "blue": 168,
+    "name": "Purple",
+    "price": 1200,
+    "description": "Purple, the colour of kings and queens."
+  },
+  {
+    "type": "Eyes",
+    "red": 95,
+    "green": 173,
+    "blue": 113,
+    "name": "Leaf Green",
+    "price": 300,
+    "description": "Alternative eye colouring."
+  },
+  {
+    "type": "Eyes",
+    "red": 184,
+    "green": 190,
+    "blue": 80,
+    "name": "Lime",
+    "price": 600,
+    "description": "Alternative eye colouring."
+  },
+  {
+    "type": "Eyes",
+    "red": 202,
+    "green": 121,
+    "blue": 91,
+    "name": "Orange",
+    "price": 600,
+    "description": "Alternative eye colouring."
+  },
+  {
+    "type": "Eyes",
+    "red": 121,
+    "green": 109,
+    "blue": 207,
+    "name": "Amethyst",
+    "price": 600,
+    "description": "Alternative eye colouring."
+  },
+  {
+    "type": "Eyes",
+    "red": 155,
+    "green": 111,
+    "blue": 196,
+    "name": "Violet",
+    "price": 600,
+    "description": "Alternative eye colouring."
+  },
+  {
+    "type": "Eyes",
+    "red": 206,
+    "green": 138,
+    "blue": 163,
+    "name": "Pink",
+    "price": 600,
+    "description": "No, not that kind of pink eye, the cute kind!"
+  },
+  {
+    "type": "Eyes",
+    "red": 233,
+    "green": 199,
+    "blue": 102,
+    "name": "Yellow",
+    "price": 600,
+    "description": "What kind of nobody goes around stealing hearts?"
+  },
+  {
+    "type": "Eyes",
+    "red": 200,
+    "green": 92,
+    "blue": 82,
+    "name": "Red",
+    "price": 900,
+    "description": "Enemies with red eyes are always more dangerous than those without them, maybe that'll translate to RUMBLE too?"
+  },
+  {
+    "type": "Eyes",
+    "red": 0,
+    "green": 0,
+    "blue": 0,
+    "name": "Black",
+    "price": 900,
+    "description": "Eyes are the windows to the soul, what happens when all you see behind them is black?"
+  },
+  {
+    "type": "Eyes",
+    "red": 254,
+    "green": 251,
+    "blue": 234,
+    "name": "Leaf Green",
+    "price": 300,
+    "description": "Alternative eye colouring."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 131,
+    "green": 93,
+    "blue": 84,
+    "name": "Coffee",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 107,
+    "green": 86,
+    "blue": 81,
+    "name": "Coffee (Darkened)",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 203,
+    "green": 106,
+    "blue": 87,
+    "name": "Papaya",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 160,
+    "green": 97,
+    "blue": 80,
+    "name": "Papaya (Darkened)",
+    "price": 600,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 189,
+    "green": 116,
+    "blue": 101,
+    "name": "Lychee",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 179,
+    "green": 90,
+    "blue": 84,
+    "name": "Strawberry",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 149,
+    "green": 93,
+    "blue": 92,
+    "name": "Cherry",
+    "price": 600,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 125,
+    "green": 86,
+    "blue": 81,
+    "name": "Cherry (Darkened)",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 223,
+    "green": 160,
+    "blue": 119,
+    "name": "Peach",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 224,
+    "green": 192,
+    "blue": 141,
+    "name": "Ginger",
+    "price": 600,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 189,
+    "green": 151,
+    "blue": 102,
+    "name": "Potato",
+    "price": 600,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 220,
+    "green": 178,
+    "blue": 94,
+    "name": "Pineapple",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 155,
+    "green": 159,
+    "blue": 98,
+    "name": "Kiwi",
+    "price": 600,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 129,
+    "green": 131,
+    "blue": 91,
+    "name": "Kiwi (Darkened)",
+    "price": 900,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 100,
+    "green": 132,
+    "blue": 143,
+    "name": "Blueberry",
+    "price": 2400,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 93,
+    "green": 98,
+    "blue": 120,
+    "name": "Blackberry",
+    "price": 1200,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 198,
+    "green": 133,
+    "blue": 137,
+    "name": "Guava",
+    "price": 1200,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 157,
+    "green": 101,
+    "blue": 112,
+    "name": "Plum",
+    "price": 900,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 229,
+    "green": 213,
+    "blue": 187,
+    "name": "Garlic",
+    "price": 900,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 141,
+    "green": 122,
+    "blue": 116,
+    "name": "Pitaya",
+    "price": 300,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "LeatherPlating",
+    "red": 87,
+    "green": 77,
+    "blue": 75,
+    "name": "Jabuticaba",
+    "price": 600,
+    "description": "This unlocks a new colour option for your battle suit's thick leather armor plates."
+  },
+  {
+    "type": "Straps",
+    "red": 144,
+    "green": 96,
+    "blue": 82,
+    "name": "Orange",
+    "price": 600,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 140,
+    "green": 113,
+    "blue": 94,
+    "name": "Mocha",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 120,
+    "green": 103,
+    "blue": 95,
+    "name": "Taupe",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 108,
+    "green": 81,
+    "blue": 74,
+    "name": "Chestnut",
+    "price": 600,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 103,
+    "green": 71,
+    "blue": 72,
+    "name": "Red",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 83,
+    "green": 68,
+    "blue": 65,
+    "name": "Acajou",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 157,
+    "green": 136,
+    "blue": 117,
+    "name": "Tan",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 156,
+    "green": 129,
+    "blue": 100,
+    "name": "Khaki",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 91,
+    "green": 90,
+    "blue": 69,
+    "name": "Green",
+    "price": 600,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 84,
+    "green": 96,
+    "blue": 96,
+    "name": "Teal",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 82,
+    "green": 82,
+    "blue": 94,
+    "name": "Blue",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 115,
+    "green": 84,
+    "blue": 90,
+    "name": "Pink",
+    "price": 600,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 203,
+    "green": 189,
+    "blue": 162,
+    "name": "Beige",
+    "price": 900,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 102,
+    "green": 94,
+    "blue": 92,
+    "name": "Gray",
+    "price": 300,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Straps",
+    "red": 77,
+    "green": 69,
+    "blue": 67,
+    "name": "Black",
+    "price": 900,
+    "description": "Custom dye for your battle suit's leather base and straps."
+  },
+  {
+    "type": "Belt",
+    "red": 132,
+    "green": 85,
+    "blue": 75,
+    "name": "Earthen Brown",
+    "price": 1200,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 233,
+    "green": 221,
+    "blue": 179,
+    "name": "Peaceful Beige",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 230,
+    "green": 192,
+    "blue": 93,
+    "name": "Sunshine Yellow",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 221,
+    "green": 140,
+    "blue": 48,
+    "name": "Energetic Orange",
+    "price": 1200,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 210,
+    "green": 102,
+    "blue": 63,
+    "name": "Flaming Orange",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 192,
+    "green": 80,
+    "blue": 68,
+    "name": "Raging Red",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 149,
+    "green": 60,
+    "blue": 66,
+    "name": "Aged Burgundy",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 202,
+    "green": 100,
+    "blue": 140,
+    "name": "Hot Pink",
+    "price": 1200,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 231,
+    "green": 158,
+    "blue": 201,
+    "name": "Bubblegum Pink",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 137,
+    "green": 107,
+    "blue": 197,
+    "name": "Proud Purple",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 88,
+    "green": 94,
+    "blue": 152,
+    "name": "Deep Azure",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 104,
+    "green": 125,
+    "blue": 214,
+    "name": "Aqua Blue",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 96,
+    "green": 188,
+    "blue": 167,
+    "name": "Caribbean Turquoise",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 89,
+    "green": 173,
+    "blue": 87,
+    "name": "Leaf Green",
+    "price": 1200,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 174,
+    "green": 185,
+    "blue": 67,
+    "name": "Fresh Lime",
+    "price": 900,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 234,
+    "green": 228,
+    "blue": 216,
+    "name": "Star White",
+    "price": 2400,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 83,
+    "green": 78,
+    "blue": 74,
+    "name": "Meteorite Gray",
+    "price": 1200,
+    "description": "Unlocks a new colour for use on your fighter's belt!"
+  },
+  {
+    "type": "Belt",
+    "red": 52,
+    "green": 52,
+    "blue": 52,
+    "name": "Void Black",
+    "price": 2400,
+    "description": "What wicked sort yet lurks in the vast darkness that lies beyond?"
+  },
+  {
+    "type": "Metals",
+    "red": 180,
+    "green": 163,
+    "blue": 111,
+    "name": "Brass",
+    "price": 600,
+    "description": "Rivots, buckles and protective metal plating made of Brass."
+  },
+  {
+    "type": "Metals",
+    "red": 199,
+    "green": 123,
+    "blue": 91,
+    "name": "Copper",
+    "price": 600,
+    "description": "Rivots, buckles and protective metal plating made of Copper."
+  },
+  {
+    "type": "Metals",
+    "red": 167,
+    "green": 164,
+    "blue": 157,
+    "name": "Steel",
+    "price": 900,
+    "description": "It's like iron, but shinier and better."
+  },
+  {
+    "type": "Metals",
+    "red": 200,
+    "green": 144,
+    "blue": 93,
+    "name": "Bronze",
+    "price": 900,
+    "description": "If it worked for the spartans, it'll work for you."
+  },
+  {
+    "type": "Metals",
+    "red": 197,
+    "green": 198,
+    "blue": 193,
+    "name": "Silver",
+    "price": 1200,
+    "description": "For monsters, and also people who finish in second place."
+  },
+  {
+    "type": "Metals",
+    "red": 232,
+    "green": 197,
+    "blue": 116,
+    "name": "Gold",
+    "price": 1600,
+    "description": "For winners only."
+  },
+  {
+    "type": "Metals",
+    "red": 104,
+    "green": 152,
+    "blue": 175,
+    "name": "Runite",
+    "price": 3600,
+    "description": "Does not improve odds of finding gf."
+  },
+  {
+    "type": "Metals",
+    "red": 203,
+    "green": 192,
+    "blue": 208,
+    "name": "Platinum",
+    "price": 2400,
+    "description": "For when you're good, but not quite the best."
+  },
+  {
+    "type": "Metals",
+    "red": 235,
+    "green": 167,
+    "blue": 156,
+    "name": "Rose Gold",
+    "price": 3600,
+    "description": "It's like gold, but prettier and better."
+  },
+  {
+    "type": "Metals",
+    "red": 117,
+    "green": 166,
+    "blue": 136,
+    "name": "Patina",
+    "price": 1200,
+    "description": "Shoutout to the orcs."
+  },
+  {
+    "type": "Metals",
+    "red": 165,
+    "green": 204,
+    "blue": 203,
+    "name": "Diamond",
+    "price": 3600,
+    "description": "Unbreakable, they say."
+  },
+  {
+    "type": "Metals",
+    "red": 121,
+    "green": 117,
+    "blue": 131,
+    "name": "Obsidian",
+    "price": 4200,
+    "description": "Not suitable for opening portals to hellish alternate dimensions of sorts."
+  },
+  {
+    "type": "Metals",
+    "red": 94,
+    "green": 94,
+    "blue": 94,
+    "name": "Onyx",
+    "price": 5000,
+    "description": "Edgelords rejoice."
+  },
+  {
+    "type": "Gambeson",
+    "red": 206,
+    "green": 198,
+    "blue": 175,
+    "name": "Ivory",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 200,
+    "green": 182,
+    "blue": 146,
+    "name": "Cream",
+    "price": 300,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 140,
+    "green": 119,
+    "blue": 102,
+    "name": "Tan",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 141,
+    "green": 111,
+    "blue": 85,
+    "name": "Mocha",
+    "price": 450,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 131,
+    "green": 98,
+    "blue": 79,
+    "name": "Brown",
+    "price": 300,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 105,
+    "green": 82,
+    "blue": 66,
+    "name": "Chocolate",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 106,
+    "green": 126,
+    "blue": 159,
+    "name": "Blue",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 87,
+    "green": 95,
+    "blue": 118,
+    "name": "Navy",
+    "price": 900,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 116,
+    "green": 152,
+    "blue": 150,
+    "name": "Teal",
+    "price": 1200,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 94,
+    "green": 136,
+    "blue": 96,
+    "name": "Green",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 128,
+    "green": 128,
+    "blue": 90,
+    "name": "Forest",
+    "price": 300,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 191,
+    "green": 165,
+    "blue": 104,
+    "name": "Yellow",
+    "price": 450,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 188,
+    "green": 117,
+    "blue": 73,
+    "name": "Orange",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 169,
+    "green": 98,
+    "blue": 78,
+    "name": "Rust",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 164,
+    "green": 90,
+    "blue": 81,
+    "name": "Red",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 123,
+    "green": 79,
+    "blue": 68,
+    "name": "Maroon",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 207,
+    "green": 158,
+    "blue": 154,
+    "name": "Pink",
+    "price": 900,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 152,
+    "green": 108,
+    "blue": 109,
+    "name": "Rouge",
+    "price": 900,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 132,
+    "green": 100,
+    "blue": 115,
+    "name": "Purple",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 224,
+    "green": 218,
+    "blue": 202,
+    "name": "White",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 137,
+    "green": 131,
+    "blue": 117,
+    "name": "Ash",
+    "price": 450,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 96,
+    "green": 95,
+    "blue": 93,
+    "name": "Charcoal",
+    "price": 600,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Gambeson",
+    "red": 79,
+    "green": 79,
+    "blue": 77,
+    "name": "Black",
+    "price": 900,
+    "description": "Customize the colour of your battle suit's gambeson and socks with this item!"
+  },
+  {
+    "type": "Undersuit",
+    "red": 95,
+    "green": 109,
+    "blue": 112,
+    "name": "Teal",
+    "price": 600,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 116,
+    "green": 113,
+    "blue": 106,
+    "name": "Gray",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 94,
+    "green": 94,
+    "blue": 94,
+    "name": "Dark Gray",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 96,
+    "green": 79,
+    "blue": 71,
+    "name": "Dark Brown",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 125,
+    "green": 99,
+    "blue": 84,
+    "name": "Brown",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 148,
+    "green": 128,
+    "blue": 103,
+    "name": "Tan",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 219,
+    "green": 187,
+    "blue": 136,
+    "name": "Dark Beige",
+    "price": 600,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 247,
+    "green": 231,
+    "blue": 198,
+    "name": "Beige",
+    "price": 900,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 111,
+    "green": 110,
+    "blue": 92,
+    "name": "Olive",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 92,
+    "green": 97,
+    "blue": 119,
+    "name": "Blue",
+    "price": 600,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 135,
+    "green": 80,
+    "blue": 73,
+    "name": "Red",
+    "price": 600,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 106,
+    "green": 83,
+    "blue": 75,
+    "name": "Dark Red",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 112,
+    "green": 97,
+    "blue": 120,
+    "name": "Purple",
+    "price": 600,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 254,
+    "green": 251,
+    "blue": 234,
+    "name": "White",
+    "price": 900,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  },
+  {
+    "type": "Undersuit",
+    "red": 96,
+    "green": 79,
+    "blue": 71,
+    "name": "Dark Brown",
+    "price": 300,
+    "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
+  }
+]
