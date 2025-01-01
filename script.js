@@ -356,7 +356,7 @@ function selectColour(index, item) {
             equippedCharacterColours[index] = item;
             break;
     }
-    reloadModels();
+    //reloadModels();
 }
 
 const previewContainer = document.getElementById("PreviewRenderer");
@@ -632,8 +632,8 @@ previewContainer.appendChild(renderer.domElement);
 camera.position.set(0, 1, 1.4);
 camera.rotation.set(-.2, 0, 0);
 
-controls.target.set(0, .8, 0); // Adjust the target based on your character's position
-controls.update(); // Synchronize the controls with the camera
+controls.target.set(0, .8, 0);
+controls.update();
 
 function animate() {
     requestAnimationFrame(animate);

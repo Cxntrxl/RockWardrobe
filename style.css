@@ -131,12 +131,34 @@ button:not(:disabled):hover {
     aspect-ratio: 1;
 }
 
+.scroll-zone::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-zone::-webkit-scrollbar-thumb {
+    background-color: #87b5f1;
+    border-radius: 4px;
+}
+
+.scroll-zone::-webkit-scrollbar-thumb:hover {
+    background-color: #2e2d49;
+}
+
+.scroll-zone {
+    width: auto;
+    height: 130vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-color: #87b5f1 #2e2d49;
+    scrollbar-width: thin;
+}
+
 .hidden {
     display: none;
 }
 
 #PreviewRenderer {
-    width: 100%; /* Or a percentage of the parent container */
+    width: 100%;
     position: relative;
     overflow: hidden;
 }
