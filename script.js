@@ -369,6 +369,7 @@ const loader = new OBJLoader();
 const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
 const texturePath = 'https://cxntrxl.github.io/RockWardrobe/tex'
 const textureLoader = new THREE.TextureLoader();
+let renderer = new THREE.WebGLRenderer({alpha:true});
 let baseColourTexture;
 let maskTexture;
 
@@ -585,9 +586,13 @@ function reloadModels() {
     }
 
     totalCost = 0;
-    equippedCosmetics.forEach(item => {
-        totalCost += item.price;
-    });
+    for (let i = 0; i < equippedCosmetics.length; i++) {
+        if (!equippedCosmetics[i]) continue;
+        if (i > 0) {
+            if (equippedCosmetics[i] === equippedCosmetics[i - 1]) continue;
+        }
+        totalCost += equippedCosmetics[i].price;
+    }
     equippedBattleSuitColours.forEach(item => {
        totalCost += item.price;
     });
@@ -615,7 +620,6 @@ function render() {
     renderer.render(scene, camera);
 }
 
-let renderer = new THREE.WebGLRenderer({alpha:true});
 function setRenderScale() {
     const width = previewContainer.clientWidth * scale;
     const height = (previewContainer.clientWidth / ratio) * scale;
