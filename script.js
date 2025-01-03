@@ -14,10 +14,13 @@ document.body.appendChild(tooltip);
 
 let items;
 let colours;
+let markings;
 let totalCost;
 let equippedCosmetics = new Array(18);
 let equippedBattleSuitColours = new Array(7);
 let equippedCharacterColours = new Array(7);
+let equippedHeadMarkings = new Array(5);
+let equippedBodyMarkings = new Array(5);
 
 function setDefaultEquippedCosmetics() {
     equipItem(findItem("Masculine", "CharacterType"), 0);
@@ -39,7 +42,7 @@ function setDefaultEquippedCosmetics() {
     //equipItem(findItem("None", "Sleeve"),16);
     equipItem(findItem("Shorts", "Pants"),17);
 
-    reloadModels();
+    evaluateGCCost();
 }
 
 function equipItem(item, index) {
@@ -64,24 +67,7 @@ function enableAllModels(male) {
 
 window.onload = () => {
     addButtonListeners();
-    /*fetch('./data/items.json')
-        .then(response => {
-            if (!response.ok) {
-                console.error(`HTTP error - ${response.status}`);
-            }
-            return response.json();
-        })
-        .then( data => {
-            items = data;
-            populateModels(data);
-            applyTooltips();
-            setDefaultEquippedCosmetics();
-        })
-        .catch (error => {
-            console.error(`Error fetching json file - ${error}`);
-        });*/
-
-    fetchCosmeticData(['./data/items.json', './data/colours.json']);
+    fetchCosmeticData(['./data/items.json', './data/colours.json', './data/markings.json']);
 };
 
 async function fetchCosmeticData(urls) {
@@ -98,8 +84,10 @@ async function fetchCosmeticData(urls) {
 
         items = data[0];
         colours = data[1];
+        markings = data[2];
         populateModels(items);
         populateColours(colours);
+        populateMarkings(markings);
         applyTooltips();
         await initModels();
         setDefaultEquippedCosmetics();
@@ -113,6 +101,16 @@ function addButtonListeners(){
        button.addEventListener('click', () => {
           toggleSelection(button);
           toggleContainer(document.getElementById(button.getAttribute('linkedContainer')));
+       });
+    });
+
+    document.querySelectorAll('input[type=range]').forEach(slider => {
+       slider.addEventListener('input', () => {
+           if (slider.id.includes('head')){
+               headMarkingColours[slider.getAttribute('markingColourIndex')].w = slider.value;
+           } else {
+               bodyMarkingColours[slider.getAttribute('markingColourIndex')].w = slider.value;
+           }
        });
     });
 }
@@ -206,6 +204,22 @@ function createColourButton(colourIndex, item) {
     return button;
 }
 
+function createMarkingButton(markingIndex, item) {
+    let button = createButton(item);
+    button.addEventListener('click', () => {
+        selectMarking(markingIndex, item);
+    });
+    return button;
+}
+
+function createMarkingColourButton(markingIndex, item, type) {
+    let button = createButton(item);
+    button.addEventListener('click', () => {
+        selectMarkingColour(markingIndex, item, type);
+    });
+    return button;
+}
+
 function populateColours(data) {
     data.forEach((item) =>{
         const typeMapping = {
@@ -218,19 +232,49 @@ function populateColours(data) {
 
             'Skin': 'skinColourContainer',
             'Eyes': 'eyeColourContainer',
-            'Hair': 'hairColourContainer'
+            'Hair': 'hairColourContainer',
+
+            'Marking': [
+                'headMarkingAColourContainer',
+                'headMarkingBColourContainer',
+                'headMarkingCColourContainer',
+                'headMarkingDColourContainer',
+                'headMarkingEColourContainer',
+
+                'bodyMarkingAColourContainer',
+                'bodyMarkingBColourContainer',
+                'bodyMarkingCColourContainer',
+                'bodyMarkingDColourContainer',
+                'bodyMarkingEColourContainer'
+            ]
         }
 
         let containerID = typeMapping[item.type];
         if (containerID){
-            let container = document.getElementById(containerID);
-            if (container){
-                let button = createColourButton(
-                    container.getAttribute('colourIndex'),
-                    item);
-                container.appendChild(button);
+            if (Array.isArray(containerID)){
+                containerID.forEach(id => {
+                    let container = document.getElementById(id);
+                    if (container){
+                        let button = createMarkingColourButton(
+                            container.getAttribute('markingColourIndex'),
+                            item,
+                            id.includes('head'));
+                        console.log(`Made Marking Colour, Index: ${container.getAttribute('colourIndex')}, ItemName: ${item.name}, Head?: ${id.includes('head')}`);
+                        container.appendChild(button);
+                    } else {
+                        console.warn(`Json parse error at ${item.name}`);
+                    }
+                })
             } else {
-                console.warn(`Json parse error at ${item.name}`);
+                let container = document.getElementById(containerID);
+                if (container){
+                    let button = createColourButton(
+                        container.getAttribute('colourIndex'),
+                        item);
+                    container.appendChild(button);
+                } else {
+                    console.warn(`Json parse error at ${item.name}`);
+                }
             }
         } else {
             console.warn(`Json parse error at ${item.name}`);
@@ -316,6 +360,50 @@ function populateModels(data) {
     })
 }
 
+function populateMarkings(data) {
+    data.forEach((item) =>{
+        const typeMapping = {
+            'Head': 0,
+            'Body': 1,
+        }
+
+        let containerID;
+        if (typeMapping[item.type] === 0) {
+            containerID = [
+                'headMarkingAContainer',
+                'headMarkingBContainer',
+                'headMarkingCContainer',
+                'headMarkingDContainer',
+                'headMarkingEContainer'
+            ]
+        } else {
+            containerID = [
+                'bodyMarkingAContainer',
+                'bodyMarkingBContainer',
+                'bodyMarkingCContainer',
+                'bodyMarkingDContainer',
+                'bodyMarkingEContainer'
+            ]
+        }
+
+        if (containerID){
+            containerID.forEach(id => {
+                let container = document.getElementById(id);
+                if (container){
+                    let button = createMarkingButton(
+                        container.getAttribute('markingIndex'),
+                        item);
+                    container.appendChild(button);
+                } else {
+                    console.warn(`Json parse error at ${item.name}`);
+                }
+            })
+        } else {
+            console.warn(`Json parse error at ${item.name}`);
+        }
+    })
+}
+
 function toggleSelection(button) {
     button.parentElement.querySelectorAll('button')
         .forEach(btn => btn.disabled = false);
@@ -337,7 +425,7 @@ function toggleContainer(container) {
 
 function selectModel(index, item) {
     equipItem(item, index);
-    reloadModels();
+    evaluateGCCost();
 }
 
 function selectColour(index, item) {
@@ -351,7 +439,7 @@ function selectColour(index, item) {
 
         'Skin': 1,
         'Eyes': 1,
-        'Hair': 1
+        'Hair': 1,
     }
     let r = parseFloat(item.red) / 255.0;
     let g = parseFloat(item.green) / 255.0;
@@ -368,7 +456,40 @@ function selectColour(index, item) {
             equippedCharacterColours[index] = item;
             break;
     }
-    //reloadModels();
+    //evaluateGCCost();
+}
+
+function selectMarking(index, item) {
+    let marking;
+    if (item.type === 'Head') {
+        marking = loadedHeadMarkings.find(marking => (marking.name === item.texture));
+        headMarkings[index] = marking;
+        equippedHeadMarkings[index] = item;
+        headMarkingMaterials.forEach(mat => {
+            mat.uniforms.decals.value = headMarkings;
+        })
+    } else {
+        marking = loadedBodyMarkings.find(marking => (marking.name === item.texture));
+        bodyMarkings[index] = marking;
+        equippedBodyMarkings[index] = item;
+        equippedHeadMarkings[index] = item;
+        bodyMarkingMaterials.forEach(mat => {
+            mat.uniforms.decals.value = bodyMarkings;
+            console.log(mat);
+        })
+    }
+}
+
+function selectMarkingColour(index, item, head) {
+    let r = parseFloat(item.red) / 255.0;
+    let g = parseFloat(item.green) / 255.0;
+    let b = parseFloat(item.blue) / 255.0;
+
+    if (head) {
+        headMarkingColours[index] = new THREE.Vector4(r, g, b, 1.0);
+    } else {
+        bodyMarkingColours[index] = new THREE.Vector4(r, g, b, 1.0);
+    }
 }
 
 const previewContainer = document.getElementById("PreviewRenderer");
@@ -442,6 +563,27 @@ let debugColours = [
     new THREE.Vector3(1, 0, 1) //Magenta
 ]
 
+let loadedHeadMarkings = []
+let loadedBodyMarkings = []
+let headMarkings = new Array(5);
+let bodyMarkings = new Array(5);
+let headMarkingColours = /*new Array(5).fill(new THREE.Vector4(0.0, 0.0, 0.0, 1.0));*/ [
+    new THREE.Vector4(1.0, 0.0, 0.0, 1.0),
+    new THREE.Vector4(1.0, 0.5, 0.0, 1.0),
+    new THREE.Vector4(1.0, 1.0, 0.0, 1.0),
+    new THREE.Vector4(0.0, 1.0, 0.0, 1.0),
+    new THREE.Vector4(0.0, 1.0, 1.0, 1.0)
+]
+let bodyMarkingColours = /*new Array(5).fill(new THREE.Vector4(0.0, 0.0, 0.0, 1.0));*/ [
+    new THREE.Vector4(1.0, 0.0, 0.0, 1.0),
+    new THREE.Vector4(1.0, 0.5, 0.0, 1.0),
+    new THREE.Vector4(1.0, 1.0, 0.0, 1.0),
+    new THREE.Vector4(0.0, 1.0, 0.0, 1.0),
+    new THREE.Vector4(0.0, 1.0, 1.0, 1.0)
+]
+let headMarkingMaterials = []
+let bodyMarkingMaterials = []
+
 // Custom shader material
 const customMaterial = new THREE.ShaderMaterial({
     uniforms: {
@@ -457,18 +599,19 @@ const customMaterial = new THREE.ShaderMaterial({
                 new THREE.Vector3(1.0, 0.0, 1.0)  // Magenta
             ] },
         lightDirection: { value: new THREE.Vector3(1.0, 1.0, 1.0).normalize() },
-        ambientLight: {value: .45},
-        userData: {value: false}
+        ambientLight: { value: 0.45 },
+        userData: { value: false },
+        decals: { value: Array(5).fill(null) }, // Decal textures
+        decalColors: { value: Array(5).fill(new THREE.Vector4(0.0, 0.0, 0.0, 0.0)) },
+        decalCount: { value: 5 },
     },
     vertexShader: `
         varying vec2 vUv;
         varying vec3 vNormal;
-        varying vec3 vPosition;
 
         void main() {
             vUv = uv;
             vNormal = normalMatrix * normal; // Transform normal to view space
-            vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
     `,
@@ -482,12 +625,14 @@ const customMaterial = new THREE.ShaderMaterial({
         uniform vec3 lightDirection;
         uniform float ambientLight;
 
+        uniform sampler2D decals[5];
+
+        uniform vec4 decalColors[5];
+
         void main() {
-            // Sample textures
             vec4 baseTex = texture2D(baseColour, vUv);
             vec4 maskTex = texture2D(mask, vUv);
 
-            // Select zone color based on mask
             vec3 outputColor = vec3(0.0);
             if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = zoneColors[0]; // Red zone
             else if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) outputColor = zoneColors[1]; // Orange zone
@@ -496,18 +641,26 @@ const customMaterial = new THREE.ShaderMaterial({
             else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[4]; // Blue zone
             else if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b > 0.5) outputColor = zoneColors[5]; // Cyan zone
             else if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[6]; // Magenta zone
-            else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = vec3(1.0,1.0,1.0);
+            else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = vec3(1.0, 1.0, 1.0);
 
-            // Compute lighting
+            // Apply decals manually
+            vec4 decalTex0 = texture2D(decals[0], vUv);
+            vec4 decalTex1 = texture2D(decals[1], vUv);
+            vec4 decalTex2 = texture2D(decals[2], vUv);
+            vec4 decalTex3 = texture2D(decals[3], vUv);
+            vec4 decalTex4 = texture2D(decals[4], vUv);
+            
+            outputColor = mix(outputColor, decalColors[0].rgb, decalTex0.r * decalColors[0].a);
+            outputColor = mix(outputColor, decalColors[1].rgb, decalTex1.r * decalColors[1].a);
+            outputColor = mix(outputColor, decalColors[2].rgb, decalTex2.r * decalColors[2].a);
+            outputColor = mix(outputColor, decalColors[3].rgb, decalTex3.r * decalColors[3].a);
+            outputColor = mix(outputColor, decalColors[4].rgb, decalTex4.r * decalColors[4].a);
+
             vec3 normal = normalize(vNormal);
             float diffuse = max(dot(normal, normalize(lightDirection)), 0.0);
             float lightIntensity = mix(ambientLight, 1.0, diffuse);
-
-            // Toon shading: discretize light intensity into bands
             float toonShading = floor(lightIntensity * 3.0) / 3.0;
-
-            // Modulate color by base texture brightness
-            float brightness = baseTex.r; // Use red channel of baseColour
+            float brightness = baseTex.r;
             vec3 finalColor = outputColor * brightness * (ambientLight + (toonShading * (1.0 - ambientLight)));
 
             gl_FragColor = vec4(finalColor, 1.0);
@@ -519,6 +672,22 @@ const customMaterial = new THREE.ShaderMaterial({
 async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
     if (!modelName) return;
 
+    const markingTypeMap = {
+        "/BaseMesh/Male/Male_Arm_Left.obj":0,
+        "/BaseMesh/Male/Male_Arm_Right.obj":0,
+        "/BaseMesh/Male/Male_Legs.obj":0,
+        "/BaseMesh/Male/Male_Neck.obj":0,
+        "/BaseMesh/Male/Male_Torso.obj":0,
+        "/BaseMesh/Female/Female_Arm_Left.obj":0,
+        "/BaseMesh/Female/Female_Arm_Right.obj":0,
+        "/BaseMesh/Female/Female_Legs.obj":0,
+        "/BaseMesh/Female/Female_Neck.obj":0,
+        "/BaseMesh/Female/Female_Torso.obj":0,
+
+        "/BaseMesh/Male/Male_Head.obj":1,
+        "/BaseMesh/Female/Female_Head.obj":1
+    }
+
     return new Promise((resolve, reject) => {
         loader.load(
             modelsPath + modelName,
@@ -526,22 +695,29 @@ async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
                 object.traverse(function (child) {
                     if (child.isMesh) {
                         const materialInstance = customMaterial.clone();
-
                         if (itemTypeMap[itemType] === 'BattleSuit') {
                             materialInstance.uniforms.zoneColors.value = battleSuitColours;
-                        }
-
-                        if (itemTypeMap[itemType] === 'Character') {
+                        } else if (itemTypeMap[itemType] === 'Character') {
                             materialInstance.uniforms.zoneColors.value = characterColours;
+                        } else if (itemTypeMap[itemType] === 'Eyes') {
+                            materialInstance.uniforms.zoneColors.value = eyeColours;
                         }
 
-                        if (itemTypeMap[itemType] === 'Eyes') {
-                            materialInstance.uniforms.zoneColors.value = eyeColours;
+                        if (markingTypeMap[modelName] !== undefined) {
+                            console.log("Loaded marking-capable model.")
+                            if (markingTypeMap[modelName] === 0) {
+                                materialInstance.uniforms.decals.value = bodyMarkings;
+                                materialInstance.uniforms.decalColors.value = bodyMarkingColours;
+                                bodyMarkingMaterials.push(materialInstance);
+                            } else {
+                                materialInstance.uniforms.decals.value = headMarkings;
+                                materialInstance.uniforms.decalColors.value = headMarkingColours;
+                                headMarkingMaterials.push(materialInstance);
+                            }
                         }
 
                         if (baseColour)
                             materialInstance.uniforms.baseColour.value = textureLoader.load(texturePath + baseColour);
-
                         if (ID)
                             materialInstance.uniforms.mask.value = textureLoader.load(texturePath + ID);
                         child.material = materialInstance; // Apply custom material to meshes
@@ -561,112 +737,29 @@ async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
         );
     });
 }
-/*async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
-    if (!modelName) return;
-    console.log(`LoadModel called for ${modelsPath + modelName}}`);
 
-    loader.load(modelsPath + modelName, function (object) {
-        object.traverse(function (child) {
-            if (child.isMesh) {
-                const materialInstance = customMaterial.clone();
-
-                if (itemTypeMap[itemType] === 'BattleSuit') {
-                    materialInstance.uniforms.zoneColors.value = battleSuitColours;
-                }
-
-                if (itemTypeMap[itemType] === 'Character') {
-                    materialInstance.uniforms.zoneColors.value = characterColours;
-                }
-
-                if (itemTypeMap[itemType] === 'Eyes') {
-                    materialInstance.uniforms.zoneColors.value = eyeColours;
-                }
-
-                if (baseColour)
-                materialInstance.uniforms.baseColour.value = textureLoader.load(texturePath + baseColour);
-
-                if (ID)
-                materialInstance.uniforms.mask.value = textureLoader.load(texturePath + ID);
-                child.material = materialInstance; // Apply custom material to meshes
-            }
-        });
-        object.name = itemIndex + "." + modelName;
-        object.visible = false;
-
-        if (!modelGroups[itemIndex]) {
-            modelGroups[itemIndex] = new THREE.Group();
-            scene.add(modelGroups[itemIndex]);
-        }
-        modelGroups[itemIndex].add(object)
-
-        scene.add(object);
-        render();
-    });
-}*/
-
-function reloadModels() {
-    /*scene.children.forEach((object) => {
-       if (object.geometry) object.geometry.dispose();
-       if (object.material) {
-           if (Array.isArray(object.material)) {
-               object.material.forEach(mat => mat.dispose());
-           } else {
-               object.material.dispose();
-           }
-       }
-       scene.remove(object);
-    });
-
-    const dualSideTypes = {
-        "Sleeve": { 15: 1, 16: 0 },
-        "Gauntlet": { 10: 1, 11: 0 },
-        "Boots": { 12: 1, 13: 0 }
-    };
-
-    const itemTypeMap = {
-        'CharacterType':'Character',
-        'EyeSheen':'Eyes',
-        'TopHairstyle':'Character',
-        'SideHairstyle':'Character',
-        'Eyebrows':'Character',
-        'Eyelashes':'Character',
-        'Moustache':'Character',
-        'Beard':'Character',
-        'Torso':'BattleSuit',
-        'Chestplate':'BattleSuit',
-        'Sleeve':'BattleSuit',
-        'Gauntlet':'BattleSuit',
-        'Pants':'BattleSuit',
-        'Boots':'BattleSuit'
-    }
-
-    for (let i = 0; i < equippedCosmetics.length; i++) {
-        if (!equippedCosmetics[i]) continue;
-        const item = equippedCosmetics[i];
-
-        console.log("Attempting to load model for " + item.name);
-
-        if (Array.isArray(item.model)) {
-            if (dualSideTypes[item.type]) {
-                if(Array.isArray(item.texture)){
-                    loadModel(item.model[dualSideTypes[item.type][i]], item.texture[dualSideTypes[item.type][i]], item.ids[dualSideTypes[item.type][i]], itemTypeMap[item.type]);
+async function loadMarking(textureName, type){
+    return new Promise((resolve) => {
+        textureLoader.load(
+            texturePath + textureName,
+            function (object) {
+                object.name = textureName;
+                if (type === 'Head') {
+                    loadedHeadMarkings.push(object);
                 } else {
-                    loadModel(item.model[dualSideTypes[item.type][i]], item.texture, item.ids, itemTypeMap[item.type]);
+                    loadedBodyMarkings.push(object);
                 }
-            } else {
-                for (let j = 0; j < item.model.length; j++) {
-                    if(Array.isArray(item.texture)){
-                        loadModel(item.model[j], item.texture[j], item.ids[j], itemTypeMap[item.type]);
-                    } else {
-                        loadModel(item.model[j], item.texture, item.ids, itemTypeMap[item.type]);
-                    }
-                }
+                resolve();
+            },
+            undefined,
+            function (error) {
+                resolve();
             }
-        } else {
-            loadModel(item.model, item.texture, item.ids, itemTypeMap[item.type]);
-        }
-    }*/
+        );
+    });
+}
 
+function evaluateGCCost() {
     totalCost = 0;
     for (let i = 0; i < equippedCosmetics.length; i++) {
         if (!equippedCosmetics[i]) continue;
@@ -695,8 +788,6 @@ function formatTime(minutes) {
     }
     return `${String(hours)} hours, ${String(mins).padStart(2, '0')} minutes`;
 }
-
-//reloadModels()
 
 async function initModels() {
     const indexMap = {
@@ -747,6 +838,10 @@ async function initModels() {
         }
     }
 
+    for (let i = 0; i < markings.length; i++) {
+        loadPromises.push(loadMarking(markings[i].texture, markings[i].type));
+    }
+    
     await Promise.all(loadPromises);
     console.log("All models should be loaded.")
 }

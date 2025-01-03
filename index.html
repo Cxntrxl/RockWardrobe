@@ -108,13 +108,149 @@
                         </div>
 
                         <!--HEAD MARKING COLOUR OPTIONS-->
-                        <div class="grid-container hidden" id="headMarkingsColoursContainer">
-                            <p>Markings not yet implemented - sorry!</p>
+                        <div class="button-container stack hidden" id="headMarkingsColoursContainer">
+                            <h2>Head Marking A</h2>
+                            <div class="grid-container" id="headMarkingAColourContainer" markingColourIndex="0">
+                            </div>
+                            <label for="headMarkingAOpacity">Body Marking A Opacity</label>
+                            <input
+                                    id="headMarkingAOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="0"
+                            />
+
+                            <h2>Head Marking B</h2>
+                            <div class="grid-container" id="headMarkingBColourContainer" markingColourIndex="1">
+                            </div>
+                            <label for="headMarkingBOpacity">Body Marking B Opacity</label>
+                            <input
+                                    id="headMarkingBOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="1"
+                            />
+
+                            <h2>Head Marking C</h2>
+                            <div class="grid-container" id="headMarkingCColourContainer" markingColourIndex="2">
+                            </div>
+                            <label for="headMarkingCOpacity">Body Marking C Opacity</label>
+                            <input
+                                    id="headMarkingCOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="2"
+                            />
+
+                            <h2>Head Marking D</h2>
+                            <div class="grid-container" id="headMarkingDColourContainer" markingColourIndex="3">
+                            </div>
+                            <label for="headMarkingDOpacity">Body Marking D Opacity</label>
+                            <input
+                                    id="headMarkingDOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="3"
+                            />
+
+                            <h2>Head Marking E</h2>
+                            <div class="grid-container" id="headMarkingEColourContainer" markingColourIndex="4">
+                            </div>
+                            <label for="headMarkingEOpacity">Body Marking E Opacity</label>
+                            <input
+                                    id="headMarkingEOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="4"
+                            />
                         </div>
 
                         <!--BODY MARKING COLOUR OPTIONS-->
-                        <div class="grid-container hidden" id="bodyMarkingsColoursContainer">
-                            <p>Markings not yet implemented - sorry!</p>
+                        <div class="button-container stack hidden" id="bodyMarkingsColoursContainer">
+                            <h2>Body Marking A</h2>
+                            <div class="grid-container" id="bodyMarkingAColourContainer" markingColourIndex="0">
+                            </div>
+                            <label for="bodyMarkingAOpacity">Body Marking A Opacity</label>
+                            <input
+                                    id="bodyMarkingAOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="0"
+                            />
+
+                            <h2>Body Marking B</h2>
+                            <div class="grid-container" id="bodyMarkingBColourContainer" markingColourIndex="1">
+                            </div>
+                            <label for="bodyMarkingBOpacity">Body Marking B Opacity</label>
+                            <input
+                                    id="bodyMarkingBOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="1"
+                            />
+
+                            <h2>Body Marking C</h2>
+                            <div class="grid-container" id="bodyMarkingCColourContainer" markingColourIndex="2">
+                            </div>
+                            <label for="bodyMarkingCOpacity">Body Marking C Opacity</label>
+                            <input
+                                    id="bodyMarkingCOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="2"
+                            />
+
+                            <h2>Body Marking D</h2>
+                            <div class="grid-container" id="bodyMarkingDColourContainer" markingColourIndex="3">
+                            </div>
+                            <label for="bodyMarkingDOpacity">Body Marking D Opacity</label>
+                            <input
+                                    id="bodyMarkingDOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="3"
+                            />
+
+                            <h2>Body Marking E</h2>
+                            <div class="grid-container" id="bodyMarkingEColourContainer" markingColourIndex="4">
+                            </div>
+                            <label for="bodyMarkingEOpacity">Body Marking E Opacity</label>
+                            <input
+                                    id="bodyMarkingEOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.01"
+                                    value="0.5"
+                                    markingColourIndex="4"
+                            />
                         </div>
                     </div>
                 </div>
@@ -275,21 +411,24 @@
 
                         <!--HEAD MARKINGS MODEL OPTIONS-->
                         <div class="button-container stack hidden" id="headMarkingsModelsContainer">
-                            <p>Markings currently not implemented.</p>
-                            <div class="grid-container" id="headMarkingAContainer">
-
+                            <h2>Head Marking A</h2>
+                            <div class="grid-container" id="headMarkingAContainer" markingIndex="0">
                             </div>
-                            <div class="grid-container" id="headMarkingBContainer">
 
+                            <h2>Head Marking B</h2>
+                            <div class="grid-container" id="headMarkingBContainer" markingIndex="1">
                             </div>
-                            <div class="grid-container" id="headMarkingCContainer">
 
+                            <h2>Head Marking C</h2>
+                            <div class="grid-container" id="headMarkingCContainer" markingIndex="2">
                             </div>
-                            <div class="grid-container" id="headMarkingDContainer">
 
+                            <h2>Head Marking D</h2>
+                            <div class="grid-container" id="headMarkingDContainer" markingIndex="3">
                             </div>
-                            <div class="grid-container" id="headMarkingEContainer">
 
+                            <h2>Head Marking E</h2>
+                            <div class="grid-container" id="headMarkingEContainer" markingIndex="4">
                             </div>
                         </div>
 
@@ -312,21 +451,24 @@
 
                         <!--BODY MARKINGS MODEL OPTIONS-->
                         <div class="button-container stack hidden" id="bodyMarkingsModelsContainer">
-                            <p>Markings currently not implemented.</p>
-                            <div class="grid-container" id="bodyMarkingAContainer">
-
+                            <h2>Body Marking A</h2>
+                            <div class="grid-container" id="bodyMarkingAContainer" markingIndex="0">
                             </div>
-                            <div class="grid-container" id="bodyMarkingBContainer">
 
+                            <h2>Body Marking B</h2>
+                            <div class="grid-container" id="bodyMarkingBContainer" markingIndex="1">
                             </div>
-                            <div class="grid-container" id="bodyMarkingCContainer">
 
+                            <h2>Body Marking C</h2>
+                            <div class="grid-container" id="bodyMarkingCContainer" markingIndex="2">
                             </div>
-                            <div class="grid-container" id="bodyMarkingDContainer">
 
+                            <h2>Body Marking D</h2>
+                            <div class="grid-container" id="bodyMarkingDContainer" markingIndex="3">
                             </div>
-                            <div class="grid-container" id="bodyMarkingEContainer">
 
+                            <h2>Body Marking E</h2>
+                            <div class="grid-container" id="bodyMarkingEContainer" markingIndex="4">
                             </div>
                         </div>
                     </div>

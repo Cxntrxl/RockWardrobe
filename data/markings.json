@@ -1,0 +1,410 @@
+[
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "",
+    "name": "None",
+    "price": 0,
+    "description": "Clean Description!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Blush.png",
+    "name": "Blush 1",
+    "price": 0,
+    "description": "Pretty Description!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Blush2.png",
+    "name": "Blush 2",
+    "price": 0,
+    "description": "Scribble Description!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Lipstick.png",
+    "name": "Lipstick",
+    "price": 0,
+    "description": "Makeup Description!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/5oclock.png",
+    "name": "Stubble",
+    "price": 300,
+    "description": "After all, why shouldn't I not shave today?"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Mole.png",
+    "name": "Cheek Mole",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Nosescar.png",
+    "name": "Horizontal Scar",
+    "price": 600,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Lipscar.png",
+    "name": "Lip Scar",
+    "price": 600,
+    "description": "Use this if you want to look tougher."
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Eyescar.png",
+    "name": "Eye Scar",
+    "price": 600,
+    "description": "The mark of the edgelord."
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Theactionman.png",
+    "name": "Cheek Scar",
+    "price": 600,
+    "description": "Action hero scars, come get your action hero scars!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Lipstick2.png",
+    "name": "Lip Heart",
+    "price": 900,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Lipstick3.png",
+    "name": "Lip Sketch",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Flushcheeks.png",
+    "name": "Flush Cheeks",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Nose.png",
+    "name": "Nose",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Clown.png",
+    "name": "Nose Tip",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Face.png",
+    "name": "Facepaint",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Braveheart.png",
+    "name": "Highlander",
+    "price": 600,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Forehead.png",
+    "name": "Forehead",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Warpaint4.png",
+    "name": "Fury",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Warpaint3.png",
+    "name": "Chieftain",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/HeroMask.png",
+    "name": "Hero Mask",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Warpaint1.png",
+    "name": "Cheek Bars",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Warpaint2.png",
+    "name": "Cheek Stripes",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Warrpaint5.png",
+    "name": "Warlord",
+    "price": 600,
+    "description": "Combine with big bushy beard and bald head for peak."
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Cat.png",
+    "name": "Cat",
+    "price": 300,
+    "description": "Cat."
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Target.png",
+    "name": "Target",
+    "price": 900,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Skull_Head.png",
+    "name": "Skull Head",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "",
+    "name": "None",
+    "price": 0,
+    "description": "Blank Description!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Lucky.png",
+    "name": "Lucky Clover",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Fill1.png",
+    "name": "Left Arm Sleeve",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Fill2.png",
+    "name": "Right Arm Sleeve",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Flames.png",
+    "name": "Arm Flames",
+    "price": 300,
+    "description": "Ah-haha! That's hot, that's hot."
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Ace.png",
+    "name": "Ace",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Star.png",
+    "name": "Star",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Stamp.png",
+    "name": "Lumbar Flair",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Love.png",
+    "name": "First Crush",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Target.png",
+    "name": "Killshot",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Eye.png",
+    "name": "Always Watching",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Bones.png",
+    "name": "Jolly Roger",
+    "price": 300,
+    "description": "Shiver me pillars."
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Ancors.png",
+    "name": "Seafarer's Anchor",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Boat.png",
+    "name": "Sailor's Back",
+    "price": 300,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Sting.png",
+    "name": "Boxer's Mantra",
+    "price": 300,
+    "description": "It's not bragging if you can bag it up."
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Mom.png",
+    "name": "Mother's Arm",
+    "price": 300,
+    "description": "You gave me my heart."
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Dad.png",
+    "name": "Father's Stone",
+    "price": 300,
+    "description": "Rest in peace."
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Darksighn.png",
+    "name": "Cursed Heart",
+    "price": 300,
+    "description": "When you fall, get back up."
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/AstecTorso.png",
+    "name": "Sacred Marks - Chest",
+    "price": 600,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/AstecLeftarm.png",
+    "name": "Sacred Marks - Left Arm",
+    "price": 600,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Astecrightarm.png",
+    "name": "Sacred Marks - Right Arm",
+    "price": 600,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Astecleftleg.png",
+    "name": "Sacred Marks - Left Leg",
+    "price": 600,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Astecrightleg.png",
+    "name": "Sacred Marks - Right Leg",
+    "price": 600,
+    "description": "Use markings to personalize your fighter even further!"
+  },
+  {
+    "type": "Body",
+    "preview": "",
+    "texture": "/Markings/Body/Ulvak.png",
+    "name": "Ulvak's Target",
+    "price": 300,
+    "description": "Shoutout."
+  }
+]
