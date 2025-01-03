@@ -259,7 +259,6 @@ function populateColours(data) {
                             container.getAttribute('markingColourIndex'),
                             item,
                             id.includes('head'));
-                        console.log(`Made Marking Colour, Index: ${container.getAttribute('colourIndex')}, ItemName: ${item.name}, Head?: ${id.includes('head')}`);
                         container.appendChild(button);
                     } else {
                         console.warn(`Json parse error at ${item.name}`);
@@ -475,7 +474,6 @@ function selectMarking(index, item) {
         equippedHeadMarkings[index] = item;
         bodyMarkingMaterials.forEach(mat => {
             mat.uniforms.decals.value = bodyMarkings;
-            console.log(mat);
         })
     }
 }
@@ -567,20 +565,8 @@ let loadedHeadMarkings = []
 let loadedBodyMarkings = []
 let headMarkings = new Array(5);
 let bodyMarkings = new Array(5);
-let headMarkingColours = /*new Array(5).fill(new THREE.Vector4(0.0, 0.0, 0.0, 1.0));*/ [
-    new THREE.Vector4(1.0, 0.0, 0.0, 1.0),
-    new THREE.Vector4(1.0, 0.5, 0.0, 1.0),
-    new THREE.Vector4(1.0, 1.0, 0.0, 1.0),
-    new THREE.Vector4(0.0, 1.0, 0.0, 1.0),
-    new THREE.Vector4(0.0, 1.0, 1.0, 1.0)
-]
-let bodyMarkingColours = /*new Array(5).fill(new THREE.Vector4(0.0, 0.0, 0.0, 1.0));*/ [
-    new THREE.Vector4(1.0, 0.0, 0.0, 1.0),
-    new THREE.Vector4(1.0, 0.5, 0.0, 1.0),
-    new THREE.Vector4(1.0, 1.0, 0.0, 1.0),
-    new THREE.Vector4(0.0, 1.0, 0.0, 1.0),
-    new THREE.Vector4(0.0, 1.0, 1.0, 1.0)
-]
+let headMarkingColours = new Array(5).fill(new THREE.Vector4(0.28, 0.28, 0.28, 0.8));
+let bodyMarkingColours = new Array(5).fill(new THREE.Vector4(0.28, 0.28, 0.28, 0.8));
 let headMarkingMaterials = []
 let bodyMarkingMaterials = []
 
@@ -650,11 +636,13 @@ const customMaterial = new THREE.ShaderMaterial({
             vec4 decalTex3 = texture2D(decals[3], vUv);
             vec4 decalTex4 = texture2D(decals[4], vUv);
             
-            outputColor = mix(outputColor, decalColors[0].rgb, decalTex0.r * decalColors[0].a);
-            outputColor = mix(outputColor, decalColors[1].rgb, decalTex1.r * decalColors[1].a);
-            outputColor = mix(outputColor, decalColors[2].rgb, decalTex2.r * decalColors[2].a);
-            outputColor = mix(outputColor, decalColors[3].rgb, decalTex3.r * decalColors[3].a);
-            outputColor = mix(outputColor, decalColors[4].rgb, decalTex4.r * decalColors[4].a);
+            if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) {
+                outputColor = mix(outputColor, decalColors[0].rgb, decalTex0.r * decalColors[0].a);
+                outputColor = mix(outputColor, decalColors[1].rgb, decalTex1.r * decalColors[1].a);
+                outputColor = mix(outputColor, decalColors[2].rgb, decalTex2.r * decalColors[2].a);
+                outputColor = mix(outputColor, decalColors[3].rgb, decalTex3.r * decalColors[3].a);
+                outputColor = mix(outputColor, decalColors[4].rgb, decalTex4.r * decalColors[4].a);
+            }
 
             vec3 normal = normalize(vNormal);
             float diffuse = max(dot(normal, normalize(lightDirection)), 0.0);
@@ -704,7 +692,6 @@ async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
                         }
 
                         if (markingTypeMap[modelName] !== undefined) {
-                            console.log("Loaded marking-capable model.")
                             if (markingTypeMap[modelName] === 0) {
                                 materialInstance.uniforms.decals.value = bodyMarkings;
                                 materialInstance.uniforms.decalColors.value = bodyMarkingColours;
@@ -849,7 +836,6 @@ async function initModels() {
 function enableModel(item, index, male) {
     scene.children.forEach(model => {
         let modelIndex = model.name.split('.')[0];
-        let modelName = model.name.split('.')[1];
         if (modelIndex === index) {
             model.visible = false;
         }
