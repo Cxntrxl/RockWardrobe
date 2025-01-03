@@ -79,8 +79,8 @@
       "/BaseMesh/Female/Tounge.obj"
     ],
     "texture": [
-      "/TEX.png",
-      "/TEX.png",
+      "/BaseMesh/Eye.png",
+      "/BaseMesh/Eye.png",
       "/BaseMesh/Female/Body.png",
       "/BaseMesh/Female/Body.png",
       "/BaseMesh/Female/Body.png",
@@ -96,8 +96,8 @@
       "/TEX.png"
     ],
     "ids": [
-      "/MASK.png",
-      "/MASK.png",
+      "/BaseMesh/Eye_ID.png",
+      "/BaseMesh/Eye_ID.png",
       "/BaseMesh/Female/Body_ID.png",
       "/BaseMesh/Female/Body_ID.png",
       "/BaseMesh/Female/Body_ID.png",
@@ -620,6 +620,7 @@
     "type": "Torso",
     "preview": "/icons/Torso_TurtleShirt.png",
     "model": "/Torso/Male/Newtrainingset.obj",
+    "femaleModel": "/Torso/Female/NewTrainingSet.obj",
     "texture":"/Torso/NewTrainingSet.png",
     "ids": "/Torso/NewTrainingSet_ID.png",
     "nakedOverride": "/Torso/Male/NewTrainingSet_Naked_obj",
@@ -631,6 +632,7 @@
     "type": "Torso",
     "preview": "/icons/Torso_LowcutShirt.png",
     "model": "/Torso/Male/Ponch.obj",
+    "femaleModel": "/Torso/Female/Ponch.obj",
     "texture":"/Torso/Ponch.png",
     "ids": "/Torso/Ponch_ID.png",
     "nakedOverride": "/Torso/Male/Ponch_Naked.obj",
@@ -642,6 +644,7 @@
     "type": "Torso",
     "preview": "/icons/Torso_Dogi.png",
     "model": "/Torso/Male/GI.obj",
+    "femaleModel": "/Torso/Female/GI.obj",
     "texture":"/TEX.png",
     "ids": "/MASK.png",
     "nakedOverride": "/Torso/Male/GI_Naked.obj",
@@ -664,6 +667,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_AllPurposeChestplate.png",
     "model": "/Chestplate/Male/Newtrainingset.obj",
+    "femaleModel": "/Chestplate/Female/NewTrainingSet.obj",
     "texture":"/Chestplate/NewTrainingSet.png",
     "ids": "/Chestplate/NewTrainingSet_ID.png",
     "nakedOverride": "",
@@ -675,6 +679,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_AllPurposeChestplateB.png",
     "model": "/Chestplate/Male/NewtrainingsetAltered.obj",
+    "femaleModel": "/Chestplate/Female/AlteredTrainingSet.obj",
     "texture":"/Chestplate/AlteredTrainingSet.png",
     "ids": "/Chestplate/AlteredTrainingSet_ID.png",
     "nakedOverride": "",
@@ -686,6 +691,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_DevotedPoncho.png",
     "model": "/Chestplate/Male/Ponch.obj",
+    "femaleModel": "/Chestplate/Female/Ponch.obj",
     "texture":"/Chestplate/Ponch.png",
     "ids": "/Chestplate/Ponch_ID.png",
     "nakedOverride": "",
@@ -697,6 +703,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_MartialistObi.png",
     "model": "/Chestplate/Male/Basicbelt.obj",
+    "femaleModel": "/Chestplate/Female/BasicBelt.obj",
     "texture":"/Chestplate/BasicBelt.png",
     "ids": "/Chestplate/BasicBelt_ID.png",
     "nakedOverride": "",
@@ -708,6 +715,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_AmbitionBelt.png",
     "model": "/Chestplate/Male/Thicbelt.obj",
+    "femaleModel": "/Chestplate/Female/Thicbelt.obj",
     "texture":"/Chestplate/ThicBelt.png",
     "ids": "/Chestplate/ThicBelt_ID.png",
     "nakedOverride": "",
@@ -719,6 +727,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_ChallengerPauldronLeft.png",
     "model": "/Chestplate/Male/Spartarelec_Left.obj",
+    "femaleModel": "/Chestplate/Female/Spartarelec_Left.obj",
     "texture":"/Chestplate/Sparta.png",
     "ids": "/Chestplate/Sparta_ID.png",
     "nakedOverride": "",
@@ -730,6 +739,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_ChallengerPauldronRight.png",
     "model": "/Chestplate/Male/Spartarelec_Right.obj",
+    "femaleModel": "/Chestplate/Female/Spartarelec_Right.obj",
     "texture":"/Chestplate/Sparta.png",
     "ids": "/Chestplate/Sparta_ID.png",
     "nakedOverride": "",
@@ -741,6 +751,7 @@
     "type": "Chestplate",
     "preview": "/icons/Chestplate_DualChallengerPauldrons.png",
     "model": "/Chestplate/Male/Spartarelec_Double.obj",
+    "femaleModel": "/Chestplate/Female/Spartarelec_Both.obj",
     "texture":"/Chestplate/Sparta.png",
     "ids": "/Chestplate/Sparta_ID.png",
     "nakedOverride": "",
@@ -766,6 +777,10 @@
       "/Sleeve/Male/NewtrainingsetAltered_Left.obj",
       "/Sleeve/Male/NewtrainingsetAltered_Right.obj"
     ],
+    "femaleModel": [
+      "/Sleeve/Female/AlteredTrainingSet_Left.obj",
+      "/Sleeve/Female/AlteredTrainingSet_Right.obj"
+    ],
     "texture":[
       "/Sleeve/Short_Left.png",
       "/Sleeve/Short_Right.png"
@@ -788,6 +803,10 @@
     "model": [
       "/Sleeve/Male/Ponch_Left.obj",
       "/Sleeve/Male/Ponch_Right.obj"
+    ],
+    "femaleModel": [
+      "/Sleeve/Female/Ponch_Left.obj",
+      "/Sleeve/Female/Ponch_Right.obj"
     ],
     "texture":[
       "/Sleeve/Ponch_Left.png",
@@ -812,6 +831,10 @@
       "/Gauntlet/Male/Newtrainingset_Left.obj",
       "/Gauntlet/Male/Newtrainingset_Right.obj"
     ],
+    "femaleModel": [
+      "/Gauntlet/Female/NewTrainingSet_Left.obj",
+      "/Gauntlet/Female/NewTrainingSet_Right.obj"
+    ],
     "texture":"/Gauntlet/NewTrainingSet.png",
     "ids": "/Gauntlet/NewTrainingSet_ID.png",
     "nakedOverride": [
@@ -829,6 +852,10 @@
       "/Gauntlet/Male/ShiftstoneSocket_Left.obj",
       "/Gauntlet/Male/ShiftstoneSocket_Right.obj"
     ],
+    "femaleModel": [
+      "/Gauntlet/Female/ShiftstoneSocket_Left.obj",
+      "/Gauntlet/Female/ShiftstoneSocket_Right.obj"
+    ],
     "texture":"/Gauntlet/ShiftstoneSocket.png",
     "ids": "/Gauntlet/ShiftstoneSocket_ID.png",
     "nakedOverride": "",
@@ -842,6 +869,10 @@
     "model": [
       "/Gauntlet/Male/NewtrainingsetAltered_Left.obj",
       "/Gauntlet/Male/NewtrainingsetAltered_Right.obj"
+    ],
+    "femaleModel": [
+      "/Gauntlet/Female/AlteredTrainingSet_Left.obj",
+      "/Gauntlet/Female/AlteredTrainingSet_Right.obj"
     ],
     "texture":"/Gauntlet/AlteredTrainingSet.png",
     "ids": "/Gauntlet/AlteredTrainingSet_ID.png",
@@ -860,6 +891,10 @@
       "/Gauntlet/Male/Ponch_Left.obj",
       "/Gauntlet/Male/Ponch_Right.obj"
     ],
+    "femaleModel": [
+      "/Gauntlet/Female/Ponch_Left.obj",
+      "/Gauntlet/Female/Ponch_Right.obj"
+    ],
     "texture":"/Gauntlet/Ponch.png",
     "ids": "/Gauntlet/Ponch_ID.png",
     "nakedOverride": [
@@ -876,6 +911,10 @@
     "model": [
       "/Gauntlet/Male/Sweatband_Left.obj",
       "/Gauntlet/Male/Sweatband_Right.obj"
+    ],
+    "femaleModel": [
+      "/Gauntlet/Female/Sweatband_Left.obj",
+      "/Gauntlet/Female/Sweatband_Right.obj"
     ],
     "texture":"/Gauntlet/Sweatband.png",
     "ids": "/Gauntlet/Sweatband_ID.png",
@@ -902,6 +941,7 @@
     "type": "Pants",
     "preview": "/icons/Legs_Shorts.png",
     "model": "/Legs/Male/NewTrainingset.obj",
+    "femaleModel": "/Legs/Female/NewTrainingSet.obj",
     "texture":"/Pants/NewTrainingSet.png",
     "ids": "/Pants/NewTrainingSet_ID.png",
     "nakedOverride": "/Legs/Male/NewTrainingset_Naked.obj",
@@ -913,6 +953,7 @@
     "type": "Pants",
     "preview": "/icons/Legs_Joggers.png",
     "model": "/Legs/Male/Ponch.obj",
+    "femaleModel": "/Legs/Female/Ponch.obj",
     "texture":"/Pants/Ponch.png",
     "ids": "/Pants/Ponch_ID.png",
     "nakedOverride": "",
@@ -924,6 +965,7 @@
     "type": "Pants",
     "preview": "/icons/Legs_ShortShorts.png",
     "model": "/Legs/Male/NewtrainingsetAltered.obj",
+    "femaleModel": "/Legs/Female/AlteredTrainingSet.obj",
     "texture":"/Pants/NewTrainingSet.png",
     "ids": "/Pants/NewTrainingSet_ID.png",
     "nakedOverride": "/Legs/Male/NewtrainingsetAltered_Naked.obj",
@@ -935,6 +977,7 @@
     "type": "Pants",
     "preview": "/icons/Legs_Hakama.png",
     "model": "/Legs/Male/Skirt.obj",
+    "femaleModel": "/Legs/Female/Skirt.obj",
     "texture":"/Pants/Skirt.png",
     "ids": "/Pants/Skirt_ID.png",
     "nakedOverride": "/Legs/Male/Skirt_Naked.obj",
@@ -960,6 +1003,10 @@
       "/Boots/Male/Newtrainingset_Left.obj",
       "/Boots/Male/Newtrainingset_Right.obj"
     ],
+    "femaleModel": [
+      "/Boots/Female/NewTrainingSet_Left.obj",
+      "/Boots/Female/NewTrainingSet_Right.obj"
+    ],
     "texture":"/Boots/NewTrainingSet.png",
     "ids": "/Boots/NewTrainingSet_ID.png",
     "nakedOverride": "",
@@ -973,6 +1020,10 @@
     "model": [
       "/Boots/Male/Ponch_Left.obj",
       "/Boots/Male/Ponch_Right.obj"
+    ],
+    "femaleModel": [
+      "/Boots/Female/Ponch_Left.obj",
+      "/Boots/Female/Ponch_Right.obj"
     ],
     "texture":"/Boots/Ponch.png",
     "ids": "/Boots/Ponch_ID.png",
@@ -989,6 +1040,10 @@
     "preview": "/icons/LeftBoot_LaminarBoot.png",
     "model": [
       "/Boots/Male/Panser_Left.obj",
+      "/Boots/Male/Panser_Right.obj"
+    ],
+    "femaleModel": [
+      "/Boots/Female/Panser_Left.obj",
       "/Boots/Male/Panser_Right.obj"
     ],
     "texture":"/Boots/Panser.png",

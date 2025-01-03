@@ -39,18 +39,27 @@ function setDefaultEquippedCosmetics() {
     //equipItem(findItem("None", "Sleeve"),16);
     equipItem(findItem("Shorts", "Pants"),17);
 
-    console.log(scene.children);
-
     reloadModels();
 }
 
 function equipItem(item, index) {
     equippedCosmetics[index] = item;
-    enableModel(item, index);
+    enableModel(item, index, equippedCosmetics[0].name === 'Masculine');
+    if (index === '0') {
+        enableAllModels(equippedCosmetics[0].name === 'Masculine');
+    }
 }
 
 function findItem(name, type) {
     return items.find(item => item.name === name && item.type === type);
+}
+
+function enableAllModels(male) {
+    for (let i = 0; i < equippedCosmetics.length; i++) {
+        if (i === 0) continue;
+        if (!equippedCosmetics[i]) continue;
+        enableModel(equippedCosmetics[i], i.toString(), male);
+    }
 }
 
 window.onload = () => {
@@ -93,7 +102,6 @@ async function fetchCosmeticData(urls) {
         populateColours(colours);
         applyTooltips();
         await initModels();
-        console.log("Attempting to equip defaults!")
         setDefaultEquippedCosmetics();
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -194,13 +202,11 @@ function createColourButton(colourIndex, item) {
     let button = createButton(item);
     button.addEventListener('click', () => {
         selectColour(colourIndex, item);
-        console.log(item);
     });
     return button;
 }
 
 function populateColours(data) {
-    console.log(data);
     data.forEach((item) =>{
         const typeMapping = {
             'LeatherPlating': 'leatherPlatingColourContainer',
@@ -233,7 +239,6 @@ function populateColours(data) {
 }
 
 function populateModels(data) {
-    console.log(data);
     data.forEach((item) =>{
         const typeMapping = {
             'CharacterType':'characterTypeContainer',
@@ -331,10 +336,8 @@ function toggleContainer(container) {
 }
 
 function selectModel(index, item) {
-    equippedCosmetics[index] = item;
+    equipItem(item, index);
     reloadModels();
-    enableModel(item, index);
-    console.log(`Equipped cosmetic ${item.name} at index ${index}`);
 }
 
 function selectColour(index, item) {
@@ -515,7 +518,6 @@ const customMaterial = new THREE.ShaderMaterial({
 
 async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
     if (!modelName) return;
-    console.log(`LoadModel called for ${modelsPath + modelName}}`);
 
     return new Promise((resolve, reject) => {
         loader.load(
@@ -550,12 +552,10 @@ async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
 
                 scene.add(object);
                 render();
-                console.log(`Finished loading: ${modelName}`);
                 resolve(); // Resolve the promise when the model is loaded
             },
             undefined, // onProgress
             function (error) {
-                console.error(`Error loading model: ${modelName}`, error);
                 resolve();
             }
         );
@@ -734,13 +734,16 @@ async function initModels() {
                 } else {
                     if(Array.isArray(item.texture)){
                         loadPromises.push(loadModel(item.model[j], item.texture[j], item.ids[j], item.type, indexMap[item.type] + j));
+                        if (item.femaleModel) loadPromises.push(loadModel(item.femaleModel[j], item.texture[j], item.ids[j], item.type, indexMap[item.type] + j));
                     } else {
                         loadPromises.push(loadModel(item.model[j], item.texture, item.ids, item.type, indexMap[item.type] + j));
+                        if (item.femaleModel) loadPromises.push(loadModel(item.femaleModel[j], item.texture, item.ids, item.type, indexMap[item.type] + j));
                     }
                 }
             }
         } else {
             loadPromises.push(loadModel(item.model, item.texture, item.ids, item.type, indexMap[item.type]));
+            if (item.femaleModel) loadPromises.push(loadModel(item.femaleModel, item.texture, item.ids, item.type, indexMap[item.type]));
         }
     }
 
@@ -748,7 +751,7 @@ async function initModels() {
     console.log("All models should be loaded.")
 }
 
-function enableModel(item, index) {
+function enableModel(item, index, male) {
     scene.children.forEach(model => {
         let modelIndex = model.name.split('.')[0];
         let modelName = model.name.split('.')[1];
@@ -758,20 +761,25 @@ function enableModel(item, index) {
     })
 
     if (item.name === 'None') return;
-    console.log(`Models: ${item.model}, index: ${index}`)
 
     scene.children.forEach(model => {
-        console.log(model.name);
         let modelIndex = model.name.split('.')[0];
         let modelName = model.name.split('.')[1];
-        console.log(`ModelIndex: ${modelIndex}, ModelName: ${modelName}`);
         if (modelIndex === index.toString()) {
-            if (Array.isArray(item.model) && item.model.some(name => name.startsWith(modelName))) {
-                model.visible = true;
-            } else if (item.model === modelName || model.name.endsWith(item.model) || (model.name + '.obj').endsWith(item.model)) {
-                model.visible = true;
+            if (male || !item.femaleModel) {
+                if (Array.isArray(item.model) && item.model.some(name => name.startsWith(modelName))) {
+                    model.visible = true;
+                } else if (item.model === modelName || model.name.endsWith(item.model) || (model.name + '.obj').endsWith(item.model)) {
+                    model.visible = true;
+                }
+            } else if (item.femaleModel) {
+                if (Array.isArray(item.femaleModel) && item.femaleModel.some(name => name.startsWith(modelName))) {
+                    model.visible = true;
+                } else if (item.femaleModel === modelName || model.name.endsWith(item.femaleModel) || (model.name + '.obj').endsWith(item.femaleModel)) {
+                    model.visible = true;
+                }
             }
-            console.log(`${model.visible ? "Enabled" : "Disabled"} ${modelName}`);
+
         }
     });
 }
