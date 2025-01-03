@@ -235,7 +235,7 @@
     "preview": "/icons/Eyesheen_Sheen.png",
     "model": [
       "/Eyes/Eyesparkle3.obj",
-      "/Eyes/Eyesparkle3.I.obj"
+      "/Eyes/Eyesparkle3.i.obj"
     ],
     "texture":"/TEX.png",
     "ids": "",
@@ -263,7 +263,7 @@
     "preview": "/icons/Eyesheen_Luster.png",
     "model": [
       "/Eyes/Eyesparkle5.obj",
-      "/Eyes/Eyesparkle5.I.obj"
+      "/Eyes/Eyesparkle5.i.obj"
     ],
     "texture":"/TEX.png",
     "ids": "",
@@ -277,7 +277,7 @@
     "preview": "/icons/Eyesheen_Gleam.png",
     "model": [
       "/Eyes/Eyesparkle4.obj",
-      "/Eyes/Eyesparkle4.I.obj"
+      "/Eyes/Eyesparkle4.i.obj"
     ],
     "texture":"/TEX.png",
     "ids": "",
@@ -867,7 +867,7 @@
       "/Gauntlet/Male/Ponch_Naked_Right.obj"
     ],
     "name": "Bracers of the Devoted",
-    "price": 0,
+    "price": 1200,
     "description": "Arm bracers commonly worn by Devoted. Only very few Devoted ever partake in RUMBLE, as it is reserved only for those of the upper echelon."
   },
   {

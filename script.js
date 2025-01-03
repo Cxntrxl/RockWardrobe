@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
 
 const tooltip = document.createElement('div');
 tooltip.className = 'tooltip-tooltip';
@@ -20,31 +20,37 @@ let equippedBattleSuitColours = new Array(7);
 let equippedCharacterColours = new Array(7);
 
 function setDefaultEquippedCosmetics() {
-    equippedCosmetics[0] = findItem("Masculine", "CharacterType");
-    //equippedCosmetics[1] = findItem("Default 1", "ExpressionSet");
-    equippedCosmetics[2] = findItem("Default", "EyeSheen");
-    equippedCosmetics[3] = findItem("Default RumbleGuy", "TopHairstyle");
-    equippedCosmetics[4] = findItem("Short Sides", "SideHairstyle");
-    equippedCosmetics[5] = findItem("Sharp Eyebrows", "Eyebrows");
-    equippedCosmetics[6] = findItem("Full Eyelashes", "Eyelashes");
-    //equippedCosmetics[7] = findItem("None", "Moustache");
-    //equippedCosmetics[8] = findItem("None", "Beard");
-    equippedCosmetics[9] = findItem("All-Round Chestplate", "Chestplate");
-    equippedCosmetics[10] = findItem("Default Gauntlet", "Gauntlet");
-    equippedCosmetics[11] = findItem("Default Gauntlet", "Gauntlet");
-    equippedCosmetics[12] = findItem("Default Boots", "Boots");
-    equippedCosmetics[13] = findItem("Default Boots", "Boots");
-    equippedCosmetics[14] = findItem("Turtle Neck Undershirt", "Torso");
-    //equippedCosmetics[15] = findItem("None", "Sleeve");
-    //equippedCosmetics[16] = findItem("None", "Sleeve");
-    equippedCosmetics[17] = findItem("Shorts", "Pants");
+    equipItem(findItem("Masculine", "CharacterType"), 0);
+    //equipItem(findItem("Default 1", "ExpressionSet"),1);
+    equipItem(findItem("Default", "EyeSheen"),2);
+    equipItem(findItem("Default RumbleGuy", "TopHairstyle"),3);
+    equipItem(findItem("Short Sides", "SideHairstyle"),4);
+    equipItem(findItem("Sharp Eyebrows", "Eyebrows"),5);
+    equipItem(findItem("Full Eyelashes", "Eyelashes"),6);
+    //equipItem(findItem("None", "Moustache"),7);
+    //equipItem(findItem("None", "Beard"),8);
+    equipItem(findItem("All-Round Chestplate", "Chestplate"),9);
+    equipItem(findItem("Default Gauntlet", "Gauntlet"),10);
+    equipItem(findItem("Default Gauntlet", "Gauntlet"),11);
+    equipItem(findItem("Default Boots", "Boots"),12);
+    equipItem(findItem("Default Boots", "Boots"),13);
+    equipItem(findItem("Turtle Neck Undershirt", "Torso"),14);
+    //equipItem(findItem("None", "Sleeve"),15);
+    //equipItem(findItem("None", "Sleeve"),16);
+    equipItem(findItem("Shorts", "Pants"),17);
+
+    console.log(scene.children);
 
     reloadModels();
 }
 
+function equipItem(item, index) {
+    equippedCosmetics[index] = item;
+    enableModel(item, index);
+}
+
 function findItem(name, type) {
-    let result = items.find(item => item.name === name && item.type === type);
-    return result;
+    return items.find(item => item.name === name && item.type === type);
 }
 
 window.onload = () => {
@@ -86,6 +92,8 @@ async function fetchCosmeticData(urls) {
         populateModels(items);
         populateColours(colours);
         applyTooltips();
+        await initModels();
+        console.log("Attempting to equip defaults!")
         setDefaultEquippedCosmetics();
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -325,6 +333,7 @@ function toggleContainer(container) {
 function selectModel(index, item) {
     equippedCosmetics[index] = item;
     reloadModels();
+    enableModel(item, index);
     console.log(`Equipped cosmetic ${item.name} at index ${index}`);
 }
 
@@ -370,9 +379,25 @@ const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
 const texturePath = 'https://cxntrxl.github.io/RockWardrobe/tex'
 const textureLoader = new THREE.TextureLoader();
 let renderer = new THREE.WebGLRenderer({alpha:true});
+
 let baseColourTexture;
 let maskTexture;
-
+const itemTypeMap = {
+    'CharacterType':'Character',
+    'EyeSheen':'Character',
+    'TopHairstyle':'Character',
+    'SideHairstyle':'Character',
+    'Eyebrows':'Character',
+    'Eyelashes':'Character',
+    'Moustache':'Character',
+    'Beard':'Character',
+    'Torso':'BattleSuit',
+    'Chestplate':'BattleSuit',
+    'Sleeve':'BattleSuit',
+    'Gauntlet':'BattleSuit',
+    'Pants':'BattleSuit',
+    'Boots':'BattleSuit'
+}
 
 let battleSuitColours = [
     new THREE.Vector3(222/255, 128/255, 95/255),
@@ -488,23 +513,72 @@ const customMaterial = new THREE.ShaderMaterial({
     lights: false
 });
 
-function loadModel(modelName, baseColour, ID, itemType) {
+async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
     if (!modelName) return;
     console.log(`LoadModel called for ${modelsPath + modelName}}`);
+
+    return new Promise((resolve, reject) => {
+        loader.load(
+            modelsPath + modelName,
+            function (object) {
+                object.traverse(function (child) {
+                    if (child.isMesh) {
+                        const materialInstance = customMaterial.clone();
+
+                        if (itemTypeMap[itemType] === 'BattleSuit') {
+                            materialInstance.uniforms.zoneColors.value = battleSuitColours;
+                        }
+
+                        if (itemTypeMap[itemType] === 'Character') {
+                            materialInstance.uniforms.zoneColors.value = characterColours;
+                        }
+
+                        if (itemTypeMap[itemType] === 'Eyes') {
+                            materialInstance.uniforms.zoneColors.value = eyeColours;
+                        }
+
+                        if (baseColour)
+                            materialInstance.uniforms.baseColour.value = textureLoader.load(texturePath + baseColour);
+
+                        if (ID)
+                            materialInstance.uniforms.mask.value = textureLoader.load(texturePath + ID);
+                        child.material = materialInstance; // Apply custom material to meshes
+                    }
+                });
+                object.name = itemIndex + "." + modelName;
+                object.visible = false;
+
+                scene.add(object);
+                render();
+                console.log(`Finished loading: ${modelName}`);
+                resolve(); // Resolve the promise when the model is loaded
+            },
+            undefined, // onProgress
+            function (error) {
+                console.error(`Error loading model: ${modelName}`, error);
+                resolve();
+            }
+        );
+    });
+}
+/*async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
+    if (!modelName) return;
+    console.log(`LoadModel called for ${modelsPath + modelName}}`);
+
     loader.load(modelsPath + modelName, function (object) {
         object.traverse(function (child) {
             if (child.isMesh) {
                 const materialInstance = customMaterial.clone();
 
-                if (itemType === 'BattleSuit') {
+                if (itemTypeMap[itemType] === 'BattleSuit') {
                     materialInstance.uniforms.zoneColors.value = battleSuitColours;
                 }
 
-                if (itemType === 'Character') {
+                if (itemTypeMap[itemType] === 'Character') {
                     materialInstance.uniforms.zoneColors.value = characterColours;
                 }
 
-                if (itemType === 'Eyes') {
+                if (itemTypeMap[itemType] === 'Eyes') {
                     materialInstance.uniforms.zoneColors.value = eyeColours;
                 }
 
@@ -516,14 +590,22 @@ function loadModel(modelName, baseColour, ID, itemType) {
                 child.material = materialInstance; // Apply custom material to meshes
             }
         });
-        console.log("Custom Material!");
+        object.name = itemIndex + "." + modelName;
+        object.visible = false;
+
+        if (!modelGroups[itemIndex]) {
+            modelGroups[itemIndex] = new THREE.Group();
+            scene.add(modelGroups[itemIndex]);
+        }
+        modelGroups[itemIndex].add(object)
+
         scene.add(object);
         render();
     });
-}
+}*/
 
 function reloadModels() {
-    scene.children.forEach((object) => {
+    /*scene.children.forEach((object) => {
        if (object.geometry) object.geometry.dispose();
        if (object.material) {
            if (Array.isArray(object.material)) {
@@ -583,7 +665,7 @@ function reloadModels() {
         } else {
             loadModel(item.model, item.texture, item.ids, itemTypeMap[item.type]);
         }
-    }
+    }*/
 
     totalCost = 0;
     for (let i = 0; i < equippedCosmetics.length; i++) {
@@ -614,7 +696,85 @@ function formatTime(minutes) {
     return `${String(hours)} hours, ${String(mins).padStart(2, '0')} minutes`;
 }
 
-reloadModels()
+//reloadModels()
+
+async function initModels() {
+    const indexMap = {
+        'CharacterType':0,
+        'ExpressionSet':1,
+        'EyeSheen':2,
+        'TopHairstyle':3,
+        'SideHairstyle':4,
+        'Eyebrows':5,
+        'Eyelashes':6,
+        'Moustache':7,
+        'Beard':8,
+        'Chestplate':9,
+        'Gauntlet':10,
+        'Boots':12,
+        'Torso':14,
+        'Sleeve':15,
+        'Pants':17
+    }
+
+    let loadPromises = []
+
+    for (let i = 0; i < items.length; i++) {
+        if (!items[i]) continue;
+        const item = items[i];
+
+        if (Array.isArray(item.model)) {
+            for (let j = 0; j < item.model.length; j++) {
+                if(item.type === 'CharacterType' || item.type === 'EyeSheen') {
+                    if(Array.isArray(item.texture)){
+                        loadPromises.push(loadModel(item.model[j], item.texture[j], item.ids[j], item.type, indexMap[item.type]));
+                    } else {
+                        loadPromises.push(loadModel(item.model[j], item.texture, item.ids, item.type, indexMap[item.type]));
+                    }
+                } else {
+                    if(Array.isArray(item.texture)){
+                        loadPromises.push(loadModel(item.model[j], item.texture[j], item.ids[j], item.type, indexMap[item.type] + j));
+                    } else {
+                        loadPromises.push(loadModel(item.model[j], item.texture, item.ids, item.type, indexMap[item.type] + j));
+                    }
+                }
+            }
+        } else {
+            loadPromises.push(loadModel(item.model, item.texture, item.ids, item.type, indexMap[item.type]));
+        }
+    }
+
+    await Promise.all(loadPromises);
+    console.log("All models should be loaded.")
+}
+
+function enableModel(item, index) {
+    scene.children.forEach(model => {
+        let modelIndex = model.name.split('.')[0];
+        let modelName = model.name.split('.')[1];
+        if (modelIndex === index) {
+            model.visible = false;
+        }
+    })
+
+    if (item.name === 'None') return;
+    console.log(`Models: ${item.model}, index: ${index}`)
+
+    scene.children.forEach(model => {
+        console.log(model.name);
+        let modelIndex = model.name.split('.')[0];
+        let modelName = model.name.split('.')[1];
+        console.log(`ModelIndex: ${modelIndex}, ModelName: ${modelName}`);
+        if (modelIndex === index.toString()) {
+            if (Array.isArray(item.model) && item.model.some(name => name.startsWith(modelName))) {
+                model.visible = true;
+            } else if (item.model === modelName || model.name.endsWith(item.model) || (model.name + '.obj').endsWith(item.model)) {
+                model.visible = true;
+            }
+            console.log(`${model.visible ? "Enabled" : "Disabled"} ${modelName}`);
+        }
+    });
+}
 
 function render() {
     renderer.render(scene, camera);
