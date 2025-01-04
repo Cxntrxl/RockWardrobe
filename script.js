@@ -546,11 +546,12 @@ function selectColour(index, item) {
     switch (typeMap[item.type]){
         case 0:
             battleSuitColours[index] = new THREE.Vector3(r, g, b);
-            characterColours[2] = battleSuitColours[1];
+            characterColours[2] = battleSuitColours[2];
             equippedBattleSuitColours[index] = item;
             break;
         case 1:
             characterColours[index] = new THREE.Vector3(r, g, b);
+            characterColours[2] = battleSuitColours[2];
             equippedCharacterColours[index] = item;
             break;
     }
