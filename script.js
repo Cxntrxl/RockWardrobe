@@ -723,6 +723,28 @@ vec3 adjustSaturation(vec3 color, float saturationLevel) {
     return mix(vec3(intensity), color, saturationLevel);
 }
 
+vec3 rgbToHsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 6.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+vec3 hsvToRgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+vec3 hueShift(vec3 color, float shift) {
+    vec3 hsv = rgbToHsv(color);   // Convert to HSV
+    hsv.x = fract(hsv.x + shift); // Adjust hue, wrap around using fract()
+    return hsvToRgb(hsv);         // Convert back to RGB
+}
+
 void main() {
     vec4 baseTex = texture2D(baseColour, vUv);
     vec4 maskTex = texture2D(mask, vUv);
@@ -759,8 +781,14 @@ void main() {
     float toonShading = 1.0;
     
     if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) {
-        toonShading = (floor(lightIntensity * 5.0) / 5.0) * 1.6;
-        saturation = 0.8;
+        if (lightIntensity < 0.5) lightIntensity = 0.9;
+        else if (lightIntensity < 0.95) lightIntensity = 0.65;
+        else lightIntensity = 1.3;
+    
+        toonShading = (floor(lightIntensity * 3.0) / 3.0);
+        if (toonShading > 0.5) toonShading += 0.85;
+        else if (toonShading < 0.5) toonShading - max(toonShading - 0.4, 0.0);
+        saturation = 1.1;
 
         // Specular highlight for the green zone
         vec3 viewDir = normalize(vec3(0.0, 0.0, 1.0)); // Assume camera view direction along +Z
@@ -768,6 +796,7 @@ void main() {
         float spec = pow(max(dot(viewDir, reflectDir), 0.0), 2.0); // Shininess factor
         float highlight = smoothstep(0.8, 1.0, spec);
         outputColor += vec3(highlight); // Add the highlight to the outputColor
+        if (toonShading > 0.5) outputColor = hueShift(outputColor, -0.03);
     } else {
         toonShading = floor(lightIntensity * 3.0) / 3.0;
     }
