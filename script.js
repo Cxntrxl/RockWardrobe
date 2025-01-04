@@ -767,11 +767,11 @@ void main() {
     vec4 decalTex4 = texture2D(decals[4], vUv);
     
     if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) {
-        outputColor = mix(outputColor, decalColors[0].rgb, decalTex0.r * decalColors[0].a);
-        outputColor = mix(outputColor, decalColors[1].rgb, decalTex1.r * decalColors[1].a);
-        outputColor = mix(outputColor, decalColors[2].rgb, decalTex2.r * decalColors[2].a);
-        outputColor = mix(outputColor, decalColors[3].rgb, decalTex3.r * decalColors[3].a);
         outputColor = mix(outputColor, decalColors[4].rgb, decalTex4.r * decalColors[4].a);
+        outputColor = mix(outputColor, decalColors[3].rgb, decalTex3.r * decalColors[3].a);
+        outputColor = mix(outputColor, decalColors[2].rgb, decalTex2.r * decalColors[2].a);
+        outputColor = mix(outputColor, decalColors[1].rgb, decalTex1.r * decalColors[1].a);
+        outputColor = mix(outputColor, decalColors[0].rgb, decalTex0.r * decalColors[0].a);
     }
 
     vec3 normal = normalize(vNormal);
