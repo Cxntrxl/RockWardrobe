@@ -623,23 +623,23 @@ const itemTypeMap = {
 }
 
 let battleSuitColours = [
-    new THREE.Vector3(222/255, 128/255, 95/255),
+    new THREE.Vector3(185/255, 105/255, 78/255),
     new THREE.Vector3(53/255, 45/255, 42/255),
-    new THREE.Vector3(53/255, 45/255, 42/255),
-    new THREE.Vector3(218/255, 210/255, 184/255),
-    new THREE.Vector3(243/255, 223/255, 182/225),
-    new THREE.Vector3(134/255, 107/255, 96/255),
-    new THREE.Vector3(80/255, 84/255, 88/255)
+    new THREE.Vector3(183/255, 180/255, 163/255),
+    new THREE.Vector3(153/255, 146/255, 127/255),
+    new THREE.Vector3(193/255, 178/255, 148/225),
+    new THREE.Vector3(110/255, 90/255, 79/255),
+    new THREE.Vector3(105/255, 109/255, 112/255)
 ]
 
 let characterColours = [
     new THREE.Vector3(222/255, 128/255, 95/255),
-    new THREE.Vector3(255/255, 183/255, 153/255),
+    new THREE.Vector3(208/255, 164/255, 137/255),
     new THREE.Vector3(53/255, 45/255, 42/255),
     new THREE.Vector3(218/255, 210/255, 184/255),
     new THREE.Vector3(0/255, 0/255, 255/225),
-    new THREE.Vector3(134/255, 107/255, 96/255),
-    new THREE.Vector3(45/255, 30/255, 30/255)
+    new THREE.Vector3(148/255, 110/255, 89/255),
+    new THREE.Vector3(67/255, 63/255, 60/255)
 ]
 
 let eyeColours = [
@@ -690,7 +690,7 @@ const customMaterial = new THREE.ShaderMaterial({
         userData: { value: false },
         decals: { value: Array(5).fill(null) }, // Decal textures
         decalColors: { value: Array(5).fill(new THREE.Vector4(0.0, 0.0, 0.0, 0.0)) },
-        decalCount: { value: 5 },
+        decalCount: { value: 5 }
     },
     vertexShader: `
         varying vec2 vUv;
@@ -704,56 +704,83 @@ const customMaterial = new THREE.ShaderMaterial({
     `,
     fragmentShader: `
         varying vec2 vUv;
-        varying vec3 vNormal;
+varying vec3 vNormal;
 
-        uniform sampler2D baseColour;
-        uniform sampler2D mask;
-        uniform vec3 zoneColors[7];
-        uniform vec3 lightDirection;
-        uniform float ambientLight;
+uniform sampler2D baseColour;
+uniform sampler2D mask;
+uniform vec3 zoneColors[7];
+uniform vec3 lightDirection;
+uniform float ambientLight;
 
-        uniform sampler2D decals[5];
+uniform sampler2D decals[5];
+uniform vec4 decalColors[5];
 
-        uniform vec4 decalColors[5];
+float brightness = 1.15; // New uniform for brightness adjustment
+float saturation = 1.1; // New uniform for saturation adjustment
 
-        void main() {
-            vec4 baseTex = texture2D(baseColour, vUv);
-            vec4 maskTex = texture2D(mask, vUv);
+vec3 adjustSaturation(vec3 color, float saturationLevel) {
+    float intensity = dot(color, vec3(0.3, 0.59, 0.11)); // Perceived luminance
+    return mix(vec3(intensity), color, saturationLevel);
+}
 
-            vec3 outputColor = vec3(0.0);
-            if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = zoneColors[0]; // Red zone
-            else if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) outputColor = zoneColors[1]; // Orange zone
-            else if (maskTex.r > 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) outputColor = zoneColors[2]; // Yellow zone
-            else if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) outputColor = zoneColors[3]; // Green zone
-            else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[4]; // Blue zone
-            else if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b > 0.5) outputColor = zoneColors[5]; // Cyan zone
-            else if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[6]; // Magenta zone
-            else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = vec3(1.0, 1.0, 1.0);
+void main() {
+    vec4 baseTex = texture2D(baseColour, vUv);
+    vec4 maskTex = texture2D(mask, vUv);
 
-            // Apply decals manually
-            vec4 decalTex0 = texture2D(decals[0], vUv);
-            vec4 decalTex1 = texture2D(decals[1], vUv);
-            vec4 decalTex2 = texture2D(decals[2], vUv);
-            vec4 decalTex3 = texture2D(decals[3], vUv);
-            vec4 decalTex4 = texture2D(decals[4], vUv);
-            
-            if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) {
-                outputColor = mix(outputColor, decalColors[0].rgb, decalTex0.r * decalColors[0].a);
-                outputColor = mix(outputColor, decalColors[1].rgb, decalTex1.r * decalColors[1].a);
-                outputColor = mix(outputColor, decalColors[2].rgb, decalTex2.r * decalColors[2].a);
-                outputColor = mix(outputColor, decalColors[3].rgb, decalTex3.r * decalColors[3].a);
-                outputColor = mix(outputColor, decalColors[4].rgb, decalTex4.r * decalColors[4].a);
-            }
+    vec3 outputColor = vec3(0.0);
+    if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = zoneColors[0]; // Red zone
+    else if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) outputColor = zoneColors[1]; // Orange zone
+    else if (maskTex.r > 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) outputColor = zoneColors[2]; // Yellow zone
+    else if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) outputColor = zoneColors[3]; // Green zone
+    else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[4]; // Blue zone
+    else if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b > 0.5) outputColor = zoneColors[5]; // Cyan zone
+    else if (maskTex.r > 0.5 && maskTex.g < 0.5 && maskTex.b > 0.5) outputColor = zoneColors[6]; // Magenta zone
+    else if (maskTex.r < 0.5 && maskTex.g < 0.5 && maskTex.b < 0.5) outputColor = vec3(1.0, 1.0, 1.0);
 
-            vec3 normal = normalize(vNormal);
-            float diffuse = max(dot(normal, normalize(lightDirection)), 0.0);
-            float lightIntensity = mix(ambientLight, 1.0, diffuse);
-            float toonShading = floor(lightIntensity * 3.0) / 3.0;
-            float brightness = baseTex.r;
-            vec3 finalColor = outputColor * brightness * (ambientLight + (toonShading * (1.0 - ambientLight)));
+    // Apply decals manually
+    vec4 decalTex0 = texture2D(decals[0], vUv);
+    vec4 decalTex1 = texture2D(decals[1], vUv);
+    vec4 decalTex2 = texture2D(decals[2], vUv);
+    vec4 decalTex3 = texture2D(decals[3], vUv);
+    vec4 decalTex4 = texture2D(decals[4], vUv);
+    
+    if (maskTex.r > 0.5 && maskTex.g > 0.3 && maskTex.g < 0.7 && maskTex.b < 0.5) {
+        outputColor = mix(outputColor, decalColors[0].rgb, decalTex0.r * decalColors[0].a);
+        outputColor = mix(outputColor, decalColors[1].rgb, decalTex1.r * decalColors[1].a);
+        outputColor = mix(outputColor, decalColors[2].rgb, decalTex2.r * decalColors[2].a);
+        outputColor = mix(outputColor, decalColors[3].rgb, decalTex3.r * decalColors[3].a);
+        outputColor = mix(outputColor, decalColors[4].rgb, decalTex4.r * decalColors[4].a);
+    }
 
-            gl_FragColor = vec4(finalColor, 1.0);
-        }
+    vec3 normal = normalize(vNormal);
+    vec3 lightDir = normalize(lightDirection);
+    float diffuse = max(dot(normal, lightDir), 0.0);
+    float lightIntensity = mix(ambientLight, 1.0, diffuse);
+    float toonShading = 1.0;
+    
+    if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) {
+        toonShading = (floor(lightIntensity * 5.0) / 5.0) * 1.6;
+        saturation = 0.8;
+
+        // Specular highlight for the green zone
+        vec3 viewDir = normalize(vec3(0.0, 0.0, 1.0)); // Assume camera view direction along +Z
+        vec3 reflectDir = reflect(-lightDir, normal);
+        float spec = pow(max(dot(viewDir, reflectDir), 0.0), 2.0); // Shininess factor
+        float highlight = smoothstep(0.8, 1.0, spec);
+        outputColor += vec3(highlight); // Add the highlight to the outputColor
+    } else {
+        toonShading = floor(lightIntensity * 3.0) / 3.0;
+    }
+
+    float texBrightness = baseTex.r;
+    vec3 finalColor = outputColor * texBrightness * (ambientLight + (toonShading * (1.0 - ambientLight)));
+
+    // Adjust brightness and saturation
+    finalColor *= brightness; // Apply brightness adjustment
+    finalColor = adjustSaturation(finalColor, saturation); // Apply saturation adjustment
+
+    gl_FragColor = vec4(finalColor, 1.0);
+}
     `,
     lights: false
 });
