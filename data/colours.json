@@ -594,15 +594,6 @@
     "description": "Eyes are the windows to the soul, what happens when all you see behind them is black?"
   },
   {
-    "type": "Eyes",
-    "red": 254,
-    "green": 251,
-    "blue": 234,
-    "name": "Leaf Green",
-    "price": 300,
-    "description": "Alternative eye colouring."
-  },
-  {
     "type": "LeatherPlating",
     "red": 185,
     "green": 105,
