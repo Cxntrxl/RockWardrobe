@@ -554,7 +554,7 @@ function selectColour(index, item) {
             equippedCharacterColours[index] = item;
             break;
     }
-    //evaluateGCCost();
+    evaluateGCCost();
 }
 
 function selectMarking(index, item) {
@@ -570,11 +570,12 @@ function selectMarking(index, item) {
         marking = loadedBodyMarkings.find(marking => (marking.name === item.texture));
         bodyMarkings[index] = marking;
         equippedBodyMarkings[index] = item;
-        equippedHeadMarkings[index] = item;
         bodyMarkingMaterials.forEach(mat => {
             mat.uniforms.decals.value = bodyMarkings;
         })
     }
+
+    evaluateGCCost();
 }
 
 function selectMarkingColour(index, item, head) {
@@ -859,6 +860,12 @@ function evaluateGCCost() {
     });
     equippedCharacterColours.forEach(item => {
        totalCost += item.price;
+    });
+    equippedHeadMarkings.forEach(item => {
+        totalCost += item.price;
+    });
+    equippedBodyMarkings.forEach(item => {
+        totalCost += item.price;
     });
     let longGames = totalCost / 95;
     let timeEstimate = longGames * 540 / 60 + longGames * 2;
