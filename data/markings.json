@@ -9,7 +9,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_RoundBlush.png",
     "texture": "/Markings/Head/Blush.png",
     "name": "Blush 1",
     "price": 0,
@@ -17,7 +17,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_StripedBlush.png",
     "texture": "/Markings/Head/Blush2.png",
     "name": "Blush 2",
     "price": 0,
@@ -25,7 +25,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Lipstick.png",
     "texture": "/Markings/Head/Lipstick.png",
     "name": "Lipstick",
     "price": 0,
@@ -33,7 +33,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Stubble.png",
     "texture": "/Markings/Head/5oclock.png",
     "name": "Stubble",
     "price": 300,
@@ -41,7 +41,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_CheekMole.png",
     "texture": "/Markings/Head/Mole.png",
     "name": "Cheek Mole",
     "price": 300,
@@ -49,7 +49,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_HorizontalScar.png",
     "texture": "/Markings/Head/Nosescar.png",
     "name": "Horizontal Scar",
     "price": 600,
@@ -57,7 +57,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_LipScar.png",
     "texture": "/Markings/Head/Lipscar.png",
     "name": "Lip Scar",
     "price": 600,
@@ -65,7 +65,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_EyeScar.png",
     "texture": "/Markings/Head/Eyescar.png",
     "name": "Eye Scar",
     "price": 600,
@@ -73,7 +73,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_CheekScar.png",
     "texture": "/Markings/Head/Theactionman.png",
     "name": "Cheek Scar",
     "price": 600,
@@ -81,7 +81,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_LipHeart.png",
     "texture": "/Markings/Head/Lipstick2.png",
     "name": "Lip Heart",
     "price": 900,
@@ -89,7 +89,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_LipSketch.png",
     "texture": "/Markings/Head/Lipstick3.png",
     "name": "Lip Sketch",
     "price": 300,
@@ -97,7 +97,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_FlushCheeks.png",
     "texture": "/Markings/Head/Flushcheeks.png",
     "name": "Flush Cheeks",
     "price": 300,
@@ -105,7 +105,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Nose.png",
     "texture": "/Markings/Head/Nose.png",
     "name": "Nose",
     "price": 300,
@@ -113,7 +113,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_NoseTip.png",
     "texture": "/Markings/Head/Clown.png",
     "name": "Nose Tip",
     "price": 300,
@@ -121,7 +121,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Facepaint.png",
     "texture": "/Markings/Head/Face.png",
     "name": "Facepaint",
     "price": 300,
@@ -129,7 +129,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Highlander.png",
     "texture": "/Markings/Head/Braveheart.png",
     "name": "Highlander",
     "price": 600,
@@ -137,7 +137,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Forehead.png",
     "texture": "/Markings/Head/Forehead.png",
     "name": "Forehead",
     "price": 300,
@@ -145,7 +145,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Fury.png",
     "texture": "/Markings/Head/Warpaint4.png",
     "name": "Fury",
     "price": 300,
@@ -153,7 +153,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Chieftain.png",
     "texture": "/Markings/Head/Warpaint3.png",
     "name": "Chieftain",
     "price": 300,
@@ -161,7 +161,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_HeroMask.png",
     "texture": "/Markings/Head/HeroMask.png",
     "name": "Hero Mask",
     "price": 300,
@@ -169,7 +169,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_CheekBars.png",
     "texture": "/Markings/Head/Warpaint1.png",
     "name": "Cheek Bars",
     "price": 300,
@@ -177,7 +177,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_CheekStripes.png",
     "texture": "/Markings/Head/Warpaint2.png",
     "name": "Cheek Stripes",
     "price": 300,
@@ -185,7 +185,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Warlord.png",
     "texture": "/Markings/Head/Warrpaint5.png",
     "name": "Warlord",
     "price": 600,
@@ -193,7 +193,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Cat.png",
     "texture": "/Markings/Head/Cat.png",
     "name": "Cat",
     "price": 300,
@@ -201,7 +201,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_Target.png",
     "texture": "/Markings/Head/Target.png",
     "name": "Target",
     "price": 900,
@@ -209,7 +209,7 @@
   },
   {
     "type": "Head",
-    "preview": "",
+    "preview": "/icons/FacialMarking_SkullHead.png",
     "texture": "/Markings/Head/Skull_Head.png",
     "name": "Skull Head",
     "price": 300,
@@ -225,7 +225,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_LuckyClover.png",
     "texture": "/Markings/Body/Lucky.png",
     "name": "Lucky Clover",
     "price": 300,
@@ -233,7 +233,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SleeveLeft.png",
     "texture": "/Markings/Body/Fill1.png",
     "name": "Left Arm Sleeve",
     "price": 300,
@@ -241,7 +241,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SleeveRight.png",
     "texture": "/Markings/Body/Fill2.png",
     "name": "Right Arm Sleeve",
     "price": 300,
@@ -249,7 +249,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_ArmFlames.png",
     "texture": "/Markings/Body/Flames.png",
     "name": "Arm Flames",
     "price": 300,
@@ -257,7 +257,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_Ace.png",
     "texture": "/Markings/Body/Ace.png",
     "name": "Ace",
     "price": 300,
@@ -265,7 +265,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_Star.png",
     "texture": "/Markings/Body/Star.png",
     "name": "Star",
     "price": 300,
@@ -273,7 +273,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_LumbarFlair.png",
     "texture": "/Markings/Body/Stamp.png",
     "name": "Lumbar Flair",
     "price": 300,
@@ -281,7 +281,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_FirstCrush.png",
     "texture": "/Markings/Body/Love.png",
     "name": "First Crush",
     "price": 300,
@@ -289,7 +289,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_Killshot.png",
     "texture": "/Markings/Body/Target.png",
     "name": "Killshot",
     "price": 300,
@@ -297,7 +297,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_AlwaysWatching.png",
     "texture": "/Markings/Body/Eye.png",
     "name": "Always Watching",
     "price": 300,
@@ -305,7 +305,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_JollyRoger.png",
     "texture": "/Markings/Body/Bones.png",
     "name": "Jolly Roger",
     "price": 300,
@@ -313,7 +313,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SeafarersAnchor.png",
     "texture": "/Markings/Body/Ancors.png",
     "name": "Seafarer's Anchor",
     "price": 300,
@@ -321,7 +321,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SailorsBack.png",
     "texture": "/Markings/Body/Boat.png",
     "name": "Sailor's Back",
     "price": 300,
@@ -329,7 +329,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_BoxersMantra.png",
     "texture": "/Markings/Body/Sting.png",
     "name": "Boxer's Mantra",
     "price": 300,
@@ -337,7 +337,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_MothersHeart.png",
     "texture": "/Markings/Body/Mom.png",
     "name": "Mother's Arm",
     "price": 300,
@@ -345,7 +345,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_FathersStone.png",
     "texture": "/Markings/Body/Dad.png",
     "name": "Father's Stone",
     "price": 300,
@@ -353,7 +353,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_CursedHeart.png",
     "texture": "/Markings/Body/Darksighn.png",
     "name": "Cursed Heart",
     "price": 300,
@@ -361,7 +361,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SacredMarksTorso.png",
     "texture": "/Markings/Body/AstecTorso.png",
     "name": "Sacred Marks - Chest",
     "price": 600,
@@ -369,7 +369,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SacredMarksLeftArm.png",
     "texture": "/Markings/Body/AstecLeftarm.png",
     "name": "Sacred Marks - Left Arm",
     "price": 600,
@@ -377,7 +377,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SacredMarksRightArm.png",
     "texture": "/Markings/Body/Astecrightarm.png",
     "name": "Sacred Marks - Right Arm",
     "price": 600,
@@ -385,7 +385,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SacredMarksLeftLeg.png",
     "texture": "/Markings/Body/Astecleftleg.png",
     "name": "Sacred Marks - Left Leg",
     "price": 600,
@@ -393,7 +393,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_SacredMarksRightLeg.png",
     "texture": "/Markings/Body/Astecrightleg.png",
     "name": "Sacred Marks - Right Leg",
     "price": 600,
@@ -401,7 +401,7 @@
   },
   {
     "type": "Body",
-    "preview": "",
+    "preview": "/icons/BodyMarking_UlvaksTarget.png",
     "texture": "/Markings/Body/Ulvak.png",
     "name": "Ulvak's Target",
     "price": 300,
