@@ -782,13 +782,14 @@ void main() {
     
     if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) {
         if (lightIntensity < 0.5) lightIntensity = 0.9;
-        else if (lightIntensity < 0.95) lightIntensity = 0.65;
+        else if (lightIntensity < 0.8) lightIntensity = 0.65;
         else lightIntensity = 1.3;
     
         toonShading = (floor(lightIntensity * 3.0) / 3.0);
         if (toonShading > 0.5) toonShading += 0.85;
         else if (toonShading < 0.5) toonShading - max(toonShading - 0.4, 0.0);
         saturation = 1.1;
+        brightness = 1.0;
 
         // Specular highlight for the green zone
         vec3 viewDir = normalize(vec3(0.0, 0.0, 1.0)); // Assume camera view direction along +Z
