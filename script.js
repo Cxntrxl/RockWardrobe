@@ -7,6 +7,7 @@ tooltip.className = 'tooltip-tooltip';
 const tooltipName = document.createElement('div');
 const tooltipPrice = document.createElement('div');
 const tooltipDescription = document.createElement('div');
+tooltipName.textContent = "Loading...";
 tooltip.appendChild(tooltipName);
 tooltip.appendChild(tooltipPrice);
 tooltip.appendChild(tooltipDescription);
@@ -86,11 +87,11 @@ async function fetchCosmeticData(urls) {
         colours = data[1];
         markings = data[2];
         populateModels(items);
-        populateColours(colours);
-        populateMarkings(markings);
-        applyTooltips();
         await initModels();
         setDefaultEquippedCosmetics();
+        await populateColours(colours);
+        populateMarkings(markings);
+        applyTooltips();
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -197,11 +198,23 @@ function createModelButton(modelIndex, item) {
 }
 
 function createColourButton(colourIndex, item) {
-    let button = createButton(item);
-    button.addEventListener('click', () => {
-        selectColour(colourIndex, item);
+    return new Promise(async (resolve) => {
+        let button = createButton(item);
+
+        const iconUrl = await generateRecoloredIcon('/tex/Colour.png', {
+            r: item.red,
+            g: item.green,
+            b: item.blue
+        });
+        button.style.backgroundImage = `url(${iconUrl})`;
+        button.innerHTML = "";
+
+        button.addEventListener('click', () => {
+            selectColour(colourIndex, item);
+        });
+
+        resolve(button);
     });
-    return button;
 }
 
 function createMarkingButton(markingIndex, item) {
@@ -213,72 +226,158 @@ function createMarkingButton(markingIndex, item) {
 }
 
 function createMarkingColourButton(markingIndex, item, type) {
-    let button = createButton(item);
-    button.addEventListener('click', () => {
-        selectMarkingColour(markingIndex, item, type);
+    return new Promise(async (resolve) => {
+        let button = createButton(item);
+
+        const iconUrl = await generateRecoloredIcon('/tex/Colour.png', {
+            r: item.red,
+            g: item.green,
+            b: item.blue
+        });
+        button.style.backgroundImage = `url(${iconUrl})`;
+        button.innerHTML = "";
+
+        button.addEventListener('click', () => {
+            selectMarkingColour(markingIndex, item, type);
+        });
+
+        resolve(button);
     });
-    return button;
 }
 
-function populateColours(data) {
-    data.forEach((item) =>{
-        const typeMapping = {
-            'LeatherPlating': 'leatherPlatingColourContainer',
-            'Belt': 'beltColourContainer',
-            'Metals': 'metalColourContainer',
-            'Gambeson': 'gambesonColourContainer',
-            'Straps': 'strapsColourContainer',
-            'Undersuit': 'undersuitColourContainer',
+let colourCache = new Map();
 
-            'Skin': 'skinColourContainer',
-            'Eyes': 'eyeColourContainer',
-            'Hair': 'hairColourContainer',
+function generateRecoloredIcon(baseIconUrl, { r, g, b }) {
+    return new Promise((resolve) => {
 
-            'Marking': [
-                'headMarkingAColourContainer',
-                'headMarkingBColourContainer',
-                'headMarkingCColourContainer',
-                'headMarkingDColourContainer',
-                'headMarkingEColourContainer',
-
-                'bodyMarkingAColourContainer',
-                'bodyMarkingBColourContainer',
-                'bodyMarkingCColourContainer',
-                'bodyMarkingDColourContainer',
-                'bodyMarkingEColourContainer'
-            ]
+        const colourKey = `${r}${g}${b}`
+        if (colourCache.has(colourKey)) {
+            console.log("WOO HOO")
+            resolve(colourCache.get(colourKey));
         }
 
-        let containerID = typeMapping[item.type];
-        if (containerID){
-            if (Array.isArray(containerID)){
-                containerID.forEach(id => {
-                    let container = document.getElementById(id);
-                    if (container){
-                        let button = createMarkingColourButton(
-                            container.getAttribute('markingColourIndex'),
-                            item,
-                            id.includes('head'));
+        const baseIcon = new Image();
+        baseIcon.src = baseIconUrl;
+
+        baseIcon.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas size to match the icon
+            canvas.width = baseIcon.width;
+            canvas.height = baseIcon.height;
+
+            // Draw the base icon onto the canvas
+            ctx.drawImage(baseIcon, 0, 0);
+
+            // Get image data
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+
+            // Iterate over every pixel
+            for (let i = 0; i < data.length; i += 4) {
+                const red = data[i];
+                const green = data[i + 1];
+                const blue = data[i + 2];
+
+                // Replace black
+                if (red < 50 && green < 50 && blue < 50) {
+                    data[i] = r;
+                    data[i + 1] = g;
+                    data[i + 2] = b;
+                }
+
+                // Make green transparent
+                if (green > 150 && red < 100 && blue < 100) {
+                    data[i + 3] = 0;
+                }
+
+                // Blend black/green pixels
+                if (red < 50 && green > 50 && green < 150) {
+                    const greenRatio = green / 255;
+                    const blackRatio = 1 - greenRatio;
+
+                    data[i] = r * blackRatio;
+                    data[i + 1] = g * blackRatio;
+                    data[i + 2] = b * blackRatio;
+                    data[i + 3] = 255 * greenRatio;
+                }
+            }
+
+            // Put the updated image data back to the canvas
+            ctx.putImageData(imageData, 0, 0);
+
+            // Resolve with the data URL of the recolored icon
+            colourCache.set(colourKey, canvas.toDataURL());
+            resolve(canvas.toDataURL());
+        };
+    });
+}
+
+async function populateColours(data) {
+    const typeMapping = {
+        'LeatherPlating': 'leatherPlatingColourContainer',
+        'Belt': 'beltColourContainer',
+        'Metals': 'metalColourContainer',
+        'Gambeson': 'gambesonColourContainer',
+        'Straps': 'strapsColourContainer',
+        'Undersuit': 'undersuitColourContainer',
+
+        'Skin': 'skinColourContainer',
+        'Eyes': 'eyeColourContainer',
+        'Hair': 'hairColourContainer',
+
+        'Marking': [
+            'headMarkingAColourContainer',
+            'headMarkingBColourContainer',
+            'headMarkingCColourContainer',
+            'headMarkingDColourContainer',
+            'headMarkingEColourContainer',
+
+            'bodyMarkingAColourContainer',
+            'bodyMarkingBColourContainer',
+            'bodyMarkingCColourContainer',
+            'bodyMarkingDColourContainer',
+            'bodyMarkingEColourContainer'
+        ]
+    };
+
+    return new Promise(async (resolve) => {
+        for (const item of data) {
+            let containerID = typeMapping[item.type];
+            if (containerID) {
+                if (Array.isArray(containerID)) {
+                    for (const id of containerID) {
+                        let container = document.getElementById(id);
+                        if (container) {
+                            const button = await createMarkingColourButton(
+                                container.getAttribute('markingColourIndex'),
+                                item,
+                                id.includes('head')
+                            );
+                            container.appendChild(button);
+                        } else {
+                            console.warn(`Json parse error at ${item.name}`);
+                        }
+                    }
+                } else {
+                    let container = document.getElementById(containerID);
+                    if (container) {
+                        const button = await createColourButton(
+                            container.getAttribute('colourIndex'),
+                            item
+                        );
                         container.appendChild(button);
                     } else {
                         console.warn(`Json parse error at ${item.name}`);
                     }
-                })
-            } else {
-                let container = document.getElementById(containerID);
-                if (container){
-                    let button = createColourButton(
-                        container.getAttribute('colourIndex'),
-                        item);
-                    container.appendChild(button);
-                } else {
-                    console.warn(`Json parse error at ${item.name}`);
                 }
+            } else {
+                console.warn(`Json parse error at ${item.name}`);
             }
-        } else {
-            console.warn(`Json parse error at ${item.name}`);
         }
-    })
+        resolve();
+    });
 }
 
 function populateModels(data) {

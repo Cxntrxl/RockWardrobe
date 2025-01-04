@@ -288,6 +288,17 @@
   },
   {
     "type": "TopHairstyle",
+    "preview": "",
+    "model": "",
+    "texture":"",
+    "ids": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Bald!"
+  },
+  {
+    "type": "TopHairstyle",
     "preview": "/icons/TopHair_Quiff.png",
     "model": "/Hair/Top1_LP.obj",
     "texture":"/Hair/Top1.png",
@@ -365,6 +376,17 @@
   },
   {
     "type": "SideHairstyle",
+    "preview": "",
+    "model": "",
+    "texture":"",
+    "ids": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Bald!"
+  },
+  {
+    "type": "SideHairstyle",
     "preview": "/icons/SideHair_Short.png",
     "model": "/Hair/Side1_LP.obj",
     "texture":"/Hair/Side1.png",
@@ -417,6 +439,17 @@
     "name": "Martialist's Headband",
     "price": 1200,
     "description": "A stylish headband popular with fighters who strive towards self-improvement."
+  },
+  {
+    "type": "Eyebrows",
+    "preview": "",
+    "model": "",
+    "texture":"",
+    "ids": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Bald!"
   },
   {
     "type": "Eyebrows",
@@ -483,6 +516,17 @@
     "name": "Droplet Eyebrows",
     "price": 600,
     "description": "Like fresh morning dew, right on your forehead."
+  },
+  {
+    "type": "Eyelashes",
+    "preview": "",
+    "model": "",
+    "texture":"",
+    "ids": "",
+    "nakedOverride": "",
+    "name": "None",
+    "price": 0,
+    "description": "Bald!"
   },
   {
     "type": "Eyelashes",
