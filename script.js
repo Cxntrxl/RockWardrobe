@@ -824,11 +824,15 @@ async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
         "/BaseMesh/Male/Male_Legs.obj":0,
         "/BaseMesh/Male/Male_Neck.obj":0,
         "/BaseMesh/Male/Male_Torso.obj":0,
+        "/BaseMesh/Male/Male_Feet_Left.obj":0,
+        "/BaseMesh/Male/Male_Feet_Right.obj":0,
         "/BaseMesh/Female/Female_Arm_Left.obj":0,
         "/BaseMesh/Female/Female_Arm_Right.obj":0,
         "/BaseMesh/Female/Female_Legs.obj":0,
         "/BaseMesh/Female/Female_Neck.obj":0,
         "/BaseMesh/Female/Female_Torso.obj":0,
+        "/BaseMesh/Female/Female_Feet_Left.obj":0,
+        "/BaseMesh/Female/Female_Feet_Right.obj":0,
 
         "/BaseMesh/Male/Male_Head.obj":1,
         "/BaseMesh/Female/Female_Head.obj":1

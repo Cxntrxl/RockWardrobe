@@ -9,6 +9,30 @@
   },
   {
     "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Eyeliner.png",
+    "name": "Eyeliner",
+    "price": 0,
+    "description": ""
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Eyeshadow.png",
+    "name": "Eyeshadow",
+    "price": 0,
+    "description": ""
+  },
+  {
+    "type": "Head",
+    "preview": "",
+    "texture": "/Markings/Head/Eyeshadow2.png",
+    "name": "Eyeshadow 2",
+    "price": 0,
+    "description": ""
+  },
+  {
+    "type": "Head",
     "preview": "/icons/FacialMarking_RoundBlush.png",
     "texture": "/Markings/Head/Blush.png",
     "name": "Blush 1",
