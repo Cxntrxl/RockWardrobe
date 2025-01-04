@@ -201,7 +201,7 @@ function createColourButton(colourIndex, item) {
     return new Promise(async (resolve) => {
         let button = createButton(item);
 
-        const iconUrl = await generateRecoloredIcon('/tex/Colour.png', {
+        const iconUrl = await generateRecoloredIcon('./tex/Colour.png', {
             r: item.red,
             g: item.green,
             b: item.blue
@@ -229,7 +229,7 @@ function createMarkingColourButton(markingIndex, item, type) {
     return new Promise(async (resolve) => {
         let button = createButton(item);
 
-        const iconUrl = await generateRecoloredIcon('/tex/Colour.png', {
+        const iconUrl = await generateRecoloredIcon('./tex/Colour.png', {
             r: item.red,
             g: item.green,
             b: item.blue
