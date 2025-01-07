@@ -105,7 +105,7 @@ function addButtonListeners(){
        });
     });
 
-    document.querySelectorAll('input[type=range]').forEach(slider => {
+    document.querySelectorAll('input[type=range][markingColourIndex]').forEach(slider => {
        slider.addEventListener('input', () => {
            if (slider.id.includes('head')){
                headMarkingColours[slider.getAttribute('markingColourIndex')].w = slider.value;
@@ -115,6 +115,8 @@ function addButtonListeners(){
        });
     });
 }
+
+
 
 function applyTooltips() {
     document.querySelectorAll('button[TName]').forEach(button => {
@@ -671,6 +673,8 @@ let bodyMarkingColours = new Array(5).fill(new THREE.Vector4(0.28, 0.28, 0.28, 0
 let headMarkingMaterials = []
 let bodyMarkingMaterials = []
 
+let materials = [];
+
 // Custom shader material
 const customMaterial = new THREE.ShaderMaterial({
     uniforms: {
@@ -690,7 +694,19 @@ const customMaterial = new THREE.ShaderMaterial({
         userData: { value: false },
         decals: { value: Array(5).fill(null) }, // Decal textures
         decalColors: { value: Array(5).fill(new THREE.Vector4(0.0, 0.0, 0.0, 0.0)) },
-        decalCount: { value: 5 }
+        decalCount: { value: 5 },
+        mainSaturation: {value: 1.0},
+        mainBrightness: {value: 1.3},
+        metalBandAThreshold: {value: 0.0},
+        metalBandASaturation: {value: 1.0},
+        metalBandABrightness: {value: 0.8},
+        metalBandBThreshold: {value: 0.5},
+        metalBandBSaturation: {value: 1.0},
+        metalBandBBrightness: {value: 1.1},
+        metalBandCThreshold: {value: 0.9},
+        metalBandCSaturation: {value: 0.85},
+        metalBandCBrightness: {value: 1.1},
+        lookDir: {value: new THREE.Vector3(0.0, 0.0, 0.0)}
     },
     vertexShader: `
         varying vec2 vUv;
@@ -717,6 +733,23 @@ uniform vec4 decalColors[5];
 
 float brightness = 1.15; // New uniform for brightness adjustment
 float saturation = 1.1; // New uniform for saturation adjustment
+
+uniform float mainSaturation;
+uniform float mainBrightness;
+
+uniform float metalBandAThreshold;
+uniform float metalBandASaturation;
+uniform float metalBandABrightness;
+
+uniform float metalBandBThreshold;
+uniform float metalBandBSaturation;
+uniform float metalBandBBrightness;
+
+uniform float metalBandCThreshold;
+uniform float metalBandCSaturation;
+uniform float metalBandCBrightness;
+
+uniform vec3 lookDir;
 
 vec3 adjustSaturation(vec3 color, float saturationLevel) {
     float intensity = dot(color, vec3(0.3, 0.59, 0.11)); // Perceived luminance
@@ -746,6 +779,8 @@ vec3 hueShift(vec3 color, float shift) {
 }
 
 void main() {
+    saturation = mainSaturation;
+    brightness = mainBrightness;
     vec4 baseTex = texture2D(baseColour, vUv);
     vec4 maskTex = texture2D(mask, vUv);
 
@@ -781,23 +816,34 @@ void main() {
     float toonShading = 1.0;
     
     if (maskTex.r < 0.5 && maskTex.g > 0.5 && maskTex.b < 0.5) {
-        if (lightIntensity < 0.5) lightIntensity = 0.9;
-        else if (lightIntensity < 0.8) lightIntensity = 0.65;
-        else lightIntensity = 1.3;
+        float diffuse = max(dot(normal, lookDir), 0.0);
+        float lightIntensity = mix(ambientLight, 1.0, diffuse);
+    
+        if (lightIntensity < metalBandBThreshold) {
+            lightIntensity = 0.95;
+            saturation = metalBandASaturation;
+            brightness = metalBandABrightness;
+         }
+        else if (lightIntensity < metalBandCThreshold) {
+            lightIntensity = 0.8;
+            saturation = metalBandBSaturation;
+            brightness = metalBandBBrightness;
+        }
+        else {
+            lightIntensity = 1.6;
+            saturation = metalBandCSaturation;
+            brightness = metalBandCBrightness;
+        }
     
         toonShading = (floor(lightIntensity * 3.0) / 3.0);
-        if (toonShading > 0.5) toonShading += 0.85;
-        else if (toonShading < 0.5) toonShading - max(toonShading - 0.4, 0.0);
-        saturation = 1.1;
-        brightness = 1.0;
 
         // Specular highlight for the green zone
-        vec3 viewDir = normalize(vec3(0.0, 0.0, 1.0)); // Assume camera view direction along +Z
+        /*vec3 viewDir = normalize(vec3(0.0, 0.0, 1.0)); // Assume camera view direction along +Z
         vec3 reflectDir = reflect(-lightDir, normal);
         float spec = pow(max(dot(viewDir, reflectDir), 0.0), 2.0); // Shininess factor
         float highlight = smoothstep(0.8, 1.0, spec);
         outputColor += vec3(highlight); // Add the highlight to the outputColor
-        if (toonShading > 0.5) outputColor = hueShift(outputColor, -0.03);
+        if (toonShading > 0.5) outputColor = hueShift(outputColor, -0.03);*/
     } else {
         toonShading = floor(lightIntensity * 3.0) / 3.0;
     }
@@ -845,6 +891,7 @@ async function loadModel(modelName, baseColour, ID, itemType, itemIndex) {
                 object.traverse(function (child) {
                     if (child.isMesh) {
                         const materialInstance = customMaterial.clone();
+                        materials.push(materialInstance);
                         if (itemTypeMap[itemType] === 'BattleSuit') {
                             materialInstance.uniforms.zoneColors.value = battleSuitColours;
                         } else if (itemTypeMap[itemType] === 'Character') {
@@ -1058,6 +1105,11 @@ controls.update();
 
 function animate() {
     requestAnimationFrame(animate);
+
+    materials.forEach(material => {
+        material.uniforms.lookDir.value.copy(new THREE.Vector3(0, 0, 1).applyQuaternion(camera.quaternion));
+    });
+
     renderer.render(scene, camera);
 }
 
