@@ -1666,11 +1666,11 @@
   },
   {
     "type": "Undersuit",
-    "red": 96,
-    "green": 79,
-    "blue": 71,
-    "name": "Dark Brown",
-    "price": 300,
+    "red": 84,
+    "green": 84,
+    "blue": 84,
+    "name": "Black",
+    "price": 0,
     "description": "An alternative colour option for the first layer of cloth typical of any proper battle suit."
   },
   {
