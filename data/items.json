@@ -422,7 +422,7 @@
     "type": "SideHairstyle",
     "preview": "/icons/SideHair_Full.png",
     "model": "/Hair/Side3_LP.obj",
-    "texture":"/Hair/Side3.png",
+    "texture":"/Hair/Side2.png",
     "ids": "/Hair/Side_ID.png",
     "nakedOverride": "",
     "name": "Full on the Sides",
@@ -693,7 +693,7 @@
     "ids": "/Torso/Ponch_ID.png",
     "nakedOverride": "/Torso/Male/GI_Naked.obj",
     "name": "Martialist Dogi",
-    "price": 0,
+    "price": 900,
     "description": "A dogi-style undershirt, typical of fighters who follow the teachings of Jan-Kan."
   },
   {
@@ -838,7 +838,7 @@
       "/Sleeve/Male/NewtrainingsetAltered_Naked_Right.obj"
     ],
     "name": "Short Sleeves",
-    "price": 0,
+    "price": 600,
     "description": "Little Description!"
   },
   {
