@@ -1,6 +1,7 @@
 [
   {
     "type": "CharacterType",
+    "id": "00",
     "preview": "/icons/MasculineIcon.png",
     "model": [
       "/BaseMesh/Male/EyeLeft.obj",
@@ -60,6 +61,7 @@
   },
   {
     "type": "CharacterType",
+    "id": "01",
     "preview": "/icons/FeminineIcon.png",
     "model": [
       "/BaseMesh/Female/EyeLeft.obj",
@@ -119,6 +121,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "00",
     "preview": "/icons/ES0.png",
     "model": "",
     "texture":"/TEX.png",
@@ -130,6 +133,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "01",
     "preview": "/icons/ES1.png",
     "model": "",
     "texture":"/TEX.png",
@@ -141,6 +145,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "02",
     "preview": "/icons/ES7.png",
     "model": "",
     "texture":"/TEX.png",
@@ -152,6 +157,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "03",
     "preview": "/icons/ES3.png",
     "model": "",
     "texture":"/TEX.png",
@@ -163,6 +169,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "04",
     "preview": "/icons/ES5.png",
     "model": "",
     "texture":"/TEX.png",
@@ -174,6 +181,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "05",
     "preview": "/icons/ES6.png",
     "model": "",
     "texture":"/TEX.png",
@@ -185,6 +193,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "06",
     "preview": "/icons/ES4.png",
     "model": "",
     "texture":"/TEX.png",
@@ -196,6 +205,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "07",
     "preview": "/icons/ES2.png",
     "model": "",
     "texture":"/TEX.png",
@@ -207,6 +217,7 @@
   },
   {
     "type": "ExpressionSet",
+    "id": "08",
     "preview": "/icons/ES8.png",
     "model": "",
     "texture":"/TEX.png",
@@ -218,6 +229,7 @@
   },
   {
     "type": "EyeSheen",
+    "id": "00",
     "preview": "/icons/Eyesheen_Sparks.png",
     "model": [
       "/Eyes/Eyesparkle1.obj",
@@ -232,6 +244,7 @@
   },
   {
     "type": "EyeSheen",
+    "id": "01",
     "preview": "/icons/Eyesheen_Sheen.png",
     "model": [
       "/Eyes/Eyesparkle3.obj",
@@ -246,6 +259,7 @@
   },
   {
     "type": "EyeSheen",
+    "id": "02",
     "preview": "/icons/Eyesheen_Gloss.png",
     "model": [
       "/Eyes/Eyesparkle2.obj",
@@ -260,6 +274,7 @@
   },
   {
     "type": "EyeSheen",
+    "id": "03",
     "preview": "/icons/Eyesheen_Luster.png",
     "model": [
       "/Eyes/Eyesparkle5.obj",
@@ -274,6 +289,7 @@
   },
   {
     "type": "EyeSheen",
+    "id": "04",
     "preview": "/icons/Eyesheen_Gleam.png",
     "model": [
       "/Eyes/Eyesparkle4.obj",
@@ -288,6 +304,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"",
@@ -299,6 +316,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "01",
     "preview": "/icons/TopHair_Quiff.png",
     "model": "/Hair/Top1_LP.obj",
     "texture":"/Hair/Top1.png",
@@ -310,6 +328,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "02",
     "preview": "/icons/TopHair_SlickedBack.png",
     "model": "/Hair/Top6_LP.obj",
     "texture":"/Hair/Top6.png",
@@ -321,6 +340,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "03",
     "preview": "/icons/TopHair_Bun.png",
     "model": "/Hair/Top2_LP.obj",
     "texture":"/Hair/Top2.png",
@@ -332,6 +352,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "04",
     "preview": "/icons/TopHair_AsymmetricalBob.png",
     "model": "/Hair/Top3_LP.obj",
     "texture":"/Hair/Top3.png",
@@ -343,6 +364,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "05",
     "preview": "/icons/TopHair_FauxHawk.png",
     "model": "/Hair/Top5_LP.obj",
     "texture":"/Hair/Top5.png",
@@ -354,6 +376,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "06",
     "preview": "/icons/TopHair_Afro.png",
     "model": "/Hair/Top4_LP.obj",
     "texture":"/Hair/Top4.png",
@@ -365,6 +388,7 @@
   },
   {
     "type": "TopHairstyle",
+    "id": "07",
     "preview": "/icons/TopHair_FrenchBob.png",
     "model": "/Hair/Top7.obj",
     "texture":"/Hair/Top7.png",
@@ -376,6 +400,7 @@
   },
   {
     "type": "SideHairstyle",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"",
@@ -387,6 +412,7 @@
   },
   {
     "type": "SideHairstyle",
+    "id": "01",
     "preview": "/icons/SideHair_Short.png",
     "model": "/Hair/Side1_LP.obj",
     "texture":"/Hair/Side1.png",
@@ -398,6 +424,7 @@
   },
   {
     "type": "SideHairstyle",
+    "id": "02",
     "preview": "",
     "model": "/Hair/Side5_LP.obj",
     "texture":"/Hair/Side5.png",
@@ -409,6 +436,7 @@
   },
   {
     "type": "SideHairstyle",
+    "id": "03",
     "preview": "/icons/SideHair_Combed.png",
     "model": "/Hair/Side2_LP.obj",
     "texture":"/Hair/Side2.png",
@@ -420,6 +448,7 @@
   },
   {
     "type": "SideHairstyle",
+    "id": "04",
     "preview": "/icons/SideHair_Full.png",
     "model": "/Hair/Side3_LP.obj",
     "texture":"/Hair/Side2.png",
@@ -431,6 +460,7 @@
   },
   {
     "type": "SideHairstyle",
+    "id": "05",
     "preview": "/icons/SideHair_Headband.png",
     "model": "/Hair/Side4_LP.obj",
     "texture":"/Hair/Side4.png",
@@ -442,6 +472,7 @@
   },
   {
     "type": "Eyebrows",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"",
@@ -453,6 +484,7 @@
   },
   {
     "type": "Eyebrows",
+    "id": "01",
     "preview": "/icons/Eyebrows_Sharp.png",
     "model": "/Hair/Fuzz_Eyebrows3.obj",
     "texture":"/TEX.png",
@@ -464,6 +496,7 @@
   },
   {
     "type": "Eyebrows",
+    "id": "02",
     "preview": "/icons/Eyebrows_Thick.png",
     "model": "/Hair/Fuzz_Eyebrows1.obj",
     "texture":"/TEX.png",
@@ -475,6 +508,7 @@
   },
   {
     "type": "Eyebrows",
+    "id": "03",
     "preview": "/icons/Eyebrows_Monobrow.png",
     "model": "/Hair/Fuzz_Eyebrows4.obj",
     "texture":"/TEX.png",
@@ -486,6 +520,7 @@
   },
   {
     "type": "Eyebrows",
+    "id": "04",
     "preview": "/icons/Eyebrows_Defined.png",
     "model": "/Hair/Fuzz_Eyebrows2.obj",
     "texture":"/TEX.png",
@@ -497,6 +532,7 @@
   },
   {
     "type": "Eyebrows",
+    "id": "05",
     "preview": "/icons/Eyebrows_Pencil.png",
     "model": "/Hair/Fuzz_Eyebrows5.obj",
     "texture":"/TEX.png",
@@ -508,6 +544,7 @@
   },
   {
     "type": "Eyebrows",
+    "id": "06",
     "preview": "/icons/Eyebrows_Droplet.png",
     "model": "/Hair/Fuzz_Eyebrows6.obj",
     "texture":"/TEX.png",
@@ -519,6 +556,7 @@
   },
   {
     "type": "Eyelashes",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"",
@@ -530,6 +568,7 @@
   },
   {
     "type": "Eyelashes",
+    "id": "01",
     "preview": "/icons/Eyelashes_Full.png",
     "model": "/Hair/Fuzz_Eyelashes1.obj",
     "texture":"",
@@ -541,6 +580,7 @@
   },
   {
     "type": "Eyelashes",
+    "id": "02",
     "preview": "/icons/Eyelashes_Short.png",
     "model": "/Hair/Fuzz_Eyelashes2.obj",
     "texture":"",
@@ -552,6 +592,7 @@
   },
   {
     "type": "Eyelashes",
+    "id": "03",
     "preview": "/icons/Eyelashes_Winged.png",
     "model": "/Hair/Fuzz_Eyelashes3.obj",
     "texture":"",
@@ -563,6 +604,7 @@
   },
   {
     "type": "Moustache",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"/TEX.png",
@@ -574,6 +616,7 @@
   },
   {
     "type": "Moustache",
+    "id": "01",
     "preview": "/icons/Moustache_Walrus.png",
     "model": "/Hair/Stash1_LP.obj",
     "texture":"/Hair/Stash1.png",
@@ -585,6 +628,7 @@
   },
   {
     "type": "Moustache",
+    "id": "02",
     "preview": "/icons/Moustache_Ringmaster.png",
     "model": "/Hair/Stash3_LP.obj",
     "texture":"/Hair/Stash3.png",
@@ -596,6 +640,7 @@
   },
   {
     "type": "Moustache",
+    "id": "03",
     "preview": "/icons/Moustache_Inspector.png",
     "model": "/Hair/Stash2_LP.obj",
     "texture":"/Hair/Stash2.png",
@@ -607,6 +652,7 @@
   },
   {
     "type": "Beard",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"/TEX.png",
@@ -618,6 +664,7 @@
   },
   {
     "type": "Beard",
+    "id": "01",
     "preview": "/icons/Beard_Trimmed.png",
     "model": "/Hair/Beard1_LP.obj",
     "texture":"/Hair/Beard1.png",
@@ -629,6 +676,7 @@
   },
   {
     "type": "Beard",
+    "id": "02",
     "preview": "/icons/Beard_Goatee.png",
     "model": "/Hair/Beard3_LP.obj",
     "texture":"/Hair/Beard3.png",
@@ -640,6 +688,7 @@
   },
   {
     "type": "Beard",
+    "id": "03",
     "preview": "/icons/Beard_Full.png",
     "model": "/Hair/Beard2_LP.obj",
     "texture":"/Hair/Beard2.png",
@@ -651,6 +700,7 @@
   },
   {
     "type": "Torso",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"/TEX.png",
@@ -662,6 +712,7 @@
   },
   {
     "type": "Torso",
+    "id": "01",
     "preview": "/icons/Torso_TurtleShirt.png",
     "model": "/Torso/Male/Newtrainingset.obj",
     "femaleModel": "/Torso/Female/NewTrainingSet.obj",
@@ -674,6 +725,7 @@
   },
   {
     "type": "Torso",
+    "id": "02",
     "preview": "/icons/Torso_LowcutShirt.png",
     "model": "/Torso/Male/Ponch.obj",
     "femaleModel": "/Torso/Female/Ponch.obj",
@@ -686,6 +738,7 @@
   },
   {
     "type": "Torso",
+    "id": "03",
     "preview": "/icons/Torso_Dogi.png",
     "model": "/Torso/Male/GI.obj",
     "femaleModel": "/Torso/Female/GI.obj",
@@ -698,6 +751,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"/TEX.png",
@@ -709,6 +763,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "01",
     "preview": "/icons/Chestplate_AllPurposeChestplate.png",
     "model": "/Chestplate/Male/Newtrainingset.obj",
     "femaleModel": "/Chestplate/Female/NewTrainingSet.obj",
@@ -721,6 +776,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "02",
     "preview": "/icons/Chestplate_AllPurposeChestplateB.png",
     "model": "/Chestplate/Male/NewtrainingsetAltered.obj",
     "femaleModel": "/Chestplate/Female/AlteredTrainingSet.obj",
@@ -733,6 +789,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "03",
     "preview": "/icons/Chestplate_DevotedPoncho.png",
     "model": "/Chestplate/Male/Ponch.obj",
     "femaleModel": "/Chestplate/Female/Ponch.obj",
@@ -745,6 +802,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "04",
     "preview": "/icons/Chestplate_MartialistObi.png",
     "model": "/Chestplate/Male/Basicbelt.obj",
     "femaleModel": "/Chestplate/Female/BasicBelt.obj",
@@ -757,6 +815,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "05",
     "preview": "/icons/Chestplate_AmbitionBelt.png",
     "model": "/Chestplate/Male/Thicbelt.obj",
     "femaleModel": "/Chestplate/Female/Thicbelt.obj",
@@ -769,6 +828,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "06",
     "preview": "/icons/Chestplate_ChallengerPauldronLeft.png",
     "model": "/Chestplate/Male/Spartarelec_Left.obj",
     "femaleModel": "/Chestplate/Female/Spartarelec_Left.obj",
@@ -781,6 +841,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "07",
     "preview": "/icons/Chestplate_ChallengerPauldronRight.png",
     "model": "/Chestplate/Male/Spartarelec_Right.obj",
     "femaleModel": "/Chestplate/Female/Spartarelec_Right.obj",
@@ -793,6 +854,7 @@
   },
   {
     "type": "Chestplate",
+    "id": "08",
     "preview": "/icons/Chestplate_DualChallengerPauldrons.png",
     "model": "/Chestplate/Male/Spartarelec_Double.obj",
     "femaleModel": "/Chestplate/Female/Spartarelec_Both.obj",
@@ -805,6 +867,7 @@
   },
   {
     "type": "Sleeve",
+    "id": "00",
     "preview": "",
     "model": "",
     "texture":"/TEX.png",
@@ -816,6 +879,7 @@
   },
   {
     "type": "Sleeve",
+    "id": "01",
     "preview": "/icons/LeftArm_ShortSleeve.png",
     "model": [
       "/Sleeve/Male/NewtrainingsetAltered_Left.obj",
@@ -843,6 +907,7 @@
   },
   {
     "type": "Sleeve",
+    "id": "02",
     "preview": "/icons/LeftArm_RolledSleeve.png",
     "model": [
       "/Sleeve/Male/Ponch_Left.obj",
@@ -870,6 +935,7 @@
   },
   {
     "type": "Gauntlet",
+    "id": "00",
     "preview": "/icons/LeftGauntlet_AllPurposeGauntlet.png",
     "model": [
       "/Gauntlet/Male/Newtrainingset_Left.obj",
@@ -891,6 +957,7 @@
   },
   {
     "type": "Gauntlet",
+    "id": "01",
     "preview": "",
     "model": [
       "/Gauntlet/Male/ShiftstoneSocket_Left.obj",
@@ -909,6 +976,7 @@
   },
   {
     "type": "Gauntlet",
+    "id": "02",
     "preview": "/icons/LeftGauntlet_AllPurposeGauntletB.png",
     "model": [
       "/Gauntlet/Male/NewtrainingsetAltered_Left.obj",
@@ -930,6 +998,7 @@
   },
   {
     "type": "Gauntlet",
+    "id": "03",
     "preview": "/icons/LeftGauntlet_DevotedBracer.png",
     "model": [
       "/Gauntlet/Male/Ponch_Left.obj",
@@ -951,6 +1020,7 @@
   },
   {
     "type": "Gauntlet",
+    "id": "04",
     "preview": "/icons/LeftGauntlet_MartialistBand.png",
     "model": [
       "/Gauntlet/Male/Sweatband_Left.obj",
@@ -972,6 +1042,7 @@
   },
   {
     "type": "Pants",
+    "id": "00",
     "preview": "icons/",
     "model": "",
     "texture":"/TEX.png",
@@ -983,6 +1054,7 @@
   },
   {
     "type": "Pants",
+    "id": "01",
     "preview": "/icons/Legs_Shorts.png",
     "model": "/Legs/Male/NewTrainingset.obj",
     "femaleModel": "/Legs/Female/NewTrainingSet.obj",
@@ -995,6 +1067,7 @@
   },
   {
     "type": "Pants",
+    "id": "02",
     "preview": "/icons/Legs_Joggers.png",
     "model": "/Legs/Male/Ponch.obj",
     "femaleModel": "/Legs/Female/Ponch.obj",
@@ -1007,6 +1080,7 @@
   },
   {
     "type": "Pants",
+    "id": "03",
     "preview": "/icons/Legs_ShortShorts.png",
     "model": "/Legs/Male/NewtrainingsetAltered.obj",
     "femaleModel": "/Legs/Female/AlteredTrainingSet.obj",
@@ -1019,6 +1093,7 @@
   },
   {
     "type": "Pants",
+    "id": "04",
     "preview": "/icons/Legs_Hakama.png",
     "model": "/Legs/Male/Skirt.obj",
     "femaleModel": "/Legs/Female/Skirt.obj",
@@ -1031,6 +1106,7 @@
   },
   {
     "type": "Boots",
+    "id": "00",
     "preview": "icons/",
     "model": "",
     "texture":"/TEX.png",
@@ -1042,6 +1118,7 @@
   },
   {
     "type": "Boots",
+    "id": "01",
     "preview": "/icons/LeftBoot_AllPurposeBoot.png",
     "model": [
       "/Boots/Male/Newtrainingset_Left.obj",
@@ -1060,6 +1137,7 @@
   },
   {
     "type": "Boots",
+    "id": "02",
     "preview": "/icons/LeftBoot_DevotedShinguard.png",
     "model": [
       "/Boots/Male/Ponch_Left.obj",
@@ -1081,6 +1159,7 @@
   },
   {
     "type": "Boots",
+    "id": "03",
     "preview": "/icons/LeftBoot_LaminarBoot.png",
     "model": [
       "/Boots/Male/Panser_Left.obj",

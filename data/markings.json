@@ -1,6 +1,7 @@
 [
   {
     "type": "Head",
+    "id": "00",
     "preview": "",
     "texture": "",
     "name": "None",
@@ -9,6 +10,7 @@
   },
   {
     "type": "Head",
+    "id": "01",
     "preview": "",
     "texture": "/Markings/Head/Eyeliner.png",
     "name": "Eyeliner",
@@ -17,6 +19,7 @@
   },
   {
     "type": "Head",
+    "id": "02",
     "preview": "",
     "texture": "/Markings/Head/Eyeshadow.png",
     "name": "Eyeshadow",
@@ -25,6 +28,7 @@
   },
   {
     "type": "Head",
+    "id": "03",
     "preview": "",
     "texture": "/Markings/Head/Eyeshadow2.png",
     "name": "Eyeshadow 2",
@@ -33,6 +37,7 @@
   },
   {
     "type": "Head",
+    "id": "04",
     "preview": "/icons/FacialMarking_RoundBlush.png",
     "texture": "/Markings/Head/Blush.png",
     "name": "Blush 1",
@@ -41,6 +46,7 @@
   },
   {
     "type": "Head",
+    "id": "05",
     "preview": "/icons/FacialMarking_StripedBlush.png",
     "texture": "/Markings/Head/Blush2.png",
     "name": "Blush 2",
@@ -49,6 +55,7 @@
   },
   {
     "type": "Head",
+    "id": "06",
     "preview": "/icons/FacialMarking_Lipstick.png",
     "texture": "/Markings/Head/Lipstick.png",
     "name": "Lipstick",
@@ -57,6 +64,7 @@
   },
   {
     "type": "Head",
+    "id": "07",
     "preview": "/icons/FacialMarking_Stubble.png",
     "texture": "/Markings/Head/5oclock.png",
     "name": "Stubble",
@@ -65,6 +73,7 @@
   },
   {
     "type": "Head",
+    "id": "08",
     "preview": "/icons/FacialMarking_CheekMole.png",
     "texture": "/Markings/Head/Mole.png",
     "name": "Cheek Mole",
@@ -73,6 +82,7 @@
   },
   {
     "type": "Head",
+    "id": "09",
     "preview": "/icons/FacialMarking_HorizontalScar.png",
     "texture": "/Markings/Head/Nosescar.png",
     "name": "Horizontal Scar",
@@ -81,6 +91,7 @@
   },
   {
     "type": "Head",
+    "id": "0a",
     "preview": "/icons/FacialMarking_LipScar.png",
     "texture": "/Markings/Head/Lipscar.png",
     "name": "Lip Scar",
@@ -89,6 +100,7 @@
   },
   {
     "type": "Head",
+    "id": "0b",
     "preview": "/icons/FacialMarking_EyeScar.png",
     "texture": "/Markings/Head/Eyescar.png",
     "name": "Eye Scar",
@@ -97,6 +109,7 @@
   },
   {
     "type": "Head",
+    "id": "0c",
     "preview": "/icons/FacialMarking_CheekScar.png",
     "texture": "/Markings/Head/Theactionman.png",
     "name": "Cheek Scar",
@@ -105,6 +118,7 @@
   },
   {
     "type": "Head",
+    "id": "0d",
     "preview": "/icons/FacialMarking_LipHeart.png",
     "texture": "/Markings/Head/Lipstick2.png",
     "name": "Lip Heart",
@@ -113,6 +127,7 @@
   },
   {
     "type": "Head",
+    "id": "0e",
     "preview": "/icons/FacialMarking_LipSketch.png",
     "texture": "/Markings/Head/Lipstick3.png",
     "name": "Lip Sketch",
@@ -121,6 +136,7 @@
   },
   {
     "type": "Head",
+    "id": "0f",
     "preview": "/icons/FacialMarking_FlushCheeks.png",
     "texture": "/Markings/Head/Flushcheeks.png",
     "name": "Flush Cheeks",
@@ -129,6 +145,7 @@
   },
   {
     "type": "Head",
+    "id": "0g",
     "preview": "/icons/FacialMarking_Nose.png",
     "texture": "/Markings/Head/Nose.png",
     "name": "Nose",
@@ -137,6 +154,7 @@
   },
   {
     "type": "Head",
+    "id": "0h",
     "preview": "/icons/FacialMarking_NoseTip.png",
     "texture": "/Markings/Head/Clown.png",
     "name": "Nose Tip",
@@ -145,6 +163,7 @@
   },
   {
     "type": "Head",
+    "id": "0i",
     "preview": "/icons/FacialMarking_Facepaint.png",
     "texture": "/Markings/Head/Face.png",
     "name": "Facepaint",
@@ -153,6 +172,7 @@
   },
   {
     "type": "Head",
+    "id": "0j",
     "preview": "/icons/FacialMarking_Highlander.png",
     "texture": "/Markings/Head/Braveheart.png",
     "name": "Highlander",
@@ -161,6 +181,7 @@
   },
   {
     "type": "Head",
+    "id": "0k",
     "preview": "/icons/FacialMarking_Forehead.png",
     "texture": "/Markings/Head/Forehead.png",
     "name": "Forehead",
@@ -169,6 +190,7 @@
   },
   {
     "type": "Head",
+    "id": "0l",
     "preview": "/icons/FacialMarking_Fury.png",
     "texture": "/Markings/Head/Warpaint4.png",
     "name": "Fury",
@@ -177,6 +199,7 @@
   },
   {
     "type": "Head",
+    "id": "0m",
     "preview": "/icons/FacialMarking_Chieftain.png",
     "texture": "/Markings/Head/Warpaint3.png",
     "name": "Chieftain",
@@ -185,6 +208,7 @@
   },
   {
     "type": "Head",
+    "id": "0n",
     "preview": "/icons/FacialMarking_HeroMask.png",
     "texture": "/Markings/Head/HeroMask.png",
     "name": "Hero Mask",
@@ -193,6 +217,7 @@
   },
   {
     "type": "Head",
+    "id": "0o",
     "preview": "/icons/FacialMarking_CheekBars.png",
     "texture": "/Markings/Head/Warpaint1.png",
     "name": "Cheek Bars",
@@ -201,6 +226,7 @@
   },
   {
     "type": "Head",
+    "id": "0p",
     "preview": "/icons/FacialMarking_CheekStripes.png",
     "texture": "/Markings/Head/Warpaint2.png",
     "name": "Cheek Stripes",
@@ -209,6 +235,7 @@
   },
   {
     "type": "Head",
+    "id": "0q",
     "preview": "/icons/FacialMarking_Warlord.png",
     "texture": "/Markings/Head/Warrpaint5.png",
     "name": "Warlord",
@@ -217,6 +244,7 @@
   },
   {
     "type": "Head",
+    "id": "0r",
     "preview": "/icons/FacialMarking_Cat.png",
     "texture": "/Markings/Head/Cat.png",
     "name": "Cat",
@@ -225,6 +253,7 @@
   },
   {
     "type": "Head",
+    "id": "0s",
     "preview": "/icons/FacialMarking_Target.png",
     "texture": "/Markings/Head/Target.png",
     "name": "Target",
@@ -233,6 +262,7 @@
   },
   {
     "type": "Head",
+    "id": "0t",
     "preview": "/icons/FacialMarking_SkullHead.png",
     "texture": "/Markings/Head/Skull_Head.png",
     "name": "Skull Head",
@@ -241,6 +271,7 @@
   },
   {
     "type": "Body",
+    "id": "00",
     "preview": "",
     "texture": "",
     "name": "None",
@@ -249,6 +280,7 @@
   },
   {
     "type": "Body",
+    "id": "01",
     "preview": "/icons/BodyMarking_LuckyClover.png",
     "texture": "/Markings/Body/Lucky.png",
     "name": "Lucky Clover",
@@ -257,6 +289,7 @@
   },
   {
     "type": "Body",
+    "id": "02",
     "preview": "/icons/BodyMarking_SleeveLeft.png",
     "texture": "/Markings/Body/Fill1.png",
     "name": "Left Arm Sleeve",
@@ -265,6 +298,7 @@
   },
   {
     "type": "Body",
+    "id": "03",
     "preview": "/icons/BodyMarking_SleeveRight.png",
     "texture": "/Markings/Body/Fill2.png",
     "name": "Right Arm Sleeve",
@@ -273,6 +307,7 @@
   },
   {
     "type": "Body",
+    "id": "04",
     "preview": "/icons/BodyMarking_ArmFlames.png",
     "texture": "/Markings/Body/Flames.png",
     "name": "Arm Flames",
@@ -281,6 +316,7 @@
   },
   {
     "type": "Body",
+    "id": "05",
     "preview": "/icons/BodyMarking_Ace.png",
     "texture": "/Markings/Body/Ace.png",
     "name": "Ace",
@@ -289,6 +325,7 @@
   },
   {
     "type": "Body",
+    "id": "06",
     "preview": "/icons/BodyMarking_Star.png",
     "texture": "/Markings/Body/Star.png",
     "name": "Star",
@@ -297,6 +334,7 @@
   },
   {
     "type": "Body",
+    "id": "07",
     "preview": "/icons/BodyMarking_LumbarFlair.png",
     "texture": "/Markings/Body/Stamp.png",
     "name": "Lumbar Flair",
@@ -305,6 +343,7 @@
   },
   {
     "type": "Body",
+    "id": "08",
     "preview": "/icons/BodyMarking_FirstCrush.png",
     "texture": "/Markings/Body/Love.png",
     "name": "First Crush",
@@ -313,6 +352,7 @@
   },
   {
     "type": "Body",
+    "id": "09",
     "preview": "/icons/BodyMarking_Killshot.png",
     "texture": "/Markings/Body/Target.png",
     "name": "Killshot",
@@ -321,6 +361,7 @@
   },
   {
     "type": "Body",
+    "id": "0a",
     "preview": "/icons/BodyMarking_AlwaysWatching.png",
     "texture": "/Markings/Body/Eye.png",
     "name": "Always Watching",
@@ -329,6 +370,7 @@
   },
   {
     "type": "Body",
+    "id": "0b",
     "preview": "/icons/BodyMarking_JollyRoger.png",
     "texture": "/Markings/Body/Bones.png",
     "name": "Jolly Roger",
@@ -337,6 +379,7 @@
   },
   {
     "type": "Body",
+    "id": "0c",
     "preview": "/icons/BodyMarking_SeafarersAnchor.png",
     "texture": "/Markings/Body/Ancors.png",
     "name": "Seafarer's Anchor",
@@ -345,6 +388,7 @@
   },
   {
     "type": "Body",
+    "id": "0d",
     "preview": "/icons/BodyMarking_SailorsBack.png",
     "texture": "/Markings/Body/Boat.png",
     "name": "Sailor's Back",
@@ -353,6 +397,7 @@
   },
   {
     "type": "Body",
+    "id": "0e",
     "preview": "/icons/BodyMarking_BoxersMantra.png",
     "texture": "/Markings/Body/Sting.png",
     "name": "Boxer's Mantra",
@@ -361,6 +406,7 @@
   },
   {
     "type": "Body",
+    "id": "0f",
     "preview": "/icons/BodyMarking_MothersHeart.png",
     "texture": "/Markings/Body/Mom.png",
     "name": "Mother's Arm",
@@ -369,6 +415,7 @@
   },
   {
     "type": "Body",
+    "id": "0g",
     "preview": "/icons/BodyMarking_FathersStone.png",
     "texture": "/Markings/Body/Dad.png",
     "name": "Father's Stone",
@@ -377,6 +424,7 @@
   },
   {
     "type": "Body",
+    "id": "0h",
     "preview": "/icons/BodyMarking_CursedHeart.png",
     "texture": "/Markings/Body/Darksighn.png",
     "name": "Cursed Heart",
@@ -385,6 +433,7 @@
   },
   {
     "type": "Body",
+    "id": "0i",
     "preview": "/icons/BodyMarking_SacredMarksTorso.png",
     "texture": "/Markings/Body/AstecTorso.png",
     "name": "Sacred Marks - Chest",
@@ -393,6 +442,7 @@
   },
   {
     "type": "Body",
+    "id": "0j",
     "preview": "/icons/BodyMarking_SacredMarksLeftArm.png",
     "texture": "/Markings/Body/AstecLeftarm.png",
     "name": "Sacred Marks - Left Arm",
@@ -401,6 +451,7 @@
   },
   {
     "type": "Body",
+    "id": "0k",
     "preview": "/icons/BodyMarking_SacredMarksRightArm.png",
     "texture": "/Markings/Body/Astecrightarm.png",
     "name": "Sacred Marks - Right Arm",
@@ -409,6 +460,7 @@
   },
   {
     "type": "Body",
+    "id": "0l",
     "preview": "/icons/BodyMarking_SacredMarksLeftLeg.png",
     "texture": "/Markings/Body/Astecleftleg.png",
     "name": "Sacred Marks - Left Leg",
@@ -417,6 +469,7 @@
   },
   {
     "type": "Body",
+    "id": "0m",
     "preview": "/icons/BodyMarking_SacredMarksRightLeg.png",
     "texture": "/Markings/Body/Astecrightleg.png",
     "name": "Sacred Marks - Right Leg",
@@ -425,6 +478,7 @@
   },
   {
     "type": "Body",
+    "id": "0n",
     "preview": "/icons/BodyMarking_UlvaksTarget.png",
     "texture": "/Markings/Body/Ulvak.png",
     "name": "Ulvak's Target",

@@ -108,8 +108,18 @@ button:not(:disabled):hover {
     grid-template-columns: repeat(5, 1fr);
 }
 
-.grid-container.double {
-    grid-template-columns: repeat(2, 1fr);
+/*mobile*/
+@media (max-width: 768px){
+    .grid-container.double {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/*desktop*/
+@media (min-width: 769px) {
+    .grid-container.double {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .grid-container.triple {
@@ -146,7 +156,7 @@ button:not(:disabled):hover {
 
 .scroll-zone {
     width: auto;
-    height: 130vh;
+    height: 70vh;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-color: #87b5f1 #2e2d49;

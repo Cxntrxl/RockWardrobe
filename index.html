@@ -6,7 +6,7 @@
     <title>Rock Wardrobe</title>
     <link rel="stylesheet" href="style.css">
 
-    <script>
+    <!--<script>
         document.addEventListener("DOMContentLoaded", function () {
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             if (isMobile) {
@@ -15,7 +15,7 @@
                 window.location.href = "desktop.html";
             }
         });
-    </script>
+    </script>-->
 
 </head>
 <body>
@@ -27,34 +27,10 @@
 
 <main>
     <div class="grid-container double">
-        <div class="button-container stack">
-            <div class="content-box">
-                <h2>Cosmetic Preview</h2>
-                <div id="PreviewRenderer"></div>
-                <p>Controls: Rotate - Left click + drag. Pan - Right click + drag. Zoom - Scroll wheel.</p>
-            </div>
-            <div class="content-box">
-                <h2>Cost & Time Estimation</h2>
-                <p id="CostTimeEstimate">Something went wrong.</p>
-            </div>
-            <div class="content-box">
-                <h1>Known Bugs or Issues</h1>
-                <h3>Which cosmetic option do I have selected?</h3>
-                <p>I'm aware the UX of the site isn't great - it's a bit hard to see which button you've selected at first glance. I'll do a redesign at some stage to outline them in a brighter colour to make it more obvious.</p>
-            </div>
-            <div class="content-box">
-                <h2>To do List:</h2>
-                <p>[X] Build initial site infrastructure</p>
-                <p>[X] Fill out correct item data</p>
-                <p>[X] Model rendering</p>
-                <p>[X] Total cost & time estimation</p>
-                <p>[X] Colour support</p>
-                <p>[X] Feminine model support</p>
-                <p>[X] Bug fix & Optimization pass</p>
-                <p>[X] Mobile browser support!</p>
-                <p>[ ] Add saving/loading cosmetic sets by URL</p>
-                <p>[ ] Add nameplate & title support</p>
-            </div>
+        <div class="content-box">
+            <h2>Cosmetic Preview</h2>
+            <div id="PreviewRenderer"></div>
+            <p>Controls: Rotate - Left click + drag. Pan - Right click + drag. Zoom - Scroll wheel.</p>
         </div>
         <div class="content-box">
             <h2>Select Cosmetic Options</h2>
@@ -483,6 +459,36 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="button-container stack">
+            <div class="content-box">
+                <h2>Cost & Time Estimation</h2>
+                <p id="CostTimeEstimate">Something went wrong.</p>
+            </div>
+            <div class="content-box">
+                <h1>Known Bugs or Issues</h1>
+                <h3>Which cosmetic option do I have selected?</h3>
+                <p>I'm aware the UX of the site isn't great - it's a bit hard to see which button you've selected at first glance. I'll do a redesign at some stage to outline them in a brighter colour to make it more obvious.</p>
+                <h3>The opacity of my marking colours didn't show up correctly when I shared my link!</h3>
+                <p>Sometimes the sliders stop updating the opacity in the url correctly - I'm not sure why. Usually fixes itself if you let go of the slider and try moving it again.</p>
+            </div>
+        </div>
+        <div class="content-box">
+            <h2>To do List:</h2>
+            <p>[X] Build initial site infrastructure</p>
+            <p>[X] Fill out correct item data</p>
+            <p>[X] Model rendering</p>
+            <p>[X] Total cost & time estimation</p>
+            <p>[X] Colour support</p>
+            <p>[X] Feminine model support</p>
+            <p>[X] Bug fix & Optimization pass</p>
+            <p>[X] Mobile browser support!</p>
+            <p>[X] Add saving/loading cosmetic sets by URL</p>
+            <p>[ ] Add a 'reset character' button</p>
+            <p>[ ] Add saving/loading cosmetic sets to file</p>
+            <p>[ ] Add the ability to export high-resolution screenshots of the character</p>
+            <p>     - Note, this will likely be desktop-only due to mobile hardware, but I'll try my best.</p>
+            <p>[ ] Add nameplate & title support</p>
         </div>
     </div>
 </main>

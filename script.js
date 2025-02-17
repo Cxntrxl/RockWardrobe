@@ -22,26 +22,116 @@ let equippedBattleSuitColours = new Array(7);
 let equippedCharacterColours = new Array(7);
 let equippedHeadMarkings = new Array(5);
 let equippedBodyMarkings = new Array(5);
+const previewContainer = document.getElementById("PreviewRenderer");
+const ratio = 1;
+const scale = 1;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, previewContainer.clientWidth / (previewContainer.clientHeight || 1), 0.01, 1000);
+const loader = new OBJLoader();
+const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
+const texturePath = 'https://cxntrxl.github.io/RockWardrobe/tex'
+const textureLoader = new THREE.TextureLoader();
+let renderer = new THREE.WebGLRenderer({alpha:true});
+
+let baseColourTexture;
+let maskTexture;
+const itemTypeMap = {
+    'CharacterType':'Character',
+    'EyeSheen':'Character',
+    'TopHairstyle':'Character',
+    'SideHairstyle':'Character',
+    'Eyebrows':'Character',
+    'Eyelashes':'Character',
+    'Moustache':'Character',
+    'Beard':'Character',
+    'Torso':'BattleSuit',
+    'Chestplate':'BattleSuit',
+    'Sleeve':'BattleSuit',
+    'Gauntlet':'BattleSuit',
+    'Pants':'BattleSuit',
+    'Boots':'BattleSuit'
+}
+
+let battleSuitColours = [
+    new THREE.Vector3(185/255, 105/255, 78/255),
+    new THREE.Vector3(53/255, 45/255, 42/255),
+    new THREE.Vector3(183/255, 180/255, 163/255),
+    new THREE.Vector3(153/255, 146/255, 127/255),
+    new THREE.Vector3(193/255, 178/255, 148/225),
+    new THREE.Vector3(110/255, 90/255, 79/255),
+    new THREE.Vector3(105/255, 109/255, 112/255)
+]
+
+let characterColours = [
+    new THREE.Vector3(222/255, 128/255, 95/255),
+    new THREE.Vector3(208/255, 164/255, 137/255),
+    new THREE.Vector3(53/255, 45/255, 42/255),
+    new THREE.Vector3(218/255, 210/255, 184/255),
+    new THREE.Vector3(0/255, 0/255, 255/225),
+    new THREE.Vector3(148/255, 110/255, 89/255),
+    new THREE.Vector3(67/255, 63/255, 60/255)
+]
+
+let eyeColours = [
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1.0, 1.0, 0.0),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(1, 1, 1)
+]
+
+let debugColours = [
+    new THREE.Vector3(1, 0, 0), //Red
+    new THREE.Vector3(1, .5, 0), //Orange
+    new THREE.Vector3(1, 1, 0), //Yellow
+    new THREE.Vector3(0, 1, 0), //Green
+    new THREE.Vector3(0, 0, 1), //Blue
+    new THREE.Vector3(0, 1, 1), //Cyan
+    new THREE.Vector3(1, 0, 1) //Magenta
+]
+
+let loadedHeadMarkings = []
+let loadedBodyMarkings = []
+let headMarkings = new Array(5);
+let bodyMarkings = new Array(5);
+let headMarkingColours = new Array(5).fill(null).map(() => Object.create(new THREE.Vector4(0.28, 0.28, 0.28, 0.8)));
+let bodyMarkingColours = new Array(5).fill(null).map(() => Object.create(new THREE.Vector4(0.28, 0.28, 0.28, 0.8)));
+let headMarkingMaterials = []
+let bodyMarkingMaterials = []
+let equippedHeadMarkingColours = new Array(5);
+let equippedBodyMarkingColours = new Array(5);
+
+let materials = [];
 
 function setDefaultEquippedCosmetics() {
-    equipItem(findItem("Masculine", "CharacterType"), 0);
-    //equipItem(findItem("Default 1", "ExpressionSet"),1);
-    equipItem(findItem("Default", "EyeSheen"),2);
-    equipItem(findItem("Default RumbleGuy", "TopHairstyle"),3);
-    equipItem(findItem("Short Sides", "SideHairstyle"),4);
-    equipItem(findItem("Sharp Eyebrows", "Eyebrows"),5);
-    equipItem(findItem("Full Eyelashes", "Eyelashes"),6);
-    //equipItem(findItem("None", "Moustache"),7);
-    //equipItem(findItem("None", "Beard"),8);
-    equipItem(findItem("All-Round Chestplate", "Chestplate"),9);
-    equipItem(findItem("Default Gauntlet", "Gauntlet"),10);
-    equipItem(findItem("Default Gauntlet", "Gauntlet"),11);
-    equipItem(findItem("Default Boots", "Boots"),12);
-    equipItem(findItem("Default Boots", "Boots"),13);
-    equipItem(findItem("Turtle Neck Undershirt", "Torso"),14);
-    //equipItem(findItem("None", "Sleeve"),15);
-    //equipItem(findItem("None", "Sleeve"),16);
-    equipItem(findItem("Shorts", "Pants"),17);
+    const url = new URL(window.location);
+    const params = url.searchParams;
+
+    if (params.size <= 0) {
+        equipItem(findItem("Masculine", "CharacterType"), 0);
+        //equipItem(findItem("Default 1", "ExpressionSet"),1);
+        equipItem(findItem("Default", "EyeSheen"),2);
+        equipItem(findItem("Default RumbleGuy", "TopHairstyle"),3);
+        equipItem(findItem("Short Sides", "SideHairstyle"),4);
+        equipItem(findItem("Sharp Eyebrows", "Eyebrows"),5);
+        equipItem(findItem("Full Eyelashes", "Eyelashes"),6);
+        //equipItem(findItem("None", "Moustache"),7);
+        //equipItem(findItem("None", "Beard"),8);
+        equipItem(findItem("All-Round Chestplate", "Chestplate"),9);
+        equipItem(findItem("Default Gauntlet", "Gauntlet"),10);
+        equipItem(findItem("Default Gauntlet", "Gauntlet"),11);
+        equipItem(findItem("Default Boots", "Boots"),12);
+        equipItem(findItem("Default Boots", "Boots"),13);
+        equipItem(findItem("Turtle Neck Undershirt", "Torso"),14);
+        //equipItem(findItem("None", "Sleeve"),15);
+        //equipItem(findItem("None", "Sleeve"),16);
+        equipItem(findItem("Shorts", "Pants"),17);
+    } else {
+        applyCustomizationsFromUrl();
+    }
 
     evaluateGCCost();
 }
@@ -54,8 +144,242 @@ function equipItem(item, index) {
     }
 }
 
+function updateUrl(){
+    const url = new URL(window.location);
+    const modelData = [];
+
+    url.searchParams.set("Ver", "1");
+
+    equippedCosmetics.forEach((value, index) => {
+        let newItem = {key: index, value: value.id};
+        modelData.push(newItem);
+    })
+    url.searchParams.set("MOD", encryptDataToURL(modelData));
+
+    const colourDataBS = [];
+    equippedBattleSuitColours.forEach((value, index) => {
+        let newItem = {key: index, value: value.id};
+        colourDataBS.push(newItem);
+    })
+    url.searchParams.set("CBS", encryptDataToURL(colourDataBS));
+
+    const colourDataC = [];
+    equippedCharacterColours.forEach((value, index) => {
+        let newItem = {key: index, value: value.id};
+        colourDataC.push(newItem);
+    })
+    url.searchParams.set("CCH", encryptDataToURL(colourDataC));
+
+    const headMarkings = [];
+    equippedHeadMarkings.forEach((value, index) => {
+        let newItem = {key: index, value: value.id};
+        headMarkings.push(newItem);
+    })
+    url.searchParams.set("HMA", encryptDataToURL(headMarkings));
+
+    const bodyMarkings = [];
+    equippedBodyMarkings.forEach((value, index) => {
+        let newItem = {key: index, value: value.id};
+        bodyMarkings.push(newItem);
+    })
+    url.searchParams.set("BMA", encryptDataToURL(bodyMarkings));
+
+    const HMC = [];
+    for (let i = 0; i < equippedHeadMarkingColours.length; i++) {
+        let c = equippedHeadMarkingColours[i];
+        let o = Math.floor(headMarkingColours[i].w * 10);
+        if (c === undefined) break;
+        let newItem = {key: i, value: c.id, opacity: o}
+        HMC.push(newItem);
+    }
+    url.searchParams.set("HMC", encryptDataToURL(HMC, true));
+
+    const BMC = [];
+    for (let i = 0; i < equippedBodyMarkingColours.length; i++) {
+        let c = equippedBodyMarkingColours[i];
+        let o = Math.floor(bodyMarkingColours[i].w * 10);
+        if (c === undefined) break;
+        let newItem = {key: i, value: c.id, opacity: o}
+        BMC.push(newItem);
+    }
+    url.searchParams.set("BMC", encryptDataToURL(BMC, true));
+
+    window.history.replaceState({}, '', url);
+}
+
+function encryptDataToURL(data, markingColour = false) {
+    if (markingColour) {
+        return data
+            .map(({key, value, opacity}) => {
+                const formattedIndex = key.toString().padStart(2, "0");
+                const formattedOpacity = opacity.toString().padStart(2, "0");
+                return formattedIndex + value + formattedOpacity;
+            })
+            .join("");
+    } else {
+        return data
+            .map(({key, value}) => {
+                const formattedIndex = key.toString().padStart(2, "0");
+                return formattedIndex + value;
+            })
+            .join("");
+    }
+}
+
+function decryptUrlToData(input, markingColour = false) {
+    const result = [];
+
+    if (markingColour) {
+        const chunkSize = 6;
+
+        for (let i = 0; i < input.length; i += chunkSize) {
+            const chunk = input.slice(i, i + chunkSize);
+            if (chunk.length === chunkSize) {
+                const index = parseInt(chunk.slice(0,2), 10);
+                const id = chunk.slice(2,4);
+                const opacity = chunk.slice(4);
+                result.push({index, id, opacity})
+            } else {
+                throw new Error("Invalid URL input format.");
+            }
+        }
+    } else {
+        const chunkSize = 4;
+
+        for (let i = 0; i < input.length; i += chunkSize) {
+            const chunk = input.slice(i, i + chunkSize);
+            if (chunk.length === chunkSize) {
+                const index = parseInt(chunk.slice(0,2), 10);
+                const id = chunk.slice(2);
+                result.push({index, id})
+            } else {
+                throw new Error("Invalid URL input format.");
+            }
+        }
+    }
+
+    return result;
+}
+
+const applyCustomizationsFromUrl = () => {
+    const url = new URL(window.location);
+    const params = url.searchParams;
+
+    const equippedCosmeticsData = params.get("MOD");
+    const cosmetics = decryptUrlToData(equippedCosmeticsData);
+    cosmetics.forEach((item) => {
+        console.log("EQUIP ITEM");
+        equipItem(findItemFromURL(item.id, item.index), item.index);
+    })
+
+    const equippedBSColourData = params.get("CBS");
+    const BSColours = decryptUrlToData(equippedBSColourData);
+    BSColours.forEach((item) => {
+        console.log("SELECT COLOUR");
+        selectColour(item.index, findBSColourFromURL(item.id, item.index));
+    })
+
+    const equippedCColourData = params.get("CCH");
+    const CColours = decryptUrlToData(equippedCColourData);
+    CColours.forEach((item) => {
+        console.log("SELECT COLOUR");
+        selectColour(item.index, findCColourFromURL(item.id, item.index));
+    })
+
+    const equippedHeadMarkingData = params.get("HMA");
+    const headMarkings = decryptUrlToData(equippedHeadMarkingData);
+    headMarkings.forEach((item) => {
+        console.log("SELECT MARKING");
+        selectMarking(item.index, findMarkingFromURL(item.id, "Head"));
+    })
+
+    const equippedBodyMarkingData = params.get("BMA");
+    const bodyMarkings = decryptUrlToData(equippedBodyMarkingData);
+    bodyMarkings.forEach((item) => {
+        console.log("SELECT MARKING");
+        selectMarking(item.index, findMarkingFromURL(item.id, "Body"));
+    })
+
+    const HMC = decryptUrlToData(params.get("HMC"), true);
+    HMC.forEach(item => {
+       selectMarkingColour(item.index, findMarkingColourFromURL(item.id), true);
+       headMarkingColours[item.index].w = item.opacity / 10;
+       updateUrl();
+    });
+
+    const BMC = decryptUrlToData(params.get("BMC"), true);
+    BMC.forEach(item => {
+        selectMarkingColour(item.index, findMarkingColourFromURL(item.id), false);
+        bodyMarkingColours[item.index].w = item.opacity / 10;
+        updateUrl();
+    });
+}
+
 function findItem(name, type) {
-    return items.find(item => item.name === name && item.type === type);
+    let result = items.find(item => item.name === name && item.type === type);
+    console.log(result);
+    return result;
+}
+
+function findItemFromURL(id, index) {
+    const indexMap = [
+        "CharacterType",
+        "ExpressionSet",
+        "EyeSheen",
+        "TopHairstyle",
+        "SideHairstyle",
+        "Eyebrows",
+        "Eyelashes",
+        "Moustache",
+        "Beard",
+        "Chestplate",
+        "Gauntlet",
+        "Gauntlet",
+        "Boots",
+        "Boots",
+        "Torso",
+        "Sleeve",
+        "Sleeve",
+        "Pants"
+    ]
+    let result = items.find(item => item.id === id && item.type === indexMap[index]);
+    return result;
+}
+
+function findBSColourFromURL(id, index) {
+    const colourTypeMap = [
+        "LeatherPlating",
+        "",
+        "Belt",
+        "Metals",
+        "Gambeson",
+        "Straps",
+        "Undersuit"
+    ]
+
+    return colours.find(item => item.id === id && item.type === colourTypeMap[index]);
+}
+
+function findCColourFromURL(id, index) {
+    const colourTypeMap = [
+        "",
+        "Skin",
+        "",
+        "",
+        "",
+        "Eyes",
+        "Hair"
+    ]
+
+    return colours.find(item => item.id === id && item.type === colourTypeMap[index]);
+}
+
+function findMarkingColourFromURL(id) {
+    return colours.find(item => item.id === id && item.type === "Marking");
+}
+
+function findMarkingFromURL(id, type) {
+    return markings.find(item => item.id === id && item.type === type);
 }
 
 function enableAllModels(male) {
@@ -112,6 +436,7 @@ function addButtonListeners(){
            } else {
                bodyMarkingColours[slider.getAttribute('markingColourIndex')].w = slider.value;
            }
+           updateUrl();
        });
     });
 }
@@ -525,6 +850,7 @@ function toggleContainer(container) {
 
 function selectModel(index, item) {
     equipItem(item, index);
+    updateUrl();
     evaluateGCCost();
 }
 
@@ -558,6 +884,7 @@ function selectColour(index, item) {
             break;
     }
     evaluateGCCost();
+    updateUrl();
 }
 
 function selectMarking(index, item) {
@@ -579,6 +906,7 @@ function selectMarking(index, item) {
     }
 
     evaluateGCCost();
+    updateUrl();
 }
 
 function selectMarkingColour(index, item, head) {
@@ -588,92 +916,13 @@ function selectMarkingColour(index, item, head) {
 
     if (head) {
         headMarkingColours[index] = new THREE.Vector4(r, g, b, 1.0);
+        equippedHeadMarkingColours[index] = item;
     } else {
         bodyMarkingColours[index] = new THREE.Vector4(r, g, b, 1.0);
+        equippedBodyMarkingColours[index] = item;
     }
+    updateUrl();
 }
-
-const previewContainer = document.getElementById("PreviewRenderer");
-const ratio = 1;
-const scale = 1;
-
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, previewContainer.clientWidth / (previewContainer.clientHeight || 1), 0.01, 1000);
-const loader = new OBJLoader();
-const modelsPath = 'https://cxntrxl.github.io/RockWardrobe/models'
-const texturePath = 'https://cxntrxl.github.io/RockWardrobe/tex'
-const textureLoader = new THREE.TextureLoader();
-let renderer = new THREE.WebGLRenderer({alpha:true});
-
-let baseColourTexture;
-let maskTexture;
-const itemTypeMap = {
-    'CharacterType':'Character',
-    'EyeSheen':'Character',
-    'TopHairstyle':'Character',
-    'SideHairstyle':'Character',
-    'Eyebrows':'Character',
-    'Eyelashes':'Character',
-    'Moustache':'Character',
-    'Beard':'Character',
-    'Torso':'BattleSuit',
-    'Chestplate':'BattleSuit',
-    'Sleeve':'BattleSuit',
-    'Gauntlet':'BattleSuit',
-    'Pants':'BattleSuit',
-    'Boots':'BattleSuit'
-}
-
-let battleSuitColours = [
-    new THREE.Vector3(185/255, 105/255, 78/255),
-    new THREE.Vector3(53/255, 45/255, 42/255),
-    new THREE.Vector3(183/255, 180/255, 163/255),
-    new THREE.Vector3(153/255, 146/255, 127/255),
-    new THREE.Vector3(193/255, 178/255, 148/225),
-    new THREE.Vector3(110/255, 90/255, 79/255),
-    new THREE.Vector3(105/255, 109/255, 112/255)
-]
-
-let characterColours = [
-    new THREE.Vector3(222/255, 128/255, 95/255),
-    new THREE.Vector3(208/255, 164/255, 137/255),
-    new THREE.Vector3(53/255, 45/255, 42/255),
-    new THREE.Vector3(218/255, 210/255, 184/255),
-    new THREE.Vector3(0/255, 0/255, 255/225),
-    new THREE.Vector3(148/255, 110/255, 89/255),
-    new THREE.Vector3(67/255, 63/255, 60/255)
-]
-
-let eyeColours = [
-    new THREE.Vector3(1, 1, 1),
-    new THREE.Vector3(1, 1, 1),
-    new THREE.Vector3(1.0, 1.0, 0.0),
-    new THREE.Vector3(1, 1, 1),
-    new THREE.Vector3(1, 1, 1),
-    new THREE.Vector3(1, 1, 1),
-    new THREE.Vector3(1, 1, 1)
-]
-
-let debugColours = [
-    new THREE.Vector3(1, 0, 0), //Red
-    new THREE.Vector3(1, .5, 0), //Orange
-    new THREE.Vector3(1, 1, 0), //Yellow
-    new THREE.Vector3(0, 1, 0), //Green
-    new THREE.Vector3(0, 0, 1), //Blue
-    new THREE.Vector3(0, 1, 1), //Cyan
-    new THREE.Vector3(1, 0, 1) //Magenta
-]
-
-let loadedHeadMarkings = []
-let loadedBodyMarkings = []
-let headMarkings = new Array(5);
-let bodyMarkings = new Array(5);
-let headMarkingColours = new Array(5).fill(new THREE.Vector4(0.28, 0.28, 0.28, 0.8));
-let bodyMarkingColours = new Array(5).fill(new THREE.Vector4(0.28, 0.28, 0.28, 0.8));
-let headMarkingMaterials = []
-let bodyMarkingMaterials = []
-
-let materials = [];
 
 // Custom shader material
 const customMaterial = new THREE.ShaderMaterial({
