@@ -115,6 +115,10 @@ button:not(:disabled):hover {
     }
 }
 
+.grid-container.single {
+    grid-template-columns: repeat(1, 1fr);
+}
+
 /*desktop*/
 @media (min-width: 769px) {
     .grid-container.double {
